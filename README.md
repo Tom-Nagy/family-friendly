@@ -1,45 +1,89 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Family Friendly**
 
-Welcome USER_NAME,
+Family Friendly is a community based application 
+where families can get together and have fun.
+This project promotes togetherness, fun and community through activities. 
+The features available on the website includes (but are not limited to) 
+a list of **events** coming up, the possiblity to **create event** and an access 
+to **support** that provides useful **contacts** and a **forum** platform that allow 
+users to share tips and help each other in a format of **Question** *and* **Answer**.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+### Project Goals :
+The main goal of this project is to offer a welcoming and fun environnement 
+to enable/empower users to go out and join activities / events, meet the community, 
+have fun and share goood memories. It promotes healthy lifestyle and mental health.
 
-## Gitpod Reminders
+### Developer and Business Goals :
+* Provide a user friendly application.
+  * with good programming practice.
+  * excellent user experience design (UXD).
+* Contribute to the community.
+* Plus Value to the portfolio.
+  * professional looking website.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User Goals :
+* Easy to use application.
+* Getting clear informations.
+* Quick access to Events.
+* Practical way to particiate to the community.
 
-`python3 -m http.server`
+Table Of Content (TOC) When i will find out how to do :smirk: 
 
-A blue button should appear to click: *Make Public*,
+# UX 
 
-Another blue button should appear to click: *Open Browser*.
+### Consummer definition
+1. The primary targeted audience is Families and more precisely **Parents**.
+2. The secondary targeted audience is **Children**.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+##### The primary audience for this application is looking for :
+* Getting together,
+* Going out and/or outside,
+* Having fun as a family,
+* Sharing and supporting each other,
+* Socialisation of the children,
+* Participating in a healthy community.
 
-A blue button should appear to click: *Make Public*,
+##### The secondary audience for this application is looking for :
+* Having fun,
+* Discovering,
+* Meeting some friends.
 
-Another blue button should appear to click: *Open Browser*.
+##### This application is the best way to answer their needs beacause :
+* The activities are created and proposed by you, for you and your friends,
+* You can access the Events in a click,
+* You can identify immediatly if it is a suitable Event for your family,
+* You can Create, Organise and Join an Event on the go,
+* It is a User Center Design approach, so :
+  * It is a simple application to use,
+  * It is very specific and get to the point,
+  * The informations are display in a fashion that is not overwhelming but easy to learn.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### User stories  
+1. As a user, I want the application to be easy to navigate and appealing.
+2. As a user, I want to find informations in an obvious manner without having to look for it.
+3. As a user, I want to find the Events and identify instantly :
+    * the activity,
+    * the age range,
+    * the location,
+    * the date and time.
+4. As a user, I want to be able to join an Event, making the organiser know i will be attending.
+5. As a user, i want to be able to un-join an Event.
+6. As a user, I want to be able to Create an Event.
+7. As a user, I want to be provided with instructions on to Create an Event.
+8. As a user, I want to have access to a support page where i can find :
+    * useful informations,
+    * useful contacts,
+    * parenting advices,
+    * a space dedicated to exchange of ideas and share.
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Design Choices
+##### Fonts
+##### icons
+##### colors
+##### images
+##### styling/feeling
+##### audio/video
+##### backgrounds
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+### Wireframe
