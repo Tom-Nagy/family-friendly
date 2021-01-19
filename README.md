@@ -106,7 +106,11 @@ The color scheme of the website is as follow:
 * Green #24C212 for Life, Growth and Nature.
 
 The background will be off White #FAFAFA for simplicity and cleanliness.
+Footer will be Grey #999999 for a nice contrast.
 
+[Adobe Color](https://color.adobe.com/create/color-accessibility) was used 
+to build the color compatibility and accessibility. The color scheme is said 
+color blind safe.
 
 ##### images
 Probably an hero image will be chossen only for the home page.  
