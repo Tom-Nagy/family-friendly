@@ -120,13 +120,10 @@ No other images predicted.
 The feel of the website is welcoming and simple (almost childish) to provide 
 a quick access and learning process, make the users comfortable and make them want to try !
 
-
 ##### audio/video
 No audio or video will be provided. 
 
-
 ### Wireframe
-should be 3 links :
-* Desktop
+* [Desktop](wireframe/wireframe-desktop.pdf)
 * Tablet
 * Mobile
