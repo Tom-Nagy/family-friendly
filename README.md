@@ -78,12 +78,51 @@ Table Of Content (TOC) When i will find out how to do :smirk:
 
 
 ### Design Choices
+
 ##### Fonts
+Considereing the target audience, the sans serif type of font is the more appropriate 
+because is most often associated with simplicity and straightforwardness.  
+I will be using:
+* *Pacifico* for the name of the website (Family Friendy) only.
+It is an handwriting type of font which is very friendly and welcoming 
+with its roundness and has something fun to it that relate to the website.
+* *Lato* and *Nunito* are used for the rest of the website. They both are 
+sans serif type and they work very well together. They are comforting 
+,simple and easy to ready. 
+
+*Sans serif* will be use as a fall back if the fonts do not load. It is 
+commun as the mains typography are sans serif type.
+
 ##### icons
+* Some fontawesome icons will be part of the website for better UX.
+* The [logo](assets/images/logo.png) and [favicon](assets/images/favicon.png) 
+are the same image and use the color scheme of the website.
+
 ##### colors
+The color scheme of the website is as follow:
+* Yellow #E9F900 for Friendliness and Warmth,
+* Blue #0845FF for Confidence, Sincerity and Integrity,
+* Orange #FF8401 for Creativity and Innovation,
+* Green #24C212 for Life, Growth and Nature.
+
+The background will be off White #FAFAFA for simplicity and cleanliness.
+
+
 ##### images
+Probably an hero image will be chossen only for the home page.  
+No other images predicted. 
+
 ##### styling/feeling
+The feel of the website is welcoming and simple (almost childish) to provide 
+a quick access and learning process, make the users comfortable and make them want to try !
+
+
 ##### audio/video
-##### backgrounds
+No audio or video will be provided. 
+
 
 ### Wireframe
+should be 3 links :
+* Desktop
+* Tablet
+* Mobile
