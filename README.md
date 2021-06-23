@@ -1,129 +1,191 @@
 # **Family Friendly**
 
-Family Friendly is a community based application 
-where families can get together and have fun.
-This project promotes togetherness, fun and community through activities. 
-The features available on the website includes (but are not limited to) 
-a list of **events** coming up, the possiblity to **create event** and an access 
-to **support** that provides useful **contacts** and a **forum** platform that allow 
-users to share tips and help each other in a format of **Question** *and* **Answer**.
+![Mockup](assets/images/README-images/mockups/ami-responsive-website.png)
 
-### Project Goals :
-The main goal of this project is to offer a welcoming and fun environnement 
-to enable/empower users to go out and join activities / events, meet the community, 
-have fun and share goood memories. It promotes healthy lifestyle and mental health.
+Check out the other mockups:
 
-### Developer and Business Goals :
-* Provide a user friendly application.
-  * with good programming practice.
-  * excellent user experience design (UXD).
+* [Home page](assets/images/README-images/mockups/ami-responsive-home.png)
+
+#### Visit the live Website : **[Family Friendly :arrow_right:](WEBSITE LINK)**.
+
+**Family Friendly** is a community based application where families can get together and have fun. This project promotes **togetherness**, **fun** and **community** through **activities**.  
+It is difficult sometimes as new or experience parents to find the motivation to go out and do something with the hectic parenting life. You would have to organize something or think about going somewhere on top of preparing what you need to bring with you for your little one and for yourself. So you would consider doing nothing, stay put and deal with the craziness happening at home. A lot of different factors could amplify the sentiment.  
+This can lead to inactivity, confinement and mental distress which only feed the vicious cycle.
+
+In order to help parents and/or caretaker, I propose **Family Friendly**.  
+This platform will propose features including a list of **events** coming up, the possibility to **create** and **join** event and access to **support** that provide useful *contacts* and *information*. As well a **forum** that allow users to share tips and help each other in a format of *Question* and *Answer*.
+
+## Table of Content
+
+* [Project](#Project)
+  * [Project Goals](#Project-Goals)
+  * [Developer and Business Goals](#Developer-and-Business-Goals)
+  * [User Goals](#User-Goals)
+* [UX](#UX)
+  * [Audience Definition](#Audience-Definition)
+  * [User Stories](#User-Stories)
+  * [Design Choices](#Design-Choices)
+  * [Wireframes](#Wireframes)
+  * [Different Design](#Different-Design)
+* [Features](#Features)
+  * [Existing Features](#Existing-Features)
+  * [Features to Implement in the Future Versions](#Features-to-Implement-in-the-Future-Versions)
+* [Technologies Used](#Technologies-Used)
+* [Testing](#Testing)
+* [Deployment](#Deployment)
+  * [Live Deployment](#Live-Deployment)
+  * [Local Deployment](#Local-Deployment)
+  * [Implementing API](#Implementing-API)
+* [Bugs](#Bugs)
+  * [Solved](#Solved)
+  * [Unsolved](#Unsolved)
+* [Credits](#Credits)
+  * [Content](#Content)
+  * [Media](#Media)
+  * [Acknowledgements](#Aknowledgements)
+
+## Project
+
+### Project Goals
+
+This project is offering an application with a welcoming and fun environment to enable and empower users to go out, join activities and events. Encourage users to meet with the community, have fun and share good memories. It promotes healthy lifestyle and mental health.
+
+### Developer and Business Goals
+
+* Develop an interactive website with a server connection using HTML, CSS, JavaScript and Python.
+* Provide a user-friendly application.
 * Contribute to the community.
-* Plus Value to the portfolio.
-  * professional looking website.
+* Help parents.
+* Promote Wellness and health through activities.
+* Help personal and family growth.
 
-### User Goals :
+### User Goals
+
 * Easy to use application.
-* Getting clear informations.
+* Getting clear information.
 * Quick access to Events.
-* Practical way to particiate to the community.
+* Practical way to participate and be part of the community.
 
-Table Of Content (TOC) When i will find out how to do :smirk: 
+## UX
 
-# UX 
+### Audience definition
 
-### Consummer definition
 1. The primary targeted audience is Families and more precisely **Parents**.
 2. The secondary targeted audience is **Children**.
 
-##### The primary audience for this application is looking for :
-* Getting together,
-* Going out and/or outside,
-* Having fun as a family,
-* Sharing and supporting each other,
-* Socialisation of the children,
+#### The primary audience for this application is looking for:
+
+* Getting together.
+* Going out and/or outside.
+* Having fun as a family.
+* Sharing parental tips/advise.
+* Supporting each other.
+* Socialization of the children.
 * Participating in a healthy community.
 
-##### The secondary audience for this application is looking for :
-* Having fun,
-* Discovering,
-* Meeting some friends.
+#### The secondary audience for this application is looking for:
 
-##### This application is the best way to answer their needs beacause :
-* The activities are created and proposed by you, for you and your friends,
-* You can access the Events in a click,
-* You can identify immediatly if it is a suitable Event for your family,
-* You can Create, Organise and Join an Event on the go,
-* It is a User Center Design approach, so :
-  * It is a simple application to use,
-  * It is very specific and get to the point,
-  * The informations are display in a fashion that is not overwhelming but easy to learn.
+* Having fun.
+* Discovering.
+* Meeting and Making friends.
 
-### User stories  
-1. As a user, I want the application to be easy to navigate and appealing.
-2. As a user, I want to find informations in an obvious manner without having to look for it.
-3. As a user, I want to find the Events and identify instantly :
-    * the activity,
-    * the age range,
-    * the location,
-    * the date and time.
-4. As a user, I want to be able to join an Event, making the organiser know i will be attending.
-5. As a user, i want to be able to un-join an Event.
-6. As a user, I want to be able to Create an Event.
-7. As a user, I want to be provided with instructions on to Create an Event.
-8. As a user, I want to have access to a support page where i can find :
-    * useful informations,
-    * useful contacts,
-    * parenting advices,
-    * a space dedicated to exchange of ideas and share.
+#### This application is the best way to answer their needs because:
 
+* Activities are created and proposed by users, for them and the community.
+* It provides the possibility to Create and Join Events.
+* Events are accessible in a click.
+* You can identify immediately if there is a suitable Event for you and your family.
+* You can Create and Join Events on the go.
+* It offers parenting tips and a space where parents can browse content relevant to them.
+* It is a User Centric Design approach:
+  * It is a simple application to use.
+  * It is very specific and get to the point.
+  * The information are displayed in a fashion that is not overwhelming and easy to learn.
+
+### User stories
+
+#### First time users
+
+As a first time user:
+
+1. I want the application to be **easy to navigate** and **appealing**.
+2. I want to find information in an obvious manner without having to look for it.
+3. I want to **find events** and identify instantly:
+    * The type of **activity**.
+    * The appropriate **age** to participate.
+    * The **location**.
+    * The **date and time**.
+4. I want to **sign up** and create a profile.
+5. I want to **log in**.
+6. I want to **log out**.
+7. I want to be able to **join** an event.
+8. I want to be provided with **easy instructions** on how to create an event.
+9. I want to be able to **create** an event.
+10. I want to have access to the **support** page where I can find:
+    * Useful **contacts**.
+    * Parenting **advices**.
+    * A space where I can **share ideas** and/or **ask questions** and advices.
+
+#### Returning users
+
+As a returning user:
+
+1. I want to be able to **cancel** my participation in an event.
+2. I want to be able to **cancel** an event I created.
+3. I want to be able to **modify** an event I created.
+4. I want to be able to **modify and update** my profile.
+5. I want to be **notified** when there is a change on an event I am participating in.
+6. I want to be **notified** when people join or cancel an event I Created.
+7. I want to post a question or advice on the support page.
+8. I want to participate in topic on the support page.
+9. I want to propose a useful contact.
 
 ### Design Choices
 
-##### Fonts
-Considereing the target audience, the sans serif type of font is the more appropriate 
-because is most often associated with simplicity and straightforwardness.  
+#### Fonts
+
+Considering the target audience, the sans serif type of font is the more appropriate because it is most often associated with simplicity and straightforwardness.  
 I will be using:
-* *Pacifico* for the name of the website (Family Friendy) only.
-It is an handwriting type of font which is very friendly and welcoming 
-with its roundness and has something fun to it that relate to the website.
-* *Lato* and *Nunito* are used for the rest of the website. They both are 
-sans serif type and they work very well together. They are comforting 
-,simple and easy to ready. 
 
-*Sans serif* will be use as a fall back if the fonts do not load. It is 
-commun as the mains typography are sans serif type.
+* *Pacifico* for the name of the website (Family Friendy) only. It is an handwriting type of font which is very friendly and welcoming with its roundness and has something fun to it that relate to the website.
 
-##### icons
-* Some fontawesome icons will be part of the website for better UX.
-* The [logo](assets/images/logo.png) and [favicon](assets/images/favicon.png) 
-are the same image and use the color scheme of the website.
+* *Lato* and *Nunito* are used for the rest of the website. They both are sans serif fonts, and they work very well together. They are comforting, simple and easy to ready.
 
-##### colors
+*Sans serif* will be use as a fall back if the fonts do not load. It is common as the main typographies are sans serif type.
+
+#### Icons
+
+* Some Font Awesome icons will be part of the website for better UX.
+* The [logo](assets/images/logo.png) and [favicon](assets/images/favicon.png) are the same image and use the color scheme of the website.
+
+#### Colors
+
 The color scheme of the website is as follow:
-* Yellow #E9F900 for Friendliness and Warmth,
-* Blue #0845FF for Confidence, Sincerity and Integrity,
-* Orange #FF8401 for Creativity and Innovation,
+
+* Yellow #E9F900 for Friendliness and Warmth.
+* Blue #0845FF for Confidence, Sincerity and Integrity.
+* Red for cancelling and deleting functionality.
+* Orange #FF8401 for Creativity and Innovation.
 * Green #24C212 for Life, Growth and Nature.
+* The background will be off White #FAFAFA for simplicity and cleanliness.
+* Footer will be Grey #999999 for a nice contrast.
 
-The background will be off White #FAFAFA for simplicity and cleanliness.
-Footer will be Grey #999999 for a nice contrast.
+[Adobe Color](https://color.adobe.com/create/color-accessibility) was used to build the color compatibility and accessibility. The color scheme and swatches are said color-blind safe.
 
-[Adobe Color](https://color.adobe.com/create/color-accessibility) was used 
-to build the color compatibility and accessibility. The color scheme is said 
-color blind safe.
+#### Images
 
-##### images
-Probably an hero image will be chossen only for the home page.  
-No other images predicted. 
+The images will be the one uploaded by users for their profile, or images shared on the support channel.
 
-##### styling/feeling
-The feel of the website is welcoming and simple (almost childish) to provide 
-a quick access and learning process, make the users comfortable and make them want to try !
+#### Styling/Feeling
 
-##### audio/video
-No audio or video will be provided. 
+The feel of the website is welcoming and simple (almost childish) to provide a quick access and learning process, make users are comfortable and make them want to try !
 
-### Wireframe
+#### Audio/Video
+
+No audio or video will be integrated at the moment.
+
+### Wireframes
+
 * [Desktop](wireframe/wireframe-desktop.pdf)
 * Tablet
 * Mobile
