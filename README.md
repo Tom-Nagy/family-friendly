@@ -66,6 +66,8 @@ This project is offering an application with a welcoming and fun environment to 
 * Quick access to Events.
 * Practical way to participate and be part of the community.
 
+[**:back:** *Table of Content*](#Table-of-Content)
+
 ## UX
 
 ### Audience definition
@@ -140,6 +142,8 @@ As a returning user:
 8. I want to participate in topic on the support page.
 9. I want to propose a useful contact.
 
+[**:back:** *Table of Content*](#Table-of-Content)
+
 ### Design Choices
 
 #### Fonts
@@ -160,6 +164,8 @@ I will be using:
 
 #### Colors
 
+![Color palette](static/images/README-images/design/color.png)
+
 The colours chosen for the website are simple and joyful. They are based on the psychology behind colours ([colour affects](http://www.colour-affects.co.uk/psychological-properties-of-colours), [London Image Institute](https://londonimageinstitute.com/how-to-empower-yourself-with-color-psychology/)). I used Adobe Color to create the colour scheme.
 
 * Yellow #E9F900 for Friendliness and Warmth.
@@ -172,20 +178,46 @@ The colours chosen for the website are simple and joyful. They are based on the 
 
 [Adobe Color](https://color.adobe.com/create/color-accessibility) was used to build the color compatibility and accessibility. The color scheme and swatches are said color-blind safe.
 
+![Color accessibility](static/images/README-images/design/color-accessibility.png)
+
 #### Images
 
 The images will be the one uploaded by users for their profile, or images shared on the support channel.
 
 #### Styling/Feeling
 
-The feel of the website is welcoming and simple (almost childish) to provide a quick access and learning process, make users are comfortable and make them want to try !
+The feel of the website is welcoming and simple to provide a quick access and learning process.  
+It makes users comfortable and make them want to try!
 
 #### Audio/Video
 
 No audio or video will be integrated at the moment.
 
+[**:back:** *Table of Content*](#Table-of-Content)
+
 ### Wireframes
 
-* [Desktop](wireframe/wireframe-desktop.pdf)
-* Tablet
-* Mobile
+![Site map](static/images/README-images/wireframes/site-map.png)
+
+* [Home page](static/images/README-images/wireframes/home.pdf)
+* [About page](static/images/README-images/wireframes/about.pdf)
+* [Events page](static/images/README-images/wireframes/events.pdf)
+* [Create page](static/images/README-images/wireframes/create.pdf)
+* [Support page](static/images/README-images/wireframes/support.pdf)
+* [Useful contacts page](static/images/README-images/wireframes/useful-contacts.pdf)
+* [Propose a contact page](static/images/README-images/wireframes/propose-contact.pdf)
+* [Parenting tips page](static/images/README-images/wireframes/parenting-tips.pdf)
+* [Propose a tip page](static/images/README-images/wireframes/propose-tip.pdf)
+* [Forum access page](static/images/README-images/wireframes/forum-access.pdf)
+* [Forum page](static/images/README-images/wireframes/forum.pdf)
+* [Ask a question page](static/images/README-images/wireframes/ask-question.pdf)
+* [Reply page](static/images/README-images/wireframes/reply.pdf)
+* [Sign up page](static/images/README-images/wireframes/signup.pdf)
+* [Login page](static/images/README-images/wireframes/login.pdf)
+* [Profile page](static/images/README-images/wireframes/profile.pdf)
+
+For the full version:
+
+* [Family Friendly website](static/images/README-images/wireframes/home.pdf)
+
+[**:back:** *Table of Content*](#Table-of-Content)
