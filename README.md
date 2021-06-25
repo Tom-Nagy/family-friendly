@@ -28,8 +28,6 @@ This platform will propose features including a list of **events** coming up, th
   * [Wireframes](#Wireframes)
   * [Different Design](#Different-Design)
 * [Features](#Features)
-  * [Existing Features](#Existing-Features)
-  * [Features to Implement in the Future Versions](#Features-to-Implement-in-the-Future-Versions)
 * [Technologies Used](#Technologies-Used)
 * [Testing](#Testing)
 * [Deployment](#Deployment)
@@ -135,12 +133,13 @@ As a returning user:
 1. I want to be able to **cancel** my participation in an event.
 2. I want to be able to **cancel** an event I created.
 3. I want to be able to **modify** an event I created.
-4. I want to be able to **modify and update** my profile.
+4. I want to be able to **modify** my profile.
 5. I want to be **notified** when there is a change on an event I am participating in.
 6. I want to be **notified** when people join or cancel an event I Created.
-7. I want to post a question or advice on the support page.
-8. I want to participate in topic on the support page.
-9. I want to propose a useful contact.
+7. I want to **post** a question or advice on the support page.
+8. I want to **edit or delete** a question or advice I created on the support page.
+9. I want to **participate** in topic on the support page.
+10. I want to **propose** a useful contact.
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
@@ -215,9 +214,20 @@ No audio or video will be integrated at the moment.
 * [Sign up page](static/images/README-images/wireframes/signup.pdf)
 * [Login page](static/images/README-images/wireframes/login.pdf)
 * [Profile page](static/images/README-images/wireframes/profile.pdf)
+* [404 page](static/images/README-images/wireframes/error.pdf)
 
 For the full version:
 
 * [Family Friendly website](static/images/README-images/wireframes/home.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
+
+### Different design
+
+[**:back:** *Table of Content*](#Table-of-Content)
+
+## Features
+
+To build this project, I use Flask framework with the Jinja templating language. For consistency acroos the website some features will be repeated and functionality will be kept as simple and direct as possible.
+
+Features are published in a separate file, please see [FEATURES.md](FEATURES.md) for full details.
