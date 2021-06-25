@@ -1,0 +1,2 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QI want to find events and identify instantly:\nThe type of activity.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QI want to log out.\\E$"}

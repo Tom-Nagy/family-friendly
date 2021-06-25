@@ -144,10 +144,10 @@ As a returning user:
 
 #### Fonts
 
-Considering the target audience, the sans serif type of font is the more appropriate because it is most often associated with simplicity and straightforwardness.  
+Considering the targeted audience, the sans serif type of font is the more appropriate because it is most often associated with simplicity and straightforwardness.  
 I will be using:
 
-* *Pacifico* for the name of the website (Family Friendy) only. It is an handwriting type of font which is very friendly and welcoming with its roundness and has something fun to it that relate to the website.
+* *Pacifico* for the name of the website (Family Friendly) only. It is a handwriting type of font which is very friendly and welcoming with its roundness and has something fun to it that relates to the website.
 
 * *Lato* and *Nunito* are used for the rest of the website. They both are sans serif fonts, and they work very well together. They are comforting, simple and easy to ready.
 
@@ -160,11 +160,11 @@ I will be using:
 
 #### Colors
 
-The color scheme of the website is as follow:
+The colours chosen for the website are simple and joyful. They are based on the psychology behind colours ([colour affects](http://www.colour-affects.co.uk/psychological-properties-of-colours), [London Image Institute](https://londonimageinstitute.com/how-to-empower-yourself-with-color-psychology/)). I used Adobe Color to create the colour scheme.
 
 * Yellow #E9F900 for Friendliness and Warmth.
 * Blue #0845FF for Confidence, Sincerity and Integrity.
-* Red for cancelling and deleting functionality.
+* Red #FF091E for cancelling and deleting functionality.
 * Orange #FF8401 for Creativity and Innovation.
 * Green #24C212 for Life, Growth and Nature.
 * The background will be off White #FAFAFA for simplicity and cleanliness.
