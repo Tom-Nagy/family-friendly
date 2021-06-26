@@ -200,6 +200,7 @@ No audio or video will be integrated at the moment.
 
 * [Home page](static/images/README-images/wireframes/home.pdf)
 * [About page](static/images/README-images/wireframes/about.pdf)
+* [Contact page](static/images/README-images/wireframes/contact.pdf)
 * [Events page](static/images/README-images/wireframes/events.pdf)
 * [Create page](static/images/README-images/wireframes/create.pdf)
 * [Support page](static/images/README-images/wireframes/support.pdf)
@@ -228,6 +229,6 @@ For the full version:
 
 ## Features
 
-To build this project, I use Flask framework with the Jinja templating language. For consistency acroos the website some features will be repeated and functionality will be kept as simple and direct as possible.
+To build this project, I use Flask framework with the Jinja templating language. For consistency across the website some features will be repeated and functionality will be kept as simple and direct as possible.
 
 Features are published in a separate file, please see [FEATURES.md](FEATURES.md) for full details.
