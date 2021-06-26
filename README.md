@@ -236,6 +236,7 @@ Features are published in a separate file, please see [FEATURES.md](FEATURES.md)
 
 ## Flowchart
 
-![Website flowchart](static/images/README-images/design/flowchart.pdf)
+![Website flowchart](static/images/README-images/design/flowchart.jpg)
+[Website flowchart pdf](static/images/README-images/design/flowchart.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
