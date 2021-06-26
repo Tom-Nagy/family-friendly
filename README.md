@@ -240,3 +240,61 @@ Features are published in a separate file, please see [FEATURES.md](FEATURES.md)
 [Website flowchart pdf](static/images/README-images/design/flowchart.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
+
+## Technologies Used
+
+### Programming Languages
+
+This project uses HTML, CSS and JavaScript.
+
+### Frameworks, Libraries and Programs
+
+* [Balsamiq](https://balsamiq.com/wireframes/)  
+For creating wireframes.
+
+* [miro whiteboard](https://miro.com/)  
+For producing the flowchart.
+
+* [Google Fonts](https://fonts.google.com/)  
+<!-- For importing fonts (**Fredoka One**, **Handlee** and **Andika New Basic**) into the style.css file. -->
+
+* [Font Awesome](https://fontawesome.com/icons?d=gallery)  
+For using icons throughout the website.
+
+* [favicon.io](https://favicon.io/favicon-converter/)  
+For generating the favicon.
+
+* [TinyPNG](https://tinypng.com/) or [Squoosh](https://squoosh.app/)  
+For resizing all the images.
+
+* [BeFunky](https://www.befunky.com/create/)
+For cropping some images.
+
+* [Adobe Color](https://color.adobe.com/create/image)  
+For extracting the color scheme used on the website.
+
+* [Am I Responsive?](http://ami.responsivedesign.is/?url=http://ami.responsivedesign.is/#)  
+For providing screenshots of the responsiveness of the website across several devices.
+
+* [techsini](http://techsini.com/multi-mockup/index.php)  
+For Multi Device Website Mockup Generator.
+
+* [Autoprefixer CSS online](https://autoprefixer.github.io/)  
+For adding prefixer in style.css for cross browser compatibility.
+
+<!-- * [EmailJS](https://www.emailjs.com/)  
+For email service implementation using API and without server. -->
+
+* [Git](https://git-scm.com/)  
+For Version control.
+
+* [GitPod](https://www.gitpod.io/)  
+For Integrated Development Environment.
+
+* [GitHub](https://github.com/)  
+For hosting the repository.
+
+* [Heroku](https://www.heroku.com/home)  
+For deploying the website live.
+
+[**:back:** *Table of Content*](#Table-of-Content)
