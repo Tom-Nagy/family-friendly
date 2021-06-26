@@ -28,6 +28,7 @@ This platform will propose features including a list of **events** coming up, th
   * [Wireframes](#Wireframes)
   * [Different Design](#Different-Design)
 * [Features](#Features)
+* [Flowchart](#Flowchart)
 * [Technologies Used](#Technologies-Used)
 * [Testing](#Testing)
 * [Deployment](#Deployment)
@@ -232,3 +233,9 @@ For the full version:
 To build this project, I use Flask framework with the Jinja templating language. For consistency across the website some features will be repeated and functionality will be kept as simple and direct as possible.
 
 Features are published in a separate file, please see [FEATURES.md](FEATURES.md) for full details.
+
+## Flowchart
+
+![Website flowchart](static/images/README-images/design/flowchart.pdf)
+
+[**:back:** *Table of Content*](#Table-of-Content)
