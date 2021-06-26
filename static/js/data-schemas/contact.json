@@ -1,0 +1,51 @@
+{
+    "bsonType": "object",
+    "required": ["_id", "contact_category", "contact_name", "contact_description", "contact-address", "contact_email"],
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "contact_category": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "contact_name": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "contact_description": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "contact_address": {
+            "bsonType": "object",
+            "required": ["city"],
+            "properties": {
+                "street": {
+                    "bsonType": "string",
+                    "description": "must be a string, match the expression pattern if the field exists"
+                },
+                "city": {
+                    "bsonType": "string",
+                    "description": "must be a string, match the expression pattern and is required"
+                }
+            }
+        },
+        "contact_phone_number": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern if field exists"
+        },
+        "contact_email": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "contact_website": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression if field exists"
+        },
+        "contact_likes": {
+            "bsonType": "array",
+            "description": "must be an array if field exists"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "bsonType": "object",
+    "required": ["_id", "tip_name", "tip_description"],
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "tip_category": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "tip_name": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "tip_description": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression pattern and is required"
+        },
+        "tip_more_info": {
+            "bsonType": "string",
+            "description": "must be a string, match the expression if field exists"
+        },
+        "tip_likes": {
+            "bsonType": "array",
+            "description": "must be an array if field exists"
+        }
+    }
+}
