@@ -5,7 +5,7 @@
         "_id": {"bsonType": "objectId"},
         "question_category": {
             "bsonType": "string",
-            "description": "must be a string, match the expression pattern if the field exists"
+            "description": "must be a string, match the expression pattern and is required"
         },
         "question": {
             "bsonType": "string",
