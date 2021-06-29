@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700&family=Pacifico&display=swap');
+
+/* 
+
+font-family: 'Lato', sans-serif;   ==> Titles and heading 
+
+*/
+
+/* Materialisecss helper for keeping the footer at the bottom of the page */
+/* Credit start */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    /* allow content to grow but not to shrink */
+    flex: 1 0 auto;
+}
+/* Credit end */
+
+/* Layout */
+html,
+body {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Typograpgy */
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+p {
+    width: 65ch;
+}
+
+/* 
+Yellow #E9F900 for Friendliness and Warmth.
+Blue #0845FF for Confidence, Sincerity and Integrity.
+Red #FF091E for cancelling and deleting functionality.
+Orange #FF8401 for Creativity and Innovation.
+Green #24C212 for Life, Growth and Nature.
+The background will be off White #FAFAFA for simplicity and cleanliness.
+Footer will be Grey #999999 for a nice contrast.
+*/
+
+/* Background-color */
+body {
+    background-color: #fafafa;
+}
+
+footer {
+    background-color: #999;
+}
+
+.create-bg {
+    background-color: #FF8401;
+}
+
+.events-bg {
+    background-color: #E9F900;
+}
+
+.support-bg {
+    background-color: #24C212;
+}
+
+/* Header */
+
+#header a {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.logo {
+    position: absolute;
+    left: 18px;
+    top: 15%;
+}
+
+.registration {
+    position: absolute;
+    left: 66px;
+}
+
+/* Footer */
+.footer-wrapper{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.third-div {
+    display: inline-block;
+    position: relative;
+    padding: 6px;
+    width: 100%;
+}
+
+@media(min-width: 450px) {
+    .third-div {
+        width: 32%;
+    }
+}
+
+.contact-us,
+.privacy-policy {
+    color: #000;
+}
+
+.contact-us i {
+    transform: translate(0, 30%);
+    line-height: 1rem;
+}
+
+.copyright {
+    font-size: 0.8rem;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}

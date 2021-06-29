@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Meet up, socialise, discover and have fun with other families! It's great for you and your litle ones!" />
+    <meta name="keywords"
+        content="family, families, discover, socialise, meet, together, children, kids, activities, going out, play, have fun, family-friendly" />
+    <meta name="author" content="Tom Nagy" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  type="text/css">
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon/favicon.ico')}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block styles %}
+    {% endblock %}
+    
+    <title>Family Friendly</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header id="header">
+        <div class="navbar-fixed">
+            <nav class="text-shadow">
+                <div class="nav-wrapper">
+                    <a href="#!" class="logo">
+                        <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
+                            class="logo-image hoverable" alt="sunflower" title="Link to home page."
+                            width="32" height="32">
+                    </a>
+                    <ul class="left registration">
+                        <li><a href="#" aria-label="Link to the Log In page.">Log In</a></li>
+                        <li><a href="#" aria-label="Link to the Sign Up page.">Sign Up</a></li>
+                    </ul>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse right" aria-label="Menu"><i class="material-icons">menu</i></a>
+                    <!-- Large screen navbar -->
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
+                        <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                        <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
+                    </ul>
+                    <!-- Mobile navbar -->
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
+                        <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                        <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
+                    </ul>
+                </div>
+            </nav>          
+        </div>
+    </header>
+
+    <main>
+        <div class="center-align">
+            {% block heading %}
+            {% endblock %}
+        </div>
+
+        {% block content %}
+            
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-copyright">
+            <div class="footer-wrapper valign-wrapper">
+                <div class="third-div center-align">
+                    <a class="contact-us text-shadow" href="#"  aria-label="Link to the Contact Us page.">
+                        <i class="material-icons prefix">mail_outline</i> Contact Us
+                    </a>
+                </div>
+                <div class="third-div center-align">
+                    <a class="privacy-policy text-shadow" href="#!"  aria-label="Link to the Privacy Policy page.">Privacy Policy</a>
+                </div>
+                <div class="third-div center-align copyright">
+                    <span>&copy; 2021 Tom Nagy</span>
+                </div>
+          </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>
