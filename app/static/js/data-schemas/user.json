@@ -27,75 +27,45 @@
             "bsonType": "string",
             "description": "must be a string, match the expression pattern if the field exists"
         },
-        "event_liked": {
+        "events_liked": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "event_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "question_liked": {
+        "questions_liked": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "question_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "answer_liked": {
+        "answers_liked": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "answer_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "contact_liked": {
+        "contacts_liked": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "contact_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "tip_liked": {
+        "tips_liked": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "tip_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "event_created": {
+        "events_created": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "event_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "question_created": {
+        "questions_created": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "question_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "answer_created": {
+        "answers_created": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "answer_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "contact_created": {
+        "contacts_created": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "contact_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         },
-        "tip_created": {
+        "tips_created": {
             "bsonType": "array",
-            "description": "must be an array if the field exist",
-            "properties": {
-                "tip_id": {"bsonType": "objectId"}
-            }
+            "description": "must be an array if the field exist"
         }
     }
 }

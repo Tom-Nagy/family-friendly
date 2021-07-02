@@ -3,7 +3,7 @@
     "required": ["_id", "question", "answer_message"],
     "properties": {
         "_id": {"bsonType": "objectId"},
-        "question": {
+        "question_name": {
             "bsonType": "string",
             "description": "must be a string, match the expression pattern and is required"
         },
