@@ -94,3 +94,23 @@ class User:
         """
         users_coll.update_one({'_id': ObjectId(user_id)},
                               {'$set': self.user_info_to_dic()})
+    
+    # method that can be used without instantiating the class,
+    # but relevant tot the class.
+    @staticmethod
+    def delete_user(user_id):
+        """
+        Delete a uer from the db using the user_id
+        """
+        users_coll.delete_one({'_id': ObjectId(user_id)})
+
+    # method that utilise the whole class,
+    # can be use on the class without the object instantiated to begin with.
+    @classmethod
+    def get_one_user(cls, user_id):
+        """
+        Get a user from the db with its user_id,
+        Return an instance of User
+        """
+        user = users_coll.find_one({'_id': ObjectId(user_id)})
+        return cls(**user)
