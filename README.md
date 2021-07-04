@@ -160,11 +160,11 @@ I will be using:
 #### Icons
 
 * Some Font Awesome icons will be part of the website for better UX.
-* The [logo](assets/images/logo.png) and [favicon](assets/images/favicon.png) are the same image and use the color scheme of the website.
+* The [logo](app/static/images/logo/logo.png) and [favicon](app/static/images/favicon/favicon.ico) are the same image and use the color scheme of the website.
 
 #### Colors
 
-![Color palette](static/images/README-images/design/color.png)
+![Color palette](app/static/images/README-images/design/color.png)
 
 The colours chosen for the website are simple and joyful. They are based on the psychology behind colours ([colour affects](http://www.colour-affects.co.uk/psychological-properties-of-colours), [London Image Institute](https://londonimageinstitute.com/how-to-empower-yourself-with-color-psychology/)). I used Adobe Color to create the colour scheme.
 
@@ -178,7 +178,7 @@ The colours chosen for the website are simple and joyful. They are based on the 
 
 [Adobe Color](https://color.adobe.com/create/color-accessibility) was used to build the color compatibility and accessibility. The color scheme and swatches are said color-blind safe.
 
-![Color accessibility](static/images/README-images/design/color-accessibility.png)
+![Color accessibility](app/static/images/README-images/design/color-accessibility.png)
 
 #### Images
 
@@ -197,30 +197,30 @@ No audio or video will be integrated at the moment.
 
 ### Wireframes
 
-![Site map](static/images/README-images/wireframes/site-map.png)
+![Site map](app/static/images/README-images/wireframes/site-map.png)
 
-* [Home page](static/images/README-images/wireframes/home.pdf)
-* [About page](static/images/README-images/wireframes/about.pdf)
-* [Contact page](static/images/README-images/wireframes/contact.pdf)
-* [Events page](static/images/README-images/wireframes/events.pdf)
-* [Create page](static/images/README-images/wireframes/create.pdf)
-* [Support page](static/images/README-images/wireframes/support.pdf)
-* [Useful contacts page](static/images/README-images/wireframes/useful-contacts.pdf)
-* [Propose a contact page](static/images/README-images/wireframes/propose-contact.pdf)
-* [Parenting tips page](static/images/README-images/wireframes/parenting-tips.pdf)
-* [Propose a tip page](static/images/README-images/wireframes/propose-tip.pdf)
-* [Forum access page](static/images/README-images/wireframes/forum-access.pdf)
-* [Forum page](static/images/README-images/wireframes/forum.pdf)
-* [Ask a question page](static/images/README-images/wireframes/ask-question.pdf)
-* [Reply page](static/images/README-images/wireframes/reply.pdf)
-* [Sign up page](static/images/README-images/wireframes/signup.pdf)
-* [Login page](static/images/README-images/wireframes/login.pdf)
-* [Profile page](static/images/README-images/wireframes/profile.pdf)
-* [404 page](static/images/README-images/wireframes/error.pdf)
+* [Home page](app/static/images/README-images/wireframes/home.pdf)
+* [About page](app/static/images/README-images/wireframes/about.pdf)
+* [Contact page](app/static/images/README-images/wireframes/contact.pdf)
+* [Events page](app/static/images/README-images/wireframes/events.pdf)
+* [Create page](app/static/images/README-images/wireframes/create.pdf)
+* [Support page](app/static/images/README-images/wireframes/support.pdf)
+* [Useful contacts page](app/static/images/README-images/wireframes/useful-contacts.pdf)
+* [Propose a contact page](app/static/images/README-images/wireframes/propose-contact.pdf)
+* [Parenting tips page](app/static/images/README-images/wireframes/parenting-tips.pdf)
+* [Propose a tip page](app/static/images/README-images/wireframes/propose-tip.pdf)
+* [Forum access page](app/static/images/README-images/wireframes/forum-access.pdf)
+* [Forum page](app/static/images/README-images/wireframes/forum.pdf)
+* [Ask a question page](app/static/images/README-images/wireframes/ask-question.pdf)
+* [Reply page](app/static/images/README-images/wireframes/reply.pdf)
+* [Sign up page](app/static/images/README-images/wireframes/signup.pdf)
+* [Login page](app/static/images/README-images/wireframes/login.pdf)
+* [Profile page](app/static/images/README-images/wireframes/profile.pdf)
+* [404 page](app/static/images/README-images/wireframes/error.pdf)
 
 For the full version:
 
-* [Family Friendly website](static/images/README-images/wireframes/home.pdf)
+* [Family Friendly website](app/static/images/README-images/wireframes/home.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
@@ -236,8 +236,8 @@ Features are published in a separate file, please see [FEATURES.md](FEATURES.md)
 
 ## Flowchart
 
-![Website flowchart](static/images/README-images/design/flowchart.jpg)
-[Website flowchart pdf](static/images/README-images/design/flowchart.pdf)
+![Website flowchart](app/static/images/README-images/design/flowchart.jpg)
+[Website flowchart pdf](app/static/images/README-images/design/flowchart.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
