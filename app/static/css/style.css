@@ -43,6 +43,10 @@ p {
     width: 65ch;
 }
 
+.centered {
+    margin: auto;
+}
+
 /* 
 Yellow #E9F900 for Friendliness and Warmth.
 Blue #0845FF for Confidence, Sincerity and Integrity.
@@ -76,6 +80,10 @@ footer {
 
 .blue-bg {
     background-color: #0845FF;
+}
+
+.red-bg {
+    background-color: #FF091E;
 }
 
 .blue-txt {
@@ -120,6 +128,39 @@ footer {
     .mobile-dropdown {
         margin-top: 56px;
     }
+}
+
+/* flash messages */
+.flash-container {
+    height: 40px;
+    margin: 5px auto;
+    position: relative;
+}
+
+.flash-btn {
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.flash-btn i {
+    line-height: 24px;
+    font-size: 1.2rem;
+}
+
+.flash-btn:active,
+.flash-btn:hover {
+    background-color: #fafafa;
+}
+
+.flash-btn:active i,
+.flash-btn:hover i {
+    color: #FF091E;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 /* Footer */

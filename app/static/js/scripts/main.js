@@ -1,6 +1,12 @@
 /* jshint esversion: 8 */
 
-// Js implementation of Materialize(https://materializecss.com/) functionality
+// Implementation of Materialize(https://materializecss.com/) functionality => Mcss
 $(document).ready(function () {
+  // Mcss
   $(".dropdown-button").dropdown();
+  
+  // button to close flash messages
+  $("#close-flash").click(function() {
+    $("#flash-messages").remove();
+  });
 });

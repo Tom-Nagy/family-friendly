@@ -63,6 +63,22 @@
     </header>
 
     <main>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flash-wrapper" id="flash-messages">
+                        <div class="col12 flash-container valign-wrapper">
+                            <p class="flash-txt center-align centered">{{ message }}</p>
+                            <button type="button" class="btn-floating red-bg flash-btn" id="close-flash">
+                                <i class="close material-icons">close</i>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <div class="center-align">
             {% block heading %}
             {% endblock %}
