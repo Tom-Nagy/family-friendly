@@ -18,7 +18,7 @@ def validate_passwords(password, conf_password):
     match_two = re.search(pattern, conf_password)
       
     # validating conditions
-    if match_one and match_two and match_one == match_two:
+    if match_one and match_two and password == conf_password:
         return True
 
 # End Credit

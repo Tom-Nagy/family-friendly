@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" required>
+                        <input id="email" name="email" type="email" class="validate" required>
                         <label for="email">Email</label>
                     </div>
                 </div>
@@ -32,15 +32,16 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="password" name="password" type="password" class="validate" minlength="8" maxlength="30"
-                    pattern='^[a-zA-Z0-9!@#$&()\\-`.+,/\"]{8,30}$' required>
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,30}$" required>
                     <label for="password">Create Password</label>
-                    <span class="helper-text">Password must have at least 8 characters and include letters, numbers and special character.</span>
+                    <span class="helper-text">Password must have at least 8 characters and include letters, 
+                        numbers and special character: (@ $ ! % * # ? &)</span>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input id="conf_password" name="conf_password" type="password" class="validate" minlength="8" maxlength="30"
-                    pattern='^[a-zA-Z0-9!@#$&()\\-`.+,/\"]{8,30}$' required>
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,30}$" required>
                     <label for="conf_password">Confirm Password</label>
                     <span class="helper-text">Passwords must match.</span>
                 </div>
