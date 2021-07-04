@@ -29,28 +29,36 @@
                 <div class="nav-wrapper">
                     <a href="#!" class="logo">
                         <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
-                            class="logo-image hoverable" alt="sunflower" title="Link to home page."
+                            class="logo-image hoverable" alt="smiling sunflower" title="Link to home page."
                             width="32" height="32">
                     </a>
                     <ul class="left registration">
                         <li><a href="#" aria-label="Link to the Log In page.">Log In</a></li>
-                        <li><a href="#" aria-label="Link to the Sign Up page.">Sign Up</a></li>
+                        <li><a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page.">Sign Up</a></li>
                     </ul>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse right" aria-label="Menu"><i class="material-icons">menu</i></a>
                     <!-- Large screen navbar -->
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                        <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
-                        <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
-                    </ul>
-                    <!-- Mobile navbar -->
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                        <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
-                        <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
+                    <ul>
+                        <div class="right hide-on-med-and-down">
+                            <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
+                            <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                            <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
+                        </div>
+                        <li class="right">
+                            <a href="#" data-activates="mobile-navbar" class="dropdown-button show-on-medium-and-down hide-on-large-only" 
+                                aria-label="Menu">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </nav>          
+            </nav>
+
+            <!-- Mobile navbar -->
+            <ul class="dropdown-content mobile-dropdown" id="mobile-navbar">
+                <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
+                <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
+            </ul>
         </div>
     </header>
 
@@ -61,7 +69,7 @@
         </div>
 
         {% block content %}
-            
+   
         {% endblock %}
     </main>
 
@@ -84,7 +92,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts/main.js') }}"></script>
     {% block scripts %}
     {% endblock %}
 </body>

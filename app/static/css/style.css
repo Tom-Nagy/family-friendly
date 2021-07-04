@@ -74,6 +74,10 @@ footer {
 
 /* Header */
 
+#header {
+    position: relative;
+}
+
 #header a {
     font-size: 1.1rem;
     color: #000;
@@ -88,6 +92,16 @@ footer {
 .registration {
     position: absolute;
     left: 66px;
+}
+
+.mobile-dropdown {
+    margin-top: 64px;
+}
+
+@media(max-width: 583px) {
+    .mobile-dropdown {
+        margin-top: 56px;
+    }
 }
 
 /* Footer */
