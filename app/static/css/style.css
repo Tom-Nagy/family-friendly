@@ -26,9 +26,11 @@ body {
     position: relative;
     box-sizing: border-box;
     font-size: 1rem;
+    min-width: 100%;
 }
 
 /* Typograpgy */
+html,
 body {
     font-family: 'Nunito', sans-serif;
 }
@@ -51,7 +53,7 @@ The background will be off White #FAFAFA for simplicity and cleanliness.
 Footer will be Grey #999999 for a nice contrast.
 */
 
-/* Background-color */
+/* colours */
 body {
     background-color: #fafafa;
 }
@@ -60,16 +62,32 @@ footer {
     background-color: #999;
 }
 
-.create-bg {
+.orange-bg {
     background-color: #FF8401;
 }
 
-.events-bg {
+.yellow-bg {
     background-color: #E9F900;
 }
 
-.support-bg {
+.green-bg {
     background-color: #24C212;
+}
+
+.blue-bg {
+    background-color: #0845FF;
+}
+
+.blue-txt {
+    color: #0845FF;
+}
+
+.white-txt {
+    color: #fafafa;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* Header */
@@ -137,6 +155,22 @@ footer {
     font-size: 0.8rem;
 }
 
-.text-shadow {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+/* signup.html */
+
+.form-message {
+    margin: 3px auto;
+}
+
+.join-btn:hover {
+    background-color: #0845ff4d;
+    color: #0845FF;
+    font-weight: 700;
+}
+
+.join-btn:focus {
+    background-color: #0845ff;
+    color: #fafafa;
+    box-shadow: 
+        inset 0 0 0 2px #0845ff,
+        inset 0 0 0 4px #fafafa;
 }

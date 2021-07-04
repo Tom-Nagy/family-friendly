@@ -7,12 +7,12 @@ from app import mongo
 users = Blueprint("users", __name__)
 
 # Collection
-usersdb = mongo.db.users
+users_coll = mongo.db.users
 
 ### Shoud be for signup login profile...
 
 @users.route("/")
-@users.route("/home")
-def home():
-    users = mongo.db.users.find()
-    return render_template("home.html", users=users)
+@users.route("/signup")
+def signup():
+    
+    return render_template("signup.html")
