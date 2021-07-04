@@ -301,3 +301,8 @@ For deploying the website live.
 For hosting the database.
 
 [**:back:** *Table of Content*](#Table-of-Content)
+
+## Bugs
+
+Issue: got the following message error: ``runtimeerror-working-outside-of-request-context``.
+Solve: I saved ``request.form.get`` in a var named ``form_field`` in order to help me with coding and repetition, but a ``request`` in Flask is an instance of the Request object and handle one request at the time and therefore cannot be stored in a var.
