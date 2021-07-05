@@ -92,11 +92,19 @@ def login():
 @users.route("/profile/<username>")
 def profile(username):
 
-    # Get user from the db and return an instance of User
-    user = User.get_one_user(username)
-
     # Check if user is logged in
     if session["user"] and session["user"] == username:
+
+        # Get user from the db and return an instance of User
+        user = User.get_one_user(username)
         return render_template("profile.html", user=user)
 
     return redirect(url_for("users.login"))
+
+
+@users.route("/logout")
+def logout():
+    # Remove user from session cookie
+    session.pop("user")
+    flash(logged_out)
+    return redirect(url_for('users.login'))
