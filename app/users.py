@@ -3,6 +3,7 @@ from flask import (
     request, session, url_for, Blueprint, current_app)
 from bson.objectid import ObjectId
 from app import mongo
+from app.flashes.flash_messages import *
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
 
@@ -22,12 +23,12 @@ def signup():
         # Check if username already exists
         username = request.form.get("username")
         if User.check_if_username_exists(username):
-            flash(f"{username} already taken, please choose a different username")
+            flash(username_exists)
         
         # Check if email already exists
         email = request.form.get("email")
         if User.check_if_email_exists(email):
-            flash(f"The email provided already exist, please choose a different email")
+            flash(email_exists)
 
         # Check if the passwords are valid and match
         pass1 = request.form.get("password")
@@ -44,11 +45,11 @@ def signup():
             session["user"] = new_user.username
 
             # Feedback message
-            flash(f"Well done {session['user']} and Welcome to the Family.")
+            flash(logged_in)
             return redirect(url_for("users.profile"))
 
         else:
-            flash("Passwords must match, Please enter valid passwords.")
+            flash(invalid_passwords)
             return redirect(url_for("users.signup"))
     
     # Default GET method
