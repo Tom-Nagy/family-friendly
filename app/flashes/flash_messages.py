@@ -1,9 +1,15 @@
 # flash messages
 
-username_exists = f"{username} already taken, please choose a different username"
+username_exists = "Sorry this username is already taken, please choose a different one."
 
-email_exists = "The email provided already exist, please choose a different email"
+email_exists = "The email provided already exist, please choose a different one."
 
-logged_in = f"Well done {session['user']} and Welcome to the Family."
+signed_in = "Well done and Welcome to the Family!"
 
 invalid_passwords = "Passwords must match, Please enter valid passwords."
+
+logged_in = "Welcome back to the Family!"
+
+incorrect_details = "Incorrect details, please try again."
+
+logged_out = "You have been logged out."
