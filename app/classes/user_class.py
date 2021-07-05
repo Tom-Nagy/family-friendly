@@ -114,14 +114,17 @@ class User:
         """
         Verify if the username already exists
         """
-        users_coll.find_one({'username': username})
+        existing_username = users_coll.find_one({'username': username})
+        return existing_username
+
 
     @staticmethod
     def check_if_email_exists(email):
         """
         Verify if the email already exists
         """
-        users_coll.find_one({'email': email})
+        existing_email = users_coll.find_one({'email': email})
+        return existing_email
 
     # method that utilise the whole class,
     # can be use on the class without the object instantiated to begin with.

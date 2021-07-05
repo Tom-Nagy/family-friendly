@@ -24,11 +24,13 @@ def signup():
         username = request.form.get("username")
         if User.check_if_username_exists(username):
             flash(username_exists)
+            return redirect(url_for('users.signup'))
         
         # Check if email already exists
         email = request.form.get("email")
         if User.check_if_email_exists(email):
             flash(email_exists)
+            return redirect(url_for('users.signup'))
 
         # Check if the passwords are valid and match
         pass1 = request.form.get("password")
@@ -57,12 +59,12 @@ def signup():
 
 
 @users.route("/profile")
-def profile(user):
+def profile():
 
     # Get the user_id 
 
     # Check if user is logged in
     if session["user"]:
-        return render_template("profile.html", user=user)
+        return render_template("profile.html")
 
     return render_template("profile.html")
