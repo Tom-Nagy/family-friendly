@@ -29,6 +29,10 @@ body {
     min-width: 100%;
 }
 
+.centered {
+    margin: auto;
+}
+
 /* Typograpgy */
 html,
 body {
@@ -43,9 +47,6 @@ p {
     width: 65ch;
 }
 
-.centered {
-    margin: auto;
-}
 
 /* 
 Yellow #E9F900 for Friendliness and Warmth.
