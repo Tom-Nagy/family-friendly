@@ -6,3 +6,10 @@ templating
 Jinja
 Organisation
 initialise
+Squoosh
+BeFunky
+TinyPNG
+io
+Autoprefixer
+prefixer
+GitPod
