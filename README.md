@@ -29,6 +29,7 @@ This platform will propose features including a list of **events** coming up, th
   * [Different Design](#Different-Design)
 * [Features](#Features)
 * [Flowchart](#Flowchart)
+* [Code Organisation](#Code-Organisation)
 * [Technologies Used](#Technologies-Used)
 * [Testing](#Testing)
 * [Deployment](#Deployment)
@@ -162,6 +163,8 @@ I will be using:
 * Some Font Awesome icons will be part of the website for better UX.
 * The [logo](app/static/images/logo/logo.png) and [favicon](app/static/images/favicon/favicon.ico) are the same image and use the color scheme of the website.
 
+![logo](app/static/images/logo/logo.png)
+
 #### Colors
 
 ![Color palette](app/static/images/README-images/design/color.png)
@@ -240,6 +243,20 @@ Features are published in a separate file, please see [FEATURES.md](FEATURES.md)
 [Website flowchart pdf](app/static/images/README-images/design/flowchart.pdf)
 
 [**:back:** *Table of Content*](#Table-of-Content)
+
+## Code Organisation
+
+The project uses Flask and I have implemented Application Factory and Blueprint allowing separation of concern and clearer code.
+
+The code structure includes ``app.py`` file that initialise the App and a folder called ``app`` that host all the development code as well as the implementation of Blueprint in ``__init__.py`` and the App configuration in ``config.py``.
+
+The use of Flask framework implies the creation of a ``static`` and templates ``folder``. The static folder host the ``*.js``, ``*.css``, ``*.json`` files and all images.
+
+I have Created:
+
+* A ``classes`` folder that will host the python files related to the classes used for the project.
+* A ``validators`` folder that host the validation functions for the project.
+* A ``flashes`` folder that host all the flash messages.
 
 ## Technologies Used
 
