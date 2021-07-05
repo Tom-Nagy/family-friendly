@@ -4,9 +4,11 @@
 $(document).ready(function () {
   // Mcss
   $(".dropdown-button").dropdown();
-  
-  // button to close flash messages
-  $("#close-flash").click(function() {
-    $("#flash-messages").remove();
+
+  // function to close flash messages
+  $(":button").click(function () {
+    if ($(this).attr("id") === "close-flash") {
+      $("#flash-messages").remove();
+    }
   });
 });
