@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
 {% block heading %}
-    <h2>Profile page</h2>
+    <h2>Profile</h2>
+{% endblock %}
+
+{% block content %}
+    {% if user %}
+        {{user.first_name}}<br>
+        {{user.last_name}}<br>
+        {{user.username}}<br>
+        {{user.email}}<br>
+        {{user.events_created}}<br>
+    {% endif %}
 {% endblock %}

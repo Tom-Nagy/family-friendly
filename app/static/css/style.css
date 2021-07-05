@@ -113,12 +113,24 @@ footer {
 .logo {
     position: absolute;
     left: 18px;
-    top: 15%;
+    top: 10%;
 }
 
 .registration {
     position: absolute;
     left: 66px;
+}
+
+.icon-placeholder {
+    display: block;
+    width: 60px;
+    height: 10px;
+}
+
+#profile-icon {
+    font-size: 2rem;
+    position: absolute;
+    top: 20%;
 }
 
 .mobile-dropdown {
@@ -209,8 +221,6 @@ footer {
     color: #FF091E;
     margin-right: 5px;
 }
-
-/* signup.html */
 
 .form-message {
     margin: 3px auto;
