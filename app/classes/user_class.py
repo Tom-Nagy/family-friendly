@@ -64,6 +64,7 @@ class User:
             'username': self.username,
             'email': self.email,
             'password': self.password,
+            'conf_password': self.conf_password,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'profile_picture': self.profile_picture,
@@ -129,10 +130,10 @@ class User:
     # method that utilise the whole class,
     # can be use on the class without the object instantiated to begin with.
     @classmethod
-    def get_one_user(cls, user_id):
+    def get_one_user(cls, username):
         """
         Get a user from the db with its user_id,
         Return an instance of User
         """
-        user = users_coll.find_one({'_id': ObjectId(user_id)})
+        user = users_coll.find_one({'username': username})
         return cls(**user)
