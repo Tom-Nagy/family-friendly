@@ -13,11 +13,23 @@ users_coll = mongo.db.users
 
 
 # Route for signing up
+@users.route("/")
 @users.route("/signup", methods=["GET", "POST"])
 def signup():
     # POST method
     if request.method == "POST":
 
+        # Check if username already exists
+        username = request.form.get("username")
+        if User.check_if_username_exists(username):
+            flash(f"{username} already taken, please choose a different username")
+        
+        # Check if email already exists
+        email = request.form.get("email")
+        if User.check_if_email_exists(email):
+            flash(f"The email provided already exist, please choose a different email")
+
+        # Check if the passwords are valid and match
         pass1 = request.form.get("password")
         pass2 = request.form.get("conf_password")
 
@@ -44,5 +56,12 @@ def signup():
 
 
 @users.route("/profile")
-def profile():
+def profile(user):
+
+    # Get the user_id 
+
+    # Check if user is logged in
+    if session["user"]:
+        return render_template("profile.html", user=user)
+
     return render_template("profile.html")

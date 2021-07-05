@@ -105,9 +105,23 @@ class User:
     @staticmethod
     def delete_user(user_id):
         """
-        Delete a uer from the db using the user_id
+        Delete a user from the db using the user_id
         """
         users_coll.delete_one({'_id': ObjectId(user_id)})
+
+    @staticmethod
+    def check_if_username_exists(username):
+        """
+        Verify if the username already exists
+        """
+        users_coll.find_one({'username': username})
+
+    @staticmethod
+    def check_if_email_exists(email):
+        """
+        Verify if the email already exists
+        """
+        users_coll.find_one({'email': email})
 
     # method that utilise the whole class,
     # can be use on the class without the object instantiated to begin with.
