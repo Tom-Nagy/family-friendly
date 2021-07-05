@@ -1,6 +1,7 @@
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
+from werkzeug.security import check_password_hash
 from bson.objectid import ObjectId
 from app import mongo
 from app.flashes.flash_messages import *
@@ -46,9 +47,8 @@ def signup():
             # Put the new user into session cookie
             session["user"] = new_user.username
 
-            # Feedback message
-            flash(logged_in)
-            return redirect(url_for("users.profile"))
+            flash(signed_in)
+            return redirect(url_for("users.profile", username=session["user"]))
 
         else:
             flash(invalid_passwords)
@@ -58,13 +58,45 @@ def signup():
     return render_template("signup.html")
 
 
-@users.route("/profile")
-def profile():
+@users.route("/login", methods=["Get", "POST"])
+def login():
+    if request.method == "POST":
 
-    # Get the user_id 
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # Check if user exists
+        existing_user = User.check_if_email_exists(email)
+
+        if existing_user:
+
+            # Check if hashed password matches input password
+            if check_password_hash(existing_user["password"], password):
+
+                # Put user into session cookie
+                session["user"] = existing_user["username"]
+                flash(logged_in)
+                return redirect(url_for('users.profile', username=session["user"]))
+
+            else:
+                flash(incorrect_details)
+                return redirect(url_for('users.login'))
+
+        else:
+            flash(incorrect_details)
+            return redirect(url_for('users.login'))
+
+    return render_template("login.html")
+
+
+@users.route("/profile/<username>")
+def profile(username):
+
+    # Get user from the db and return an instance of User
+    user = User.get_one_user(username)
 
     # Check if user is logged in
-    if session["user"]:
-        return render_template("profile.html")
+    if session["user"] and session["user"] == username:
+        return render_template("profile.html", user=user)
 
-    return render_template("profile.html")
+    return redirect(url_for("users.login"))

@@ -33,7 +33,7 @@
                             width="32" height="32">
                     </a>
                     <ul class="left registration">
-                        <li><a href="#" aria-label="Link to the Log In page.">Log In</a></li>
+                        <li><a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page.">Log In</a></li>
                         <li><a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page.">Sign Up</a></li>
                     </ul>
                     <!-- Large screen navbar -->
@@ -85,7 +85,6 @@
         </div>
 
         {% block content %}
-   
         {% endblock %}
     </main>
 
