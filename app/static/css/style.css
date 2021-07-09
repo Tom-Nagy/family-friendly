@@ -43,6 +43,12 @@ h1 {
     font-family: 'Pacifico', cursive;
 }
 
+h2,
+h3,
+h4 {
+    font-family: 'Lato', sans-serif;
+}
+
 p {
     width: 65ch;
 }
@@ -226,16 +232,47 @@ footer {
     margin: 3px auto;
 }
 
-.join-btn:hover {
+.submit-btn:hover {
     background-color: #0845ff4d;
     color: #0845FF;
     font-weight: 700;
 }
 
-.join-btn:focus {
+.submit-btn:focus {
     background-color: #0845ff;
     color: #fafafa;
     box-shadow: 
         inset 0 0 0 2px #0845ff,
         inset 0 0 0 4px #fafafa;
+}
+
+.cancel-btn:hover {
+    background-color: #FF091E4d;
+    color: #FF091E;
+    font-weight: 700;
+}
+
+.cancel-btn:focus {
+    background-color: #FF091E;
+    color: #fafafa;
+    box-shadow: 
+        inset 0 0 0 2px #FF091E,
+        inset 0 0 0 4px #fafafa;
+}
+
+/* profile.html */
+
+.profile-info-wrapper {
+    margin-bottom: 10px;
+}
+
+.profile-info-titles {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin-right: 3px;
+}
+
+.profile-info {
+    font-weight: 600;
 }

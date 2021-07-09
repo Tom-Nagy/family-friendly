@@ -14,7 +14,7 @@ users = Blueprint("users", __name__)
 users_coll = mongo.db.users
 
 
-# Route for signing up
+# Sign Up
 @users.route("/")
 @users.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -57,7 +57,7 @@ def signup():
     # Default GET method
     return render_template("signup.html")
 
-
+# Log In
 @users.route("/login", methods=["Get", "POST"])
 def login():
     if request.method == "POST":
@@ -92,12 +92,59 @@ def login():
 @users.route("/profile/<username>")
 def profile(username):
 
-    # Check if user is logged in
+    # Check if user is logged in and if session's user correspond to username
     if session["user"] and session["user"] == username:
 
         # Get user from the db and return an instance of User
         user = User.get_one_user(username)
         return render_template("profile.html", user=user)
+
+    return redirect(url_for("users.login"))
+
+
+@users.route("/update_profile/<username>", methods=["GET", "POST"])
+def update_profile(username):
+
+    if request.method == "POST":
+        # Check if new info are valid
+        email = request.form.get("email")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        existing_email = User.check_if_email_exists(email)
+        existing_username = User.check_if_username_exists(username)
+        user = User.get_one_user_coll(session["user"])
+        
+
+        if existing_email and email != user.email:
+            flash(email_exists)
+            return redirect(url_for('users.update_profile', username=session['user']))
+
+        if existing_username and username != user.username:
+            flash(username_exists)
+            return redirect(url_for('users.update_profile', username=session['user']))
+
+        # Check if the password is correct
+
+        if check_password_hash(user.password, password):
+            # replace the curent values of the User instance and Add Updated info to db
+            user.first_name = request.form.get("first_name")
+            user.last_name = request.form.get("last_name")
+            user.email = request.form.get("email")
+            user.username = request.form.get("username")
+            user.profile_picture = request.form.get("profile_picture")
+
+            user.update_user()
+            
+            flash("Updated")
+            return redirect(url_for('users.profile', username=session['user']))
+
+        flash(incorrect_password)
+        return redirect(url_for('users.update_profile', username=session['user']))
+
+    # Check if user is logged in and if session's user correspond to username
+    if session["user"] and session["user"] == username:
+        user = User.get_one_user(username)
+        return render_template("update_profile.html", user=user)
 
     return redirect(url_for("users.login"))
 

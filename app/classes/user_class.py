@@ -5,7 +5,7 @@ Classes build to perform CRUD operation
 from app import mongo
 from flask import Flask, request
 from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Collections:
 users_coll = mongo.db.users
@@ -26,7 +26,7 @@ class User:
 
     # Create a User object
     def __init__(self, first_name, last_name, username, email, password,
-                conf_password, _id=None, profile_picture=None,
+                conf_password=None, _id=None, profile_picture=None,
                 events_liked=None, questions_liked=None, answers_liked=None,
                 contacts_liked=None, tips_liked=None, events_created=None,
                 questions_created=None, answers_created=None,
@@ -41,7 +41,7 @@ class User:
                 self.username = username
                 self.email = email
                 self.password = generate_password_hash(password)
-                self.conf_password = generate_password_hash(conf_password)
+                # self.conf_password = generate_password_hash(conf_password)
                 self.profile_picture = profile_picture if not None else 'null'
                 self.events_liked = events_liked if not None else ['null']
                 self.questions_liked = questions_liked if not None else ['null']
@@ -64,7 +64,7 @@ class User:
             'username': self.username,
             'email': self.email,
             'password': self.password,
-            'conf_password': self.conf_password,
+            # 'conf_password': self.conf_password,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'profile_picture': self.profile_picture,
@@ -93,47 +93,73 @@ class User:
             print(e)
 
     # Update User info
-    def update_user(self, user_id):
+    def update_user(self):
         """
-        Get updated user info with form fields, => for the user.py
-        Create a new User instance and Update the db using the user _id 
+        Update db
         """
-        users_coll.update_one({'_id': ObjectId(user_id)},
+        try:
+            users_coll.update_one({'_id': ObjectId(self._id)},
                               {'$set': self.user_info_to_dic()})
-    
+        except Exception as e:
+            print(e)
+
     # method that can be used without instantiating the class,
     # but relevant tot the class.
+    @staticmethod
+    def get_one_user_coll(username):
+        """
+        Get a user from the db with its username
+        """
+        try:
+            user = users_coll.find_one({'username': username})
+            return user
+        except Exception as e:
+            print(e)
+
     @staticmethod
     def delete_user(user_id):
         """
         Delete a user from the db using the user_id
         """
-        users_coll.delete_one({'_id': ObjectId(user_id)})
-
+        try:
+            users_coll.delete_one({'_id': ObjectId(user_id)})
+        except Exception as e:
+            print(e)
+    
     @staticmethod
     def check_if_username_exists(username):
         """
-        Verify if the username already exists
+        Verify if the username already exists,
+        return the corresponding user collection
         """
-        existing_username = users_coll.find_one({'username': username})
-        return existing_username
-
+        try:
+            existing_username = users_coll.find_one({'username': username})
+            return existing_username
+        except Exception as e:
+            print(e)
 
     @staticmethod
     def check_if_email_exists(email):
         """
-        Verify if the email already exists
+        Verify if the email already exists,
+        return the corresponding user collection
         """
-        existing_email = users_coll.find_one({'email': email})
-        return existing_email
+        try:
+            existing_email = users_coll.find_one({'email': email})
+            return existing_email
+        except Exception as e:
+            print(e)
 
     # method that utilise the whole class,
     # can be use on the class without the object instantiated to begin with.
     @classmethod
     def get_one_user(cls, username):
         """
-        Get a user from the db with its user_id,
+        Get a user from the db with its username,
         Return an instance of User
         """
-        user = users_coll.find_one({'username': username})
-        return cls(**user)
+        try:
+            user = users_coll.find_one({'username': username})
+            return cls(**user)
+        except Exception as e:
+            print(e)
