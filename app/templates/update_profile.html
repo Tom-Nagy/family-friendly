@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block heading %}
+<h2 class="blue-txt">Update your profile's info</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
+            action="{{ url_for('users.update_profile', username=session['user']) }}">
+            <div class="row">
+                <!-- first name -->
+                <div class="input-field col s12 m6">
+                    <input id="first_name" name="first_name" type="text" class="validate" minlength="2" maxlength="20"
+                        pattern='^[a-zA-Z0-9]{2,20}$' value="{{ user.first_name }}" required>
+                    <label for="first_name">First Name</label>
+                </div>
+                <!-- last name -->
+                <div class="input-field col s12 m6">
+                    <input id="last_name" name="last_name" type="text" class="validate" minlength="2" maxlength="20"
+                        pattern='^[a-zA-Z0-9"]{2,20}$' value="{{ user.last_name }}" required>
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <!-- email -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" value="{{ user.email }}" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <!-- username -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" name="username" type="text" class="validate" minlength="2" maxlength="20"
+                        pattern='^[a-zA-Z0-9"]{2,20}$' value="{{ user.username }}" required>
+                    <label for="last_name">Username</label>
+                    <span class="helper-text valign-wrapper">
+                        <span class="material-icons">error_outline</span>Username is case sensitive and must be unique
+                    </span>
+                </div>
+            </div>
+            <!-- picture -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="profile_picture" name="profile_picture" type="text" class="validate">
+                    <label for="last_name">Picture</label>
+                    <span class="helper-text">
+                        Enter your image url
+                    </span>
+                </div>
+            </div>
+            <!-- password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" autocomplete="new-password" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <!-- Join -->
+            <div class="row">
+                <div class="col12 center-align">
+                    <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Update</button>
+                    <a href="{{ url_for('users.profile', username=session['user'] )}}" 
+                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
