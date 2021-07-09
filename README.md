@@ -27,12 +27,12 @@ This platform will propose features including a list of **events** coming up, th
   * [Design Choices](#Design-Choices)
   * [Wireframes](#Wireframes)
   * [Different Design](#Different-Design)
-* [Features](#Features)
+* [Features](#Features) [:fast_forward: FEATURES.md](FEATURES.md)
 * [Flowchart](#Flowchart)
 * [Code Organisation](#Code-Organisation)
 * [Technologies Used](#Technologies-Used)
-* [Testing](#Testing)
-* [Deployment](#Deployment)
+* [Testing](#Testing) [:fast_forward: TESTING.md](TESTING.md)
+* [Deployment](#Deployment) [:fast_forward: DEPLOYMENT.md](DEPLOYMENT.md)
   * [Live Deployment](#Live-Deployment)
   * [Local Deployment](#Local-Deployment)
   * [Implementing API](#Implementing-API)
@@ -314,12 +314,25 @@ For hosting the repository.
 * [Heroku](https://www.heroku.com/home)  
 For deploying the website live.
 
-* [mongoDB](https://www.mongodb.com/)  
+* [MongoDB](https://www.mongodb.com/)  
 For hosting the database.
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
 ## Bugs
 
-Issue: got the following message error: ``runtimeerror-working-outside-of-request-context``.
-Solve: I saved ``request.form.get`` in a var named ``form_field`` in order to help me with coding and repetition, but a ``request`` in Flask is an instance of the Request object and handle one request at the time and therefore cannot be stored in a var.
+Issue:  
+I got the following message error: ``runtimeerror-working-outside-of-request-context``.
+Solve:  
+I saved ``request.form.get`` in a var named ``form_field`` in order to help me with coding and repetition, but a ``request`` in Flask is an instance of the Request object and handle one request at the time and therefore cannot be stored in a var.
+
+Issue:  
+When updating the profile info, the rendering of the info on the profile page don't update and after login out, It was not possible to log back in. I was getting the flash message ``incorrect_details``, but details were right.
+Solve:  
+The problem was because I used the User class to update the info, It hashed the password again, which I believe created a double hashed password and when checking the password validation It could not find a match.  
+I changed the approach and did not convert the new info into an instance of User, but use a static method of the class taking as parameter the dictionary of the new info.
+
+Issue:  
+When Updating the profile info, the updated profile info don't render on the profile template when updating the username. This must be because I rely on the username when rendering the profile page.
+Solve:  
+Update the session cookie (``session["user"]``) after updating the database and before rendering the profile template with the new ``sesion["user"]``.
