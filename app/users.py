@@ -126,13 +126,17 @@ def update_profile(user_id):
         # Check if the password is correct
 
         if check_password_hash(user["password"], password):
+            # Encode the picture url to base64 for storing to db
+            img_url = request.form.get("profile_picture")
+            b64_img = User.convert_img_to_base64(img_url)
+
             # Create a dic with new values and Add new_info to db
             new_info = {
                 "first_name": request.form.get("first_name"),
                 "last_name": request.form.get("last_name"),
                 "email": request.form.get("email"),
                 "username": request.form.get("username"),
-                "profile_picture": request.form.get("profile_picture")
+                "profile_picture": b64_img
             }
             User.update_user(new_info, user_id)
             # Update the session['user]

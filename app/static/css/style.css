@@ -276,3 +276,23 @@ footer {
 .profile-info {
     font-weight: 600;
 }
+
+/* update_profile.html */
+
+.select-file {
+    border-radius: 5px;
+    background-color: #0845ff99;
+    color: #fafafa;
+    font-size: 0.7rem;
+    padding: 0 1rem;
+    
+}
+
+.select-file:hover,
+.select-file:focus,
+.select-file:active {
+    color: #0845ff;
+    background-color: #0845ff90;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
