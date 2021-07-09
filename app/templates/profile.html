@@ -1,15 +1,43 @@
 {% extends "base.html" %}
 
 {% block heading %}
-    <h2>Profile</h2>
+    <h2 class="blue-txt">{{ user.username }}'s profile</h2>
 {% endblock %}
 
 {% block content %}
-    {% if user %}
-        {{user.first_name}}<br>
-        {{user.last_name}}<br>
-        {{user.username}}<br>
-        {{user.email}}<br>
-        {{user.events_created}}<br>
-    {% endif %}
+
+    <div class="row">
+        <div class="col s12 m7">
+            <h3 class="header">{{ user.username }}'s info</h3>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="{{ user.profile_picture }}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <div class="profile-info-wrapper">
+                            <span class="profile-info-titles">Username:</span>
+                            <span class="profile-info">{{ user.username }}</span>
+                        </div>
+                        <div class="profile-info-wrapper">
+                            <span class="profile-info-titles">First Name:</span>
+                            <span class="profile-info">{{ user.first_name }}</span>
+                        </div>
+                        <div class="profile-info-wrapper">
+                            <span class="profile-info-titles">Last Name:</span>
+                            <span class="profile-info">{{ user.last_name }}</span>
+                        </div>
+                        <div class="profile-info-wrapper">
+                            <span class="profile-info-titles">Email:</span>
+                            <span class="profile-info">{{ user.email }}</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ url_for('users.update_profile', username=session['user']) }}">Update info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
