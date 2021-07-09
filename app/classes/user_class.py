@@ -92,27 +92,17 @@ class User:
         except Exception as e:
             print(e)
 
+    # method that can be used without instantiating the class,
+    # but relevant tot the class.
     # Update User info
-    def update_user(self):
+    @staticmethod
+    def update_user(new_info, user_id):
         """
         Update db
         """
         try:
-            users_coll.update_one({'_id': ObjectId(self._id)},
-                              {'$set': self.user_info_to_dic()})
-        except Exception as e:
-            print(e)
-
-    # method that can be used without instantiating the class,
-    # but relevant tot the class.
-    @staticmethod
-    def get_one_user_coll(username):
-        """
-        Get a user from the db with its username
-        """
-        try:
-            user = users_coll.find_one({'username': username})
-            return user
+            users_coll.update_one({'_id': ObjectId(user_id)},
+                              {'$set': new_info})
         except Exception as e:
             print(e)
 
@@ -147,6 +137,18 @@ class User:
         try:
             existing_email = users_coll.find_one({'email': email})
             return existing_email
+        except Exception as e:
+            print(e)
+
+    @staticmethod
+    def get_one_user_coll(username):
+        """
+        Get a user from the db with its username
+        Return a user collection
+        """
+        try:
+            user = users_coll.find_one({'username': username})
+            return user
         except Exception as e:
             print(e)
 
