@@ -6,7 +6,7 @@
 {% block content %}
     <div class="row">
         <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
-            action="{{ url_for('users.update_profile', username=session['user']) }}">
+            action="{{ url_for('users.update_profile', user_id=user._id) }}">
             <div class="row">
                 <!-- first name -->
                 <div class="input-field col s12 m6">
@@ -56,11 +56,11 @@
                     <label for="password">Password</label>
                 </div>
             </div>
-            <!-- Join -->
+            <!-- Update -->
             <div class="row">
                 <div class="col12 center-align">
                     <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Update</button>
-                    <a href="{{ url_for('users.profile', username=session['user'] )}}" 
+                    <a href="{{ url_for('users.profile', username=session['user']) }}" 
                         class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
                 </div>
             </div>

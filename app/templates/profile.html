@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="{{ url_for('users.update_profile', username=session['user']) }}">Update info</a>
+                        <a href="{{ url_for('users.update_profile', user_id=user._id) }}">Update info</a>
                     </div>
                 </div>
             </div>

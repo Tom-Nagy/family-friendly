@@ -102,8 +102,8 @@ def profile(username):
     return redirect(url_for("users.login"))
 
 
-@users.route("/update_profile/<username>", methods=["GET", "POST"])
-def update_profile(username):
+@users.route("/update_profile/<user_id>", methods=["GET", "POST"])
+def update_profile(user_id):
 
     if request.method == "POST":
         # Check if new info are valid
@@ -115,35 +115,40 @@ def update_profile(username):
         user = User.get_one_user_coll(session["user"])
         
 
-        if existing_email and email != user.email:
+        if existing_email and email != user["email"]:
             flash(email_exists)
-            return redirect(url_for('users.update_profile', username=session['user']))
+            return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
-        if existing_username and username != user.username:
+        if existing_username and username != user["username"]:
             flash(username_exists)
-            return redirect(url_for('users.update_profile', username=session['user']))
+            return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
         # Check if the password is correct
 
-        if check_password_hash(user.password, password):
-            # replace the curent values of the User instance and Add Updated info to db
-            user.first_name = request.form.get("first_name")
-            user.last_name = request.form.get("last_name")
-            user.email = request.form.get("email")
-            user.username = request.form.get("username")
-            user.profile_picture = request.form.get("profile_picture")
+        if check_password_hash(user["password"], password):
+            # Create a dic with new values and Add new_info to db
+            new_info = {
+                "first_name": request.form.get("first_name"),
+                "last_name": request.form.get("last_name"),
+                "email": request.form.get("email"),
+                "username": request.form.get("username"),
+                "profile_picture": request.form.get("profile_picture")
+            }
+            User.update_user(new_info, user_id)
+            # Update the session['user]
+            session["user"] = new_info["username"]
+            print(session["user"])        
 
-            user.update_user()
-            
             flash("Updated")
-            return redirect(url_for('users.profile', username=session['user']))
+            user = User.get_one_user(session["user"])
+            return redirect(url_for('users.profile', user=user, username=session['user']))
 
         flash(incorrect_password)
-        return redirect(url_for('users.update_profile', username=session['user']))
+        return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
-    # Check if user is logged in and if session's user correspond to username
-    if session["user"] and session["user"] == username:
-        user = User.get_one_user(username)
+    # Check if user is logged in
+    if session["user"]:
+        user = User.get_one_user(session["user"])
         return render_template("update_profile.html", user=user)
 
     return redirect(url_for("users.login"))
