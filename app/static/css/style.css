@@ -277,6 +277,10 @@ footer {
     font-weight: 600;
 }
 
+.profile-picture {
+    margin: 10px;
+}
+
 /* update_profile.html */
 
 .select-file {

@@ -26,7 +26,7 @@ def signup():
         if User.check_if_username_exists(username):
             flash(username_exists)
             return redirect(url_for('users.signup'))
-        
+
         # Check if email already exists
         email = request.form.get("email")
         if User.check_if_email_exists(email):
@@ -53,11 +53,13 @@ def signup():
         else:
             flash(invalid_passwords)
             return redirect(url_for("users.signup"))
-    
+
     # Default GET method
     return render_template("signup.html")
 
 # Log In
+
+
 @users.route("/login", methods=["Get", "POST"])
 def login():
     if request.method == "POST":
@@ -113,7 +115,6 @@ def update_profile(user_id):
         existing_email = User.check_if_email_exists(email)
         existing_username = User.check_if_username_exists(username)
         user = User.get_one_user_coll(session["user"])
-        
 
         if existing_email and email != user["email"]:
             flash(email_exists)
@@ -126,22 +127,18 @@ def update_profile(user_id):
         # Check if the password is correct
 
         if check_password_hash(user["password"], password):
-            # Encode the picture url to base64 for storing to db
-            img_url = request.form.get("profile_picture")
-            b64_img = User.convert_img_to_base64(img_url)
 
             # Create a dic with new values and Add new_info to db
             new_info = {
                 "first_name": request.form.get("first_name"),
                 "last_name": request.form.get("last_name"),
                 "email": request.form.get("email"),
-                "username": request.form.get("username"),
-                "profile_picture": b64_img
+                "username": request.form.get("username")
             }
             User.update_user(new_info, user_id)
             # Update the session['user]
             session["user"] = new_info["username"]
-            print(session["user"])        
+            print(session["user"])
 
             flash("Updated")
             user = User.get_one_user(session["user"])
@@ -154,6 +151,27 @@ def update_profile(user_id):
     if session["user"]:
         user = User.get_one_user(session["user"])
         return render_template("update_profile.html", user=user)
+
+    return redirect(url_for("users.login"))
+
+
+@users.route("/update_picture")
+def update_picture():
+    if request.method == "POST":
+        user = User.get_one_user_coll(session["user"])
+        password = request.form.get("password")
+
+        if check_password_hash(user["password"], password):
+
+            # Encode the picture url to base64 for storing to db
+            img_url = request.form.get("profile_picture")
+            print(img_url)
+            b64_img = User.convert_img_to_base64(img_url)
+
+    # Check if user is logged in
+    if session["user"]:
+        user = User.get_one_user(session["user"])
+        return render_template("update_picture.html", user=user)
 
     return redirect(url_for("users.login"))
 

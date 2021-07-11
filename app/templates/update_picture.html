@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block heading %}
+<h2 class="blue-txt">Update your profile's picture</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
+            action="{{ url_for('users.update_picture', user_id=user._id) }}">
+            <div class="row">
+                <!-- picture -->
+                <div class="row">
+                    <div class="file-field input-field col s12">
+                        <div class="btn select-file">
+                            <label" for="profile_picture">Select a picture</label>
+                            <br>
+                            <input id="profile_picture" name="profile_picture" type="file" accept=".jpg, .jpeg, .png" 
+                                class="validate">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <label for="my_picture"></label>
+                            <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
+                        </div>
+                    </div>
+                </div>
+            <!-- password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" autocomplete="new-password" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <!-- Update -->
+            <div class="row">
+                <div class="col12 center-align">
+                    <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Update</button>
+                    <a href="{{ url_for('users.profile', username=session['user']) }}" 
+                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -10,8 +10,14 @@
         <div class="col s12 m7">
             <h3 class="header">{{ user.username }}'s info</h3>
             <div class="card horizontal">
-                <div class="card-image">
-                    <img src="{{ user.profile_picture }}">
+                <div class="card-image valign-wrapper">
+                    <a class="tooltipped" href="{{ url_for('users.update_picture') }}" aria-label="Change or Add profile picture." data-tooltip="Click to update profile picture">
+                        {% if user.profile_picture != None %}
+                            <img class="profile-picture" src="{{ user.profile_picture }}" alt="Profile image of {{ user.username }}" height="200" width="200">
+                        {% else %}
+                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" alt="Default profile picture representing a smiling sunflower.">
+                        {% endif %}
+                    </a>
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
