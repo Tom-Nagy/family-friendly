@@ -7,6 +7,7 @@ from flask import Flask, request
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import base64
+import os
 
 # Collections:
 users_coll = mongo.db.users
@@ -172,9 +173,11 @@ class User:
         """
         Take an image path, read the image content and 
         convert it to Base64 in order to store it in the db.
+        Remove the newly created file by the save() method of FileStorage.
         Return a new b64 srting.
         """
 
         with open(profile_image, "rb") as img_url_bytes:
             img_url_encoded = base64.b64encode(img_url_bytes.read()).decode('utf8')
+            os.remove(profile_image)
             return img_url_encoded

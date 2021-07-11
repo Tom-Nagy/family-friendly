@@ -7,7 +7,6 @@ from app import mongo
 from app.flashes.flash_messages import *
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
-import base64
 
 users = Blueprint("users", __name__)
 
