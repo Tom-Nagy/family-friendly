@@ -7,6 +7,7 @@ from app import mongo
 from app.flashes.flash_messages import *
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
+import base64
 
 users = Blueprint("users", __name__)
 
@@ -138,7 +139,6 @@ def update_profile(user_id):
             User.update_user(new_info, user_id)
             # Update the session['user]
             session["user"] = new_info["username"]
-            print(session["user"])
 
             flash("Updated")
             user = User.get_one_user(session["user"])
@@ -155,18 +155,33 @@ def update_profile(user_id):
     return redirect(url_for("users.login"))
 
 
-@users.route("/update_picture")
-def update_picture():
+@users.route("/update_picture/<user_id>", methods=["GET", "POST"])
+def update_picture(user_id):
     if request.method == "POST":
         user = User.get_one_user_coll(session["user"])
         password = request.form.get("password")
 
         if check_password_hash(user["password"], password):
 
-            # Encode the picture url to base64 for storing to db
-            img_url = request.form.get("profile_picture")
-            print(img_url)
-            b64_img = User.convert_img_to_base64(img_url)
+            # Get the file and check if the path is not empty,
+            # save it to current directory using FileStorage from werkzeug
+            profile_image_filename = request.form.get("my_picture")
+            profile_img = request.files["profile_picture"]
+            if profile_img.filename != "":
+                profile_img.save(profile_img.filename)
+
+                # Covert image url to base64
+                img_url_encoded = User.convert_img_to_base64(profile_image_filename) 
+                
+                # Create a dic with new value and Add new_info to db
+                new_info = {
+                    "profile_picture": img_url_encoded
+                }
+                User.update_user(new_info, user_id)
+                return redirect(url_for('users.profile', username=session['user']))
+                    
+
+
 
     # Check if user is logged in
     if session["user"]:

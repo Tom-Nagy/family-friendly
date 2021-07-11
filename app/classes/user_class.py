@@ -168,12 +168,13 @@ class User:
             print(e)
 
     @staticmethod
-    def convert_img_to_base64(img_url):
+    def convert_img_to_base64(profile_image):
         """
-        Take a url string and convert it to Base64
-        in order to store it in the db.
+        Take an image path, read the image content and 
+        convert it to Base64 in order to store it in the db.
         Return a new b64 srting.
         """
-        img_url_bytes = img_url.encode("ascii")
-        b64_img = base64.b64encode(img_url_bytes)
-        return b64_img
+
+        with open(profile_image, "rb") as img_url_bytes:
+            img_url_encoded = base64.b64encode(img_url_bytes.read()).decode('utf8')
+            return img_url_encoded
