@@ -261,6 +261,9 @@ footer {
 }
 
 /* profile.html */
+.profile-container {
+    padding: 10px;
+}
 
 .profile-info-wrapper {
     margin-bottom: 10px;

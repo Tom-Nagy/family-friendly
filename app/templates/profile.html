@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col s12 m7">
             <h3 class="header">{{ user.username }}'s info</h3>
-            <div class="card horizontal">
+            <div class="card horizontal profile-container">
                 <div class="card-image valign-wrapper">
                     <a class="tooltipped hoverable" href="{{ url_for('users.update_picture', user_id=user._id) }}" 
                         aria-label="Change or Add profile picture." data-tooltip="Click to update profile picture">
@@ -43,6 +43,7 @@
                     </div>
                     <div class="card-action">
                         <a href="{{ url_for('users.update_profile', user_id=user._id) }}">Update info</a>
+                        <a href="{{ url_for('users.change_password', user_id=user._id) }}">Change password</a>
                     </div>
                 </div>
             </div>

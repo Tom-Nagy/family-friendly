@@ -124,6 +124,8 @@ class User:
     @staticmethod
     def update_user(new_info, user_id):
         """
+        Takes a dictionary with the new value(s) to update 
+        and the user _id as parameters.
         Update db
         """
         try:

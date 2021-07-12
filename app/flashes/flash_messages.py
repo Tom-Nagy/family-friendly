@@ -10,6 +10,8 @@ invalid_passwords = "Passwords must match, Please enter valid passwords."
 
 incorrect_password = "Incorrect password, try again."
 
+password_changed = "Your password has been changed."
+
 logged_in = "Welcome back to the Family!"
 
 incorrect_details = "Incorrect details, please try again."

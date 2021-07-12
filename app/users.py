@@ -1,7 +1,7 @@
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 from bson.objectid import ObjectId
 from app import mongo
 from app.flashes.flash_messages import *
@@ -186,6 +186,45 @@ def update_picture(user_id):
         return render_template("update_picture.html", user=user)
 
     return redirect(url_for("users.login"))
+
+
+@users.route("/change_password/<user_id>", methods=["GET", "POST"])
+def change_password(user_id):
+    if request.method == "POST":
+
+        user = User.get_one_user_coll(session["user"])
+        password = request.form.get("password")
+
+        # Check if current password match input
+        if check_password_hash(user["password"], password):
+    
+            # Check if the new passwords are valid and match
+            new_pass1 = request.form.get("new_password")
+            new_pass2 = request.form.get("new_conf_password")
+
+            if validate_passwords(new_pass1, new_pass2):
+                # Create a dic with new value and Add new_info to db
+                new_pass = generate_password_hash(new_pass2)
+                new_info = {"password": new_pass}
+                User.update_user(new_info, user_id)
+
+                flash(password_changed)
+                return redirect(url_for('users.profile', username=session["user"]))
+
+            else:
+                flash(incorrect_details)
+                return redirect(url_for("users.change_password", user_id=user["_id"]))
+
+        else:
+            flash(invalid_passwords)
+            return redirect(url_for("users.change_password", user_id=user["_id"]))
+
+    # Check if user is logged in
+    if session["user"]:
+        user = User.get_one_user_coll(session["user"])
+        return render_template("change_password.html", user=user)
+
+    return redirect(url_for("users.login"))    
 
 
 @users.route("/logout")
