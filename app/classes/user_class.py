@@ -1,5 +1,5 @@
 """
-Classes build to perform CRUD operation
+Class build to perform CRUD operation
 """
 # Imports
 from app import mongo
@@ -11,11 +11,6 @@ import os
 
 # Collections:
 users_coll = mongo.db.users
-events_coll = mongo.db.events
-tips_coll = mongo.db.tips
-contacts_coll = mongo.db.contacts
-questions_coll = mongo.db.questions
-answers_coll = mongo.db.answers
 
 
 class User:
@@ -92,19 +87,8 @@ class User:
         except Exception as e:
             print(e)
 
-    # method that utilise the whole class,
-    # can be use on the class without the object instantiated to begin with.
-    @classmethod
-    def get_one_user(cls, username):
-        """
-        Get a user from the db with its username,
-        Return an instance of User
-        """
-        try:
-            user = users_coll.find_one({'username': username})
-            return cls(**user)
-        except Exception as e:
-            print(e)
+    # method that can be used without instantiating the class,
+    # but relevant tot the class.
 
     @staticmethod
     def get_one_user_coll(username):
@@ -118,9 +102,6 @@ class User:
         except Exception as e:
             print(e)
 
-    # method that can be used without instantiating the class,
-    # but relevant tot the class.
-    # Update User info
     @staticmethod
     def update_user(new_info, user_id):
         """
@@ -143,7 +124,7 @@ class User:
             users_coll.delete_one({'_id': ObjectId(user_id)})
         except Exception as e:
             print(e)
-    
+
     @staticmethod
     def check_if_username_exists(username):
         """

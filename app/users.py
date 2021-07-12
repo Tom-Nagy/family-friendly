@@ -99,7 +99,7 @@ def profile(username):
     if session["user"] and session["user"] == username:
 
         # Get user from the db and return an instance of User
-        user = User.get_one_user(username)       
+        user = User.get_one_user_coll(username)       
         return render_template("profile.html", user=user)
 
     return redirect(url_for("users.login"))
@@ -140,7 +140,7 @@ def update_profile(user_id):
             session["user"] = new_info["username"]
 
             flash(ProfileMsg.info_updated)
-            user = User.get_one_user(session["user"])
+            user = User.get_one_user_coll(session["user"])
             return redirect(url_for('users.profile', user=user, username=session['user']))
 
         flash(ProfileMsg.incorrect_password)
@@ -148,7 +148,7 @@ def update_profile(user_id):
 
     # Check if user is logged in
     if session["user"]:
-        user = User.get_one_user(session["user"])
+        user = User.get_one_user_coll(session["user"])
         return render_template("update_profile.html", user=user)
 
     return redirect(url_for("users.login"))
@@ -182,7 +182,7 @@ def update_picture(user_id):
 
     # Check if user is logged in
     if session["user"]:
-        user = User.get_one_user(session["user"])
+        user = User.get_one_user_coll(session["user"])
         return render_template("update_picture.html", user=user)
 
     return redirect(url_for("users.login"))
