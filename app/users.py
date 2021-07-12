@@ -15,8 +15,6 @@ from app.validators.validators import validate_passwords
 users = Blueprint("users", __name__)
 
 
-# Sign Up
-@users.route("/")
 @users.route("/signup", methods=["GET", "POST"])
 def signup():
     # POST method
@@ -57,8 +55,6 @@ def signup():
 
     # Default GET method
     return render_template("signup.html")
-
-# Log In
 
 
 @users.route("/login", methods=["Get", "POST"])
@@ -268,4 +264,4 @@ def delete_profile():
         user = User.get_one_user_coll(session["user"])
         return render_template("delete_profile.html", user=user)
 
-    return redirect(url_for("users.login"))
+    return redirect(url_for("main.home"))

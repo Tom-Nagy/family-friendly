@@ -27,7 +27,8 @@
         <div class="navbar-fixed">
             <nav class="text-shadow">
                 <div class="nav-wrapper">
-                    <a href="#!" class="logo">
+                    <!-- Always visible nav -->
+                    <a href="{{ url_for('main.home') }}" class="logo" aria-label="Link to home page.">
                         <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
                             class="logo-image hoverable" alt="smiling sunflower" title="Link to home page."
                             width="32" height="32">
