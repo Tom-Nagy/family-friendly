@@ -7,6 +7,7 @@ from app import mongo
 from app.flashes.flash_messages import *
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
+import base64
 
 users = Blueprint("users", __name__)
 
@@ -98,7 +99,7 @@ def profile(username):
     if session["user"] and session["user"] == username:
 
         # Get user from the db and return an instance of User
-        user = User.get_one_user(username)
+        user = User.get_one_user(username)       
         return render_template("profile.html", user=user)
 
     return redirect(url_for("users.login"))
@@ -125,7 +126,6 @@ def update_profile(user_id):
             return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
         # Check if the password is correct
-
         if check_password_hash(user["password"], password):
 
             # Create a dic with new values and Add new_info to db
@@ -139,7 +139,7 @@ def update_profile(user_id):
             # Update the session['user]
             session["user"] = new_info["username"]
 
-            flash("Updated")
+            flash(info_updated)
             user = User.get_one_user(session["user"])
             return redirect(url_for('users.profile', user=user, username=session['user']))
 
@@ -160,6 +160,7 @@ def update_picture(user_id):
         user = User.get_one_user_coll(session["user"])
         password = request.form.get("password")
 
+        # Check if the password is correct
         if check_password_hash(user["password"], password):
 
             # Get the file and check if the path is not empty,
@@ -173,14 +174,11 @@ def update_picture(user_id):
                 img_url_encoded = User.convert_img_to_base64(profile_image_filename) 
                 
                 # Create a dic with new value and Add new_info to db
-                new_info = {
-                    "profile_picture": img_url_encoded
-                }
+                new_info = {"profile_picture": img_url_encoded}
                 User.update_user(new_info, user_id)
+
+                flash(picture_updated)
                 return redirect(url_for('users.profile', username=session['user']))
-                    
-
-
 
     # Check if user is logged in
     if session["user"]:

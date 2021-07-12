@@ -12,9 +12,11 @@
                 <div class="row">
                     <div class="col s12 center-align">
                         {% if user.profile_picture != None %}
-                            <img class="profile-picture" src="{{ user.profile_picture }}" alt="Profile image of {{ user.username }}" height="200" width="200">
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
+                                alt="Profile image of {{ user.username }}">
                         {% else %}
-                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" alt="Default profile picture representing a smiling sunflower.">
+                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" 
+                                alt="Default profile picture representing a smiling sunflower.">
                         {% endif %}
                     </div>
                 </div>
@@ -23,11 +25,14 @@
                     <div class="file-field input-field col s12">
                         <div class="btn select-file">
                             <label" for="profile_picture">Select a picture</label>
-                            <input id="profile_picture" name="profile_picture" type="file" accept="image/*" class="validate">
+                            <input id="profile_picture" name="profile_picture" type="file" accept=".png" class="validate">
                         </div>
                         <div class="file-path-wrapper">
                             <label for="my_picture"></label>
                             <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
+                            <span class="helper-text valign-wrapper">
+                                <span class="material-icons">error_outline</span>Only .png files are accepted
+                            </span>
                         </div>
                     </div>
                 </div>

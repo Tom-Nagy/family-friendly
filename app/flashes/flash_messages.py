@@ -15,3 +15,7 @@ logged_in = "Welcome back to the Family!"
 incorrect_details = "Incorrect details, please try again."
 
 logged_out = "You have been logged out."
+
+info_updated = "Your information have been updated."
+
+picture_updated = "The profile picture has been changed."

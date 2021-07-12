@@ -43,7 +43,6 @@ class User:
                 self.username = username
                 self.email = email
                 self.password = generate_password_hash(password)
-                # self.conf_password = generate_password_hash(conf_password)
                 self.profile_picture = profile_picture if not None else 'null'
                 self.events_liked = events_liked if not None else ['null']
                 self.questions_liked = questions_liked if not None else ['null']
@@ -66,7 +65,6 @@ class User:
             'username': self.username,
             'email': self.email,
             'password': self.password,
-            # 'conf_password': self.conf_password,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'profile_picture': self.profile_picture,
