@@ -1,25 +1,35 @@
-# flash messages
+"""
+Flash messages
+"""
 
-username_exists = "Sorry this username is already taken, please choose a different one."
+# Profile
+class ProfileMsg:
+    """
+    class containing flash messages related to users.py
+    """
 
-email_exists = "The email provided already exist, please choose a different one."
+    username_exists = "Sorry this username is already taken, please choose a different one."
 
-signed_in = "Well done and Welcome to the Family!"
+    email_exists = "The email provided already exist, please choose a different one."
 
-invalid_passwords = "Passwords must match, Please enter valid passwords."
+    invalid_passwords = "Passwords must match, Please enter valid passwords."
 
-incorrect_password = "Incorrect password, try again."
+    incorrect_password = "Incorrect password, try again."
 
-password_changed = "Your password has been changed."
+    incorrect_details = "Incorrect details, enter the correct credentials."
 
-logged_in = "Welcome back to the Family!"
+    signed_in = "Well done and Welcome to the Family!"
 
-incorrect_details = "Incorrect details, enter the correct credentials."
+    logged_in = "Welcome back to the Family!"
 
-logged_out = "You have been logged out."
+    logged_out = "You have been logged out."
 
-info_updated = "Your information have been updated."
+    password_changed = "Your password has been changed."
 
-picture_updated = "The profile picture has been changed."
+    info_updated = "Your information have been updated."
 
-profile_deleted = "Your profile has been deleted, sign up to access the website features."
+    picture_updated = "The profile picture has been changed."
+
+    profile_deleted = "Your profile has been deleted, sign up to access the website features."
+
+# 

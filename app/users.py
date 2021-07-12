@@ -8,7 +8,7 @@ from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
 from werkzeug.security import check_password_hash, generate_password_hash
-from app.flashes.flash_messages import *
+from app.flashes.flash_messages import ProfileMsg
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
 
@@ -25,13 +25,13 @@ def signup():
         # Check if username already exists
         username = request.form.get("username")
         if User.check_if_username_exists(username):
-            flash(username_exists)
+            flash(ProfileMsg.username_exists)
             return redirect(url_for('users.signup'))
 
         # Check if email already exists
         email = request.form.get("email")
         if User.check_if_email_exists(email):
-            flash(email_exists)
+            flash(ProfileMsg.email_exists)
             return redirect(url_for('users.signup'))
 
         # Check if the passwords are valid and match
@@ -48,11 +48,11 @@ def signup():
             # Put the new user into session cookie
             session["user"] = new_user.username
 
-            flash(signed_in)
+            flash(ProfileMsg.signed_in)
             return redirect(url_for("users.profile", username=session["user"]))
 
         else:
-            flash(invalid_passwords)
+            flash(ProfileMsg.invalid_passwords)
             return redirect(url_for("users.signup"))
 
     # Default GET method
@@ -78,15 +78,15 @@ def login():
 
                 # Put user into session cookie
                 session["user"] = existing_user["username"]
-                flash(logged_in)
+                flash(ProfileMsg.logged_in)
                 return redirect(url_for('users.profile', username=session["user"]))
 
             else:
-                flash(incorrect_details)
+                flash(ProfileMsg.incorrect_details)
                 return redirect(url_for('users.login'))
 
         else:
-            flash(incorrect_details)
+            flash(ProfileMsg.incorrect_details)
             return redirect(url_for('users.login'))
 
     return render_template("login.html")
@@ -118,11 +118,11 @@ def update_profile(user_id):
         user = User.get_one_user_coll(session["user"])
 
         if existing_email and email != user["email"]:
-            flash(email_exists)
+            flash(ProfileMsg.email_exists)
             return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
         if existing_username and username != user["username"]:
-            flash(username_exists)
+            flash(ProfileMsg.username_exists)
             return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
         # Check if the password is correct
@@ -139,11 +139,11 @@ def update_profile(user_id):
             # Update the session['user]
             session["user"] = new_info["username"]
 
-            flash(info_updated)
+            flash(ProfileMsg.info_updated)
             user = User.get_one_user(session["user"])
             return redirect(url_for('users.profile', user=user, username=session['user']))
 
-        flash(incorrect_password)
+        flash(ProfileMsg.incorrect_password)
         return redirect(url_for('users.update_profile', user_id=user["_id"]))
 
     # Check if user is logged in
@@ -177,7 +177,7 @@ def update_picture(user_id):
                 new_info = {"profile_picture": img_url_encoded}
                 User.update_user(new_info, user_id)
 
-                flash(picture_updated)
+                flash(ProfileMsg.picture_updated)
                 return redirect(url_for('users.profile', username=session['user']))
 
     # Check if user is logged in
@@ -208,15 +208,15 @@ def change_password(user_id):
                 new_info = {"password": new_pass}
                 User.update_user(new_info, user_id)
 
-                flash(password_changed)
+                flash(ProfileMsg.password_changed)
                 return redirect(url_for('users.profile', username=session["user"]))
 
             else:
-                flash(incorrect_details)
+                flash(ProfileMsg.incorrect_details)
                 return redirect(url_for("users.change_password", user_id=user["_id"]))
 
         else:
-            flash(invalid_passwords)
+            flash(ProfileMsg.invalid_passwords)
             return redirect(url_for("users.change_password", user_id=user["_id"]))
 
     # Check if user is logged in
@@ -231,7 +231,7 @@ def change_password(user_id):
 def logout():
     # Remove user from session cookie
     session.pop("user")
-    flash(logged_out)
+    flash(ProfileMsg.logged_out)
     return redirect(url_for('users.login'))
 
 @users.route("/delete_profile", methods=["GET", "POST"])
@@ -252,15 +252,15 @@ def delete_profile():
                 # Remove user from session cookie
                 session.pop("user")
 
-                flash(profile_deleted)
+                flash(ProfileMsg.profile_deleted)
                 return redirect(url_for('users.signup'))
 
             else:
-                flash(incorrect_details)
+                flash(ProfileMsg.incorrect_details)
                 return redirect(url_for('users.delete_profile'))
 
         else:
-            flash(incorrect_details)
+            flash(ProfileMsg.incorrect_details)
             return redirect(url_for('users.delete_profile'))
 
     # Check if user is logged in
