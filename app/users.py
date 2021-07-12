@@ -1,18 +1,18 @@
+"""
+Views related to user profile.
+Sign Up / Login / Logout
+Update profile info / picture / password
+Delete profile
+"""
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
 from werkzeug.security import check_password_hash, generate_password_hash
-from bson.objectid import ObjectId
-from app import mongo
 from app.flashes.flash_messages import *
 from app.classes.user_class import User
 from app.validators.validators import validate_passwords
-import base64
 
 users = Blueprint("users", __name__)
-
-# Collection
-users_coll = mongo.db.users
 
 
 # Sign Up
@@ -233,3 +233,39 @@ def logout():
     session.pop("user")
     flash(logged_out)
     return redirect(url_for('users.login'))
+
+@users.route("/delete_profile", methods=["GET", "POST"])
+def delete_profile():
+    if request.method == "POST":
+
+        user = User.get_one_user_coll(session["user"])
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # Check credentials
+        if user["email"] == email:
+            
+            # Check if hashed password matches input password
+            if check_password_hash(user["password"], password):
+                User.delete_user(user["_id"])
+
+                # Remove user from session cookie
+                session.pop("user")
+
+                flash(profile_deleted)
+                return redirect(url_for('users.signup'))
+
+            else:
+                flash(incorrect_details)
+                return redirect(url_for('users.delete_profile'))
+
+        else:
+            flash(incorrect_details)
+            return redirect(url_for('users.delete_profile'))
+
+    # Check if user is logged in
+    if session["user"]:
+        user = User.get_one_user_coll(session["user"])
+        return render_template("delete_profile.html", user=user)
+
+    return redirect(url_for("users.login"))

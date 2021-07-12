@@ -97,6 +97,14 @@ footer {
     color: #0845FF;
 }
 
+.red-txt {
+    color: #FF091E;
+}
+
+.yellow-txt {
+    color: #E9F900;
+}
+
 .white-txt {
     color: #fafafa;
 }
@@ -282,6 +290,44 @@ footer {
 
 .profile-picture {
     margin: 10px;
+}
+
+.delete-profile-btn {
+    font-size: 0.6rem;
+    padding: 0 3px 0 6px;
+}
+
+.delete-icon {
+    margin-left: 5px;
+}
+
+/* delete_profile.html */
+
+.cancel-delete-btn {
+    margin: 0 10px;
+    font-size: 0.8rem;
+}
+
+.cancel-delete-btn:hover,
+.cancel-delete-btn:focus,
+.cancel-delete-btn:active {
+    background-color: #24C2124d;
+    color: #24C212;
+    font-weight: 700;
+}
+
+.warning {
+    font-size: 1.5rem;
+    padding: 6px;
+}
+
+.warning span {
+    padding: 6px;
+}
+
+.warning .material-icons {
+    margin: 12px;
+    font-size: 3rem;
 }
 
 /* update_profile.html */

@@ -14,10 +14,12 @@ password_changed = "Your password has been changed."
 
 logged_in = "Welcome back to the Family!"
 
-incorrect_details = "Incorrect details, please try again."
+incorrect_details = "Incorrect details, enter the correct credentials."
 
 logged_out = "You have been logged out."
 
 info_updated = "Your information have been updated."
 
 picture_updated = "The profile picture has been changed."
+
+profile_deleted = "Your profile has been deleted, sign up to access the website features."

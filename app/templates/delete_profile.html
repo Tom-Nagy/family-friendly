@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block heading %}
+    <h2 class="red-txt">Delete Your Profile</h2>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <h3 class="warning text-shadow yellow-bg hoverable">
+                <span class="valign-wrapper red-bg yellow-txt">
+                    <span class="material-icons">warning</span>
+                    This action is irreversible and all your information will be lost.
+                </span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" action="{{ url_for('users.delete_profile') }}">
+            <!-- email -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <!-- password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label for="password">Password</label></span>
+                </div>
+            </div>
+            <!-- Delete Profile -->
+            <div class="row">
+                <div class="col12 center-align">
+                    <button class="btn waves-effect waves-light red-bg white-txt cancel-btn delete-profile-btn" type="submit">
+                        <span class="valign-wrapper">
+                            Delete Profile <span class="material-icons delete-icon">delete_forever</span>
+                        </span>
+                    </button>
+                    <a href="{{ url_for('users.profile', username=session['user']) }}" 
+                        class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">
+                        Cancel (back to profile)
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
