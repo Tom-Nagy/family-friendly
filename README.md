@@ -6,7 +6,7 @@ Check out the other mockups:
 
 * [Home page](assets/images/README-images/mockups/ami-responsive-home.png)
 
-#### Visit the live Website : **[Family Friendly :arrow_right:](WEBSITE LINK)**.
+#### Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
 
 **Family Friendly** is a community based application where families can get together and have fun. This project promotes **togetherness**, **fun** and **community** through **activities**.  
 It is difficult sometimes as new or experience parents to find the motivation to go out and do something with the hectic parenting life. You would have to organize something or think about going somewhere on top of preparing what you need to bring with you for your little one and for yourself. So you would consider doing nothing, stay put and deal with the craziness happening at home. A lot of different factors could amplify the sentiment.  

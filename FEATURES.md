@@ -2,9 +2,7 @@
 
 **[:leftwards_arrow_with_hook: *README.md*](README.md)**
 
-#### Visit the live Website : **[Family Friendly :arrow_right:]()**.
-
-
+#### Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
 
 ## Table of Content
 
@@ -16,18 +14,19 @@
 ### Common features
 
 The navigation menu is fix and provide different links regarding if the user is Logged in or not.
-The footer offers a link to contact the website owner, copyright that red “For educational purposes” and icons for external links.
+The footer offers a link to contact the website owner, copyright that red “For educational purposes” and icons for external links.  
+Form where user can change/update information has a cancel button to abort the action undertaken.
 
-#### Always visible:
+#### Always visible
 
 * Logo linked to the home page on the top left
 * Events, Create, Support links on the top right of the screen.
 
-#### If not Logged in:
+#### If not Logged in
 
 * Sign up and Login option will be provided on the top left of the screen.
 
-#### If Logged in:
+#### If Logged in
 
 * Logout option will replace login/sign up.
 * Profile link is provided on the top right of the screen.
@@ -116,7 +115,30 @@ Page where user connect to their account/profile in order to access their profil
 Page where user can add and edit personal information.  
 It gives the possibility to delete the profile. Upon deleting a message gives the user information about data stored and the steps to follow to retrieve or delete this data.  
 There is a section that displays the event he or she is participating in. It provides option to cancel, edit or leave an event.  
-A sorting button is provided in order to only show the event created by the user.
+A sorting button is provided in order to only show the event created by the user.  
+A default profile picture is displayed representing the top flower of the website logo.  
+
+3 links provide the user the possibility to update/change:
+
+* Profile picture
+* Profile information
+* Password
+
+### Update Profile
+
+Prepopulated form where user can update their information:
+
+* First name
+* Last name
+* Email
+* Username
+
+### Update Profile Picture
+
+Form where user can upload an image they will use for their profile picture.  
+Only ``.png`` file are accepted for profile picture.
+
+### Change Password
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
