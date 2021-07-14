@@ -43,6 +43,13 @@ h1 {
     font-family: 'Pacifico', cursive;
 }
 
+:focus {
+    outline: none;
+    text-decoration: underline;
+    transform: scale(1.1);
+    font-weight: bolder;
+}
+
 h2,
 h3,
 h4 {
@@ -117,8 +124,61 @@ footer {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-/* Header */
+/* Modal and Overlay */
+.modals {
+    position: fixed;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
 
+    transform: translate(-50%, -50%) scale(0);
+    -o-transform: translate(-50%, -50%) scale(0);
+    -moz-transform: translate(-50%, -50%) scale(0);
+    -ms-transform: translate(-50%, -50%) scale(0);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    
+    transition: translate 300ms ease-in-out;
+    -o-transition: translate 300ms ease-in-out;
+    -moz-transition: translate 300ms ease-in-out;
+    -ms-transition: translate 300ms ease-in-out;
+    -webkit-transition: translate 300ms ease-in-out;
+}
+
+.modal-active {
+    transform: translate(-50%, -50%) scale(1);
+    -o-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    -moz-transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay {
+    position: fixed;
+    opacity: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+    -ms-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -webkit-transition: opacity 200ms ease-in-out;
+}
+
+.overlay-active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+
+/* Header */
 #header {
     position: relative;
 }
@@ -298,6 +358,23 @@ footer {
 .home-card-txt {
     font-size: 1rem;
     font-weight: 600;
+}
+
+.about-us {
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.about-us:hover,
+.about-us:focus,
+.about-us:active {
+    background-color: #0845FF;
+    color: #fafafa;
 }
 
 /* profile.html */

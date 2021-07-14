@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Events -->
     <div class="row home-card-wrapper">
+        <!-- Events -->
         <div class="col s12 l4">
             <div class="card-panel yellow-bg home-cards valign-wrapper hoverable">
                 <a href="#" class="black-txt centered">
-                    <h2 class="home-card-headings center-align">Events</h2>
+                    <h2 class="home-card-headings center-align text-shadow">Events</h2>
                     <p class="home-card-txt center-align">
                         Brows Events and Join to Participate
                     </p>
@@ -22,7 +22,7 @@
         <div class="col s12 l4">
             <div class="card-panel orange-bg home-cards valign-wrapper hoverable">
                 <a href="#" class="black-txt centered">
-                    <h2 class="home-card-headings center-align">Create</h2>
+                    <h2 class="home-card-headings center-align text-shadow">Create</h2>
                     <p class="home-card-txt center-align">
                         Make an Event of your own in a few steps<br>
                         It's easy and fun!
@@ -34,7 +34,7 @@
         <div class="col s12 l4">
             <div class="card-panel green-bg home-cards valign-wrapper hoverable">
                 <a href="#" class="black-txt centered">
-                    <h2 class="home-card-headings center-align">Support</h2>
+                    <h2 class="home-card-headings center-align text-shadow">Support</h2>
                     <p class="home-card-txt center-align">
                         Get ideas<br>
                         Share parenting tips<br>
@@ -45,4 +45,27 @@
             </div>
         </div>
     </div>
+
+    <div class="center-align">
+        <button class="blue-txt about-us text-shadow hoverable" id="about-us-btn">
+            About Us!
+        </button>
+    </div>
+
+    <div id="about-modal" class="modals white-bg black-txt card-panel">
+        <h2 class="home-card-headings center-align text-shadow">About Us!</h2>
+        <p class="center-align">
+            Family Friendly is a community based platform where Families can get together and enjoy activities.<br>
+            It promotes Togetherness, mobility, physical and mental health.<br>
+            Here you can Join activities created by your community and have a good time!<br>
+            You can as well create an activity and encourage people to got out 	&#x1F601; <br>
+            There is as well a support page where you will find useful contacts, 
+            parenting advices and the access to a forum where you can ask questions and discuss &#x1F609;
+        </p>
+    </div>
+    <div id="about-overlay" class="overlay"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/scripts/home.js') }}"></script>
 {% endblock %}
