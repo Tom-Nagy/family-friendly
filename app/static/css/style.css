@@ -50,7 +50,7 @@ h4 {
 }
 
 p {
-    width: 65ch;
+    max-width: 65ch;
 }
 
 
@@ -107,6 +107,10 @@ footer {
 
 .white-txt {
     color: #fafafa;
+}
+
+.black-txt {
+    color: #000;
 }
 
 .text-shadow {
@@ -224,7 +228,6 @@ footer {
 }
 
 /* Forms */
-
 .helper-text {
     font-size: 0.8rem;
     line-height: 0.9rem;
@@ -266,6 +269,35 @@ footer {
     box-shadow: 
         inset 0 0 0 2px #FF091E,
         inset 0 0 0 4px #fafafa;
+}
+
+/* home.html */
+.home-subheading {
+    font-style: italic;
+}
+
+.home-card-wrapper {
+    margin-top: 10%;
+    max-width: 1260px;
+}
+
+.home-cards {
+    margin: 20px auto;
+    width: 360px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.home-card-headings {
+    margin-top: 0;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.home-card-txt {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* profile.html */

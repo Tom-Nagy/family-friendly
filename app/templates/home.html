@@ -1,9 +1,48 @@
 {% extends "base.html" %}
 
 {% block heading %}
-    <h1>Family Friendly</h1>
+<h1>Family Friendly</h1>
+<p class="centered home-subheading">Where Families Meet Up, Socialise, Discover and Have Fun Together!</p>
 {% endblock %}
 
 {% block content %}
-    <p>Home page</p>
+    <!-- Events -->
+    <div class="row home-card-wrapper">
+        <div class="col s12 l4">
+            <div class="card-panel yellow-bg home-cards valign-wrapper hoverable">
+                <a href="#" class="black-txt centered">
+                    <h2 class="home-card-headings center-align">Events</h2>
+                    <p class="home-card-txt center-align">
+                        Brows Events and Join to Participate
+                    </p>
+                </a>
+            </div>
+        </div>
+        <!-- Create -->
+        <div class="col s12 l4">
+            <div class="card-panel orange-bg home-cards valign-wrapper hoverable">
+                <a href="#" class="black-txt centered">
+                    <h2 class="home-card-headings center-align">Create</h2>
+                    <p class="home-card-txt center-align">
+                        Make an Event of your own in a few steps<br>
+                        It's easy and fun!
+                    </p>
+                </a>
+            </div>
+        </div>
+        <!-- Support -->
+        <div class="col s12 l4">
+            <div class="card-panel green-bg home-cards valign-wrapper hoverable">
+                <a href="#" class="black-txt centered">
+                    <h2 class="home-card-headings center-align">Support</h2>
+                    <p class="home-card-txt center-align">
+                        Get ideas<br>
+                        Share parenting tips<br>
+                        Useful contacts<br>
+                        Access the Forum
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
