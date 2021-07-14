@@ -20,8 +20,10 @@ def create_app(default_config=Config):
 
     # Import Blueprints and register them so they can be used
     from app.users import users
-    from app.main import main
+    from app.home import index
+    from app.create import create
     app.register_blueprint(users)
-    app.register_blueprint(main)
+    app.register_blueprint(index)
+    app.register_blueprint(create)
 
     return app

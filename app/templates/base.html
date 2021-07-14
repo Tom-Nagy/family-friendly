@@ -28,7 +28,7 @@
             <nav class="text-shadow">
                 <div class="nav-wrapper">
                     <!-- Always visible nav -->
-                    <a href="{{ url_for('main.home') }}" class="logo" aria-label="Link to home page.">
+                    <a href="{{ url_for('index.home') }}" class="logo" aria-label="Link to home page.">
                         <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
                             class="logo-image hoverable" alt="smiling sunflower" title="Link to home page."
                             width="32" height="32">
@@ -50,7 +50,7 @@
                     <ul>
                         <div class="right hide-on-med-and-down">
                             <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                            <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                            <li><a href="{{ url_for('create.create_event') }}" aria-label="Link to the Creates page.">Create</a></li>
                             <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                         </div>
                         <li class="right">
@@ -66,7 +66,7 @@
             <!-- Mobile navbar -->
             <ul class="dropdown-content mobile-dropdown" id="mobile-navbar">
                 <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                <li><a href="#" aria-label="Link to the Creates page.">Creates</a></li>
+                <li><a href="{{ url_for('create.create_event') }}" aria-label="Link to the Creates page.">Create</a></li>
                 <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
             </ul>
         </div>
@@ -102,12 +102,12 @@
         <div class="footer-copyright">
             <div class="footer-wrapper valign-wrapper">
                 <div class="third-div center-align">
-                    <a class="contact-us text-shadow" href="#"  aria-label="Link to the Contact Us page.">
+                    <a class="contact-us text-shadow" href="#" aria-label="Link to the Contact Us page.">
                         <i class="material-icons prefix">mail_outline</i> Contact Us
                     </a>
                 </div>
                 <div class="third-div center-align">
-                    <a class="privacy-policy text-shadow" href="#!"  aria-label="Link to the Privacy Policy page.">Privacy Policy</a>
+                    <a class="privacy-policy text-shadow" href="#!" aria-label="Link to the Privacy Policy page.">Privacy Policy</a>
                 </div>
                 <div class="third-div center-align copyright">
                     <span>&copy; 2021 Tom Nagy</span>
