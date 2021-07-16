@@ -2,7 +2,7 @@
 
 **[:leftwards_arrow_with_hook: *README.md*](README.md)**
 
-#### Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
+Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
 
 ## Table of Content
 
