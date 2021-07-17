@@ -50,6 +50,10 @@ h1 {
     font-weight: bolder;
 }
 
+input:focus {
+    transform: none;
+} 
+
 h2,
 h3,
 h4 {
@@ -98,6 +102,10 @@ footer {
 
 .red-bg {
     background-color: #FF091E;
+}
+
+.white-bg {
+    background-color: #fafafa;
 }
 
 .blue-txt {
@@ -287,7 +295,7 @@ footer {
     font-weight: bold;
 }
 
-/* Forms */
+/* Forms and buttons */
 .helper-text {
     font-size: 0.8rem;
     line-height: 0.9rem;
@@ -301,6 +309,26 @@ footer {
 
 .form-message {
     margin: 3px auto;
+}
+
+.back-home-btn,
+.submit-btn,
+.cancel-btn {
+    margin: 6px;
+}
+
+.back-home-btn:hover {
+    background-color: #E9F90080;
+    color: #000;
+    font-weight: 700;
+}
+
+.back-home-btn:focus {
+    background-color: #E9F900;
+    color: #fafafa;
+    box-shadow: 
+        inset 0 0 0 2px #E9F900,
+        inset 0 0 0 4px #fafafa;
 }
 
 .submit-btn:hover {
@@ -329,6 +357,23 @@ footer {
     box-shadow: 
         inset 0 0 0 2px #FF091E,
         inset 0 0 0 4px #fafafa;
+}
+
+/* profile chip */
+.profile-chip {
+    /* <div class="chip col s3 profile-chip">
+                    {% if user.profile_picture != None %}
+                            <!-- user picture -->
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
+                                alt="Profile image of {{ user.username }}">{{ user.username }}
+                        {% else %}
+                            <!-- default picture -->
+                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" 
+                                alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
+                        {% endif %}
+                  </div> */
+
+    margin: auto;
 }
 
 /* home.html */

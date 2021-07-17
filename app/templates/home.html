@@ -21,13 +21,23 @@
         <!-- Create -->
         <div class="col s12 l4">
             <div class="card-panel orange-bg home-cards valign-wrapper hoverable">
-                <a href="#" class="black-txt centered">
-                    <h2 class="home-card-headings center-align text-shadow">Create</h2>
-                    <p class="home-card-txt center-align">
-                        Make an Event of your own in a few steps<br>
-                        It's easy and fun!
-                    </p>
-                </a>
+                {% if session.user %}
+                    <a href="{{ url_for('create.create_event', username=session['user']) }}" class="black-txt centered">
+                        <h2 class="home-card-headings center-align text-shadow">Create</h2>
+                        <p class="home-card-txt center-align">
+                            Make an Event of your own in a few steps<br>
+                            It's easy and fun!
+                        </p>
+                    </a>
+                {% else %}
+                    <a href="#" class="black-txt centered" id="try-create">
+                        <h2 class="home-card-headings center-align text-shadow">Create</h2>
+                        <p class="home-card-txt center-align">
+                            Make an Event of your own in a few steps<br>
+                            It's easy and fun!
+                        </p>
+                    </a>
+                {% endif %}
             </div>
         </div>
         <!-- Support -->
@@ -46,12 +56,14 @@
         </div>
     </div>
 
+    <!-- about us -->
     <div class="center-align">
         <button class="blue-txt about-us text-shadow hoverable" id="about-us-btn">
             About Us!
         </button>
     </div>
 
+    <!-- about us modal -->
     <div id="about-modal" class="modals white-bg black-txt card-panel">
         <h2 class="home-card-headings center-align text-shadow">About Us!</h2>
         <p class="center-align">
@@ -63,6 +75,22 @@
             parenting advices and the access to a forum where you can ask questions and discuss &#x1F609;
         </p>
     </div>
+
+    <!-- try create modal -->
+    <div id="try-create-modal" class="modals white-bg black-txt card-panel">
+        <h2 class="home-card-headings center-align text-shadow">Sorry Cannot Create!</h2>
+        <p class="center-align">
+            In order to Create an Event, 
+            please <span class="text-shadow">Log In</span> or <span class="text-shadow">Sign Up</span>.
+        </p>
+        <div class="center-align">
+            <a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page." class="btn submit-btn blue-bg">Log In</a>
+            <a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page." class="btn submit-btn blue-bg">Sign Up</a> <br>
+            <a href="{{ url_for('index.home') }}" aria-label="Link to the Home page." class="btn back-home-btn blue-txt yellow-bg">Back to browsing</a>
+        </div>
+    </div>
+
+    <div id="home-overlay" class="overlay"></div>
     <div id="about-overlay" class="overlay"></div>
 {% endblock %}
 
