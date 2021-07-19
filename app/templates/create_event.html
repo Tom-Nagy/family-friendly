@@ -40,14 +40,14 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="date" name="date" type="date" class="validate">
-                    <label for="date">Date</label>
+                    <label for="date"></label>
                 </div>
             </div>
             <!-- Time -->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="time" name="time" type="time" class="validate">
-                    <label for="time">Time</label>
+                    <label for="time"></label>
                 </div>
             </div>
             <!-- Age -->
@@ -84,5 +84,6 @@
 {% endblock %}
 
 {% block scripts %}
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
 {% endblock %}

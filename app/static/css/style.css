@@ -50,7 +50,8 @@ h1 {
     font-weight: bolder;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     transform: none;
 } 
 
