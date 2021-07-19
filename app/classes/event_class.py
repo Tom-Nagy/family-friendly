@@ -32,7 +32,7 @@ class Event:
                 self.event_time = event_time
                 self.event_description = event_description
                 self.event_created_by = event_created_by if not None else 'null'
-                self.event_likes = event_likes if not None else ['null']
+                self.event_likes = [event_likes] if not None else ['null']
 
     # method used as a formatter   
     def event_info_to_dic(self):

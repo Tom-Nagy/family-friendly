@@ -7,11 +7,30 @@
     <div class="row">
         <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
             action="{{ url_for('create.create_event', username=session['user']) }}">
-            <!-- activity -->
+            <!-- <div class="row">
+                <div class="input-field disabled col s12">
+                    <div class="chip col s3 profile-chip">
+                        {% if user.profile_picture != None %}
+                            user picture
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
+                                alt="Profile image of {{ user.username }}">{{ user.username }}
+                        {% else %}
+                            default picture
+                            <img class="profile-picture"
+                                src="/static/images/default-profile-picture/default-profile-picture.png"
+                                alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div> -->
+            <div class="hide">
+                <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
+            </div>
+            <!-- category -->
             <div class="row">
                 <div class="input-field col s12">
-                    <select id="activity" name="activity" class="validate" required>
-                        <option value="" disabled selected>Choose the appropriate type</option>
+                    <select id="event_category" name="event_category" class="validate" required>
+                        <option value="" disabled selected>Choose a category</option>
                         <option value="Playground">Playground</option>
                         <option value="Play date">Play date</option>
                         <option value="Cycling">Cycling</option>
@@ -22,15 +41,15 @@
                         <option value="Coffee">Coffee</option>
                         <option value="Other">Other</option>
                       </select>
-                    <label for="activity">Activity</label>
+                    <label for="event_category">Activity</label>
                 </div>
             </div>
             <!-- Location -->
             <div class="row">
                 <div class="input-field col s12">
                     <!-- add REQUIRED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                    <input id="location" name="location" type="text" class="validate">
-                    <label for="location">Location</label>
+                    <input id="event_location" name="event_location" type="text" class="validate">
+                    <label for="event_location">Location</label>
                     <span class="helper-text valign-wrapper">
                         <span class="material-icons">travel_explore</span>Select the location via google maps
                     </span>
@@ -39,23 +58,23 @@
             <!-- Date -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="date" name="date" type="date" class="validate">
-                    <label for="date"></label>
+                    <input id="event_date" name="event_date" type="date" class="validate" required>
+                    <label for="event_date"></label>
                 </div>
             </div>
             <!-- Time -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="time" name="time" type="time" class="validate">
-                    <label for="time"></label>
+                    <input id="event_time" name="event_time" type="time" class="validate" required>
+                    <label for="event_time"></label>
                 </div>
             </div>
             <!-- Age -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="age" name="age" type="text" class="validate" 
-                        pattern="^\b([0-9]|1[0-8])\b(-)\b([0-9]|1[0-8])\b$">
-                    <label for="time">Age Range</label>
+                    <input id="event_age_range" name="event_age_range" type="text" class="validate" 
+                        pattern="^\b([0-9]|1[0-8])\b(-)\b([0-9]|1[0-8])\b$" required>
+                    <label for="event_age_range">Age Range</label>
                     <span class="helper-text valign-wrapper">
                         <span class="material-icons">error_outline</span>
                         Please enter two number separated by an hyphen.<br>
@@ -67,8 +86,8 @@
             <!-- Description -->
             <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="activity_description" name="activity_description" class="materialize-textarea"></textarea>
-                  <label for="activity_description">Description</label>
+                  <textarea id="event_description" name="event_description" class="materialize-textarea" required></textarea>
+                  <label for="event_description">Description</label>
                 </div>
               </div>
             <!-- Join -->
@@ -84,6 +103,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
 {% endblock %}

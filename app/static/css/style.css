@@ -43,6 +43,16 @@ h1 {
     font-family: 'Pacifico', cursive;
 }
 
+h2,
+h3,
+h4 {
+    font-family: 'Lato', sans-serif;
+}
+
+p {
+    max-width: 65ch;
+}
+
 :focus {
     outline: none;
     text-decoration: underline;
@@ -55,16 +65,9 @@ textarea:focus {
     transform: none;
 } 
 
-h2,
-h3,
-h4 {
-    font-family: 'Lato', sans-serif;
+.hide {
+    display: none;
 }
-
-p {
-    max-width: 65ch;
-}
-
 
 /* 
 Yellow #E9F900 for Friendliness and Warmth.
@@ -362,18 +365,6 @@ footer {
 
 /* profile chip */
 .profile-chip {
-    /* <div class="chip col s3 profile-chip">
-                    {% if user.profile_picture != None %}
-                            <!-- user picture -->
-                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
-                                alt="Profile image of {{ user.username }}">{{ user.username }}
-                        {% else %}
-                            <!-- default picture -->
-                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" 
-                                alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
-                        {% endif %}
-                  </div> */
-
     margin: auto;
 }
 
