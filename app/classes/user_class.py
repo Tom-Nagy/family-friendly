@@ -1,5 +1,5 @@
 """
-Class build to perform CRUD operation
+Class build to perform CRUD operation on users collection
 """
 # Imports
 from app import mongo
@@ -18,7 +18,7 @@ class User:
     """
     Class that Creates an instance of a user,
     Prepares the data for the database and
-    Inserts the data in the users collection.
+    Inserts/Delete/Update the data in the users collection.
     """
 
     # Create a User object
@@ -88,8 +88,7 @@ class User:
             print(e)
 
     # method that can be used without instantiating the class,
-    # but relevant tot the class.
-
+    # but relevant to the class.
     @staticmethod
     def get_one_user_coll(username):
         """

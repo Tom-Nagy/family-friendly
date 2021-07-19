@@ -94,7 +94,7 @@ def profile(username):
     # Check if user is logged in and if session's user correspond to username
     if session["user"] and session["user"] == username:
 
-        # Get user from the db and return an instance of User
+        # Get user from the db and return a user collection
         user = User.get_one_user_coll(username)       
         return render_template("profile.html", user=user)
 
