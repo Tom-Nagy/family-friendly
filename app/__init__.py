@@ -21,9 +21,9 @@ def create_app(default_config=Config):
     # Import Blueprints and register them so they can be used
     from app.users import users
     from app.home import index
-    from app.create import create
+    from app.events import events
     app.register_blueprint(users)
     app.register_blueprint(index)
-    app.register_blueprint(create)
+    app.register_blueprint(events)
 
     return app

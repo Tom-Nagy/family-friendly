@@ -6,7 +6,23 @@
 {% block content %}
     <div class="row">
         <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
-            action="{{ url_for('events.create_event', username=session['user']) }}">
+            action="{{ url_for('create.create_event', username=session['user']) }}">
+            <!-- <div class="row">
+                <div class="input-field disabled col s12">
+                    <div class="chip col s3 profile-chip">
+                        {% if user.profile_picture != None %}
+                            user picture
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
+                                alt="Profile image of {{ user.username }}">{{ user.username }}
+                        {% else %}
+                            default picture
+                            <img class="profile-picture"
+                                src="/static/images/default-profile-picture/default-profile-picture.png"
+                                alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div> -->
             <div class="hide">
                 <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
             </div>

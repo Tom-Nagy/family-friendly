@@ -51,7 +51,7 @@
                         <div class="right hide-on-med-and-down">
                             {% if session.user %}
                                 <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                                <li><a href="{{ url_for('create.create_event', username=session['user']) }}" 
+                                <li><a href="{{ url_for('events.create_event', username=session['user']) }}" 
                                     aria-label="Link to the Creates page.">Create</a></li>
                                 <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                             {% else %}
@@ -73,7 +73,7 @@
             <ul class="dropdown-content mobile-dropdown" id="mobile-navbar">
                 {% if session.user %}
                     <li><a href="#" aria-label="Link to the Events page.">Events</a></li>
-                    <li><a href="{{ url_for('create.create_event', username=session['user']) }}"
+                    <li><a href="{{ url_for('events.create_event', username=session['user']) }}"
                         aria-label="Link to the Creates page.">Create</a></li>
                     <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                 {% else %}

@@ -10,9 +10,9 @@ from app.classes.event_class import Event
 from app.flashes.flash_messages import EventsMsg
 
 # Blueprint
-create = Blueprint("create", __name__)
+events = Blueprint("events", __name__)
 
-@create.route("/create_event/<username>", methods=["GET", "POST"])
+@events.route("/create_event/<username>", methods=["GET", "POST"])
 def create_event(username):
     if request.method == "POST":
         user = User.get_one_user_coll(username)
