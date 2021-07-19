@@ -202,9 +202,9 @@ Because in this project we use a secret-key and other variables, we need, for th
 * ![Reveal Config Vars](app/static/images/README-images/DEPLOYMENT-images/reveal-config-vars.png)
 * Add the variables as shown:
 * ![Config Vars](app/static/images/README-images/DEPLOYMENT-images/config-vars.png)
-* Most of those variables come from the env.py file. File that is never push to GitHub foe security reason.
+* Most of those variables come from the env.py file. File that is never push to GitHub for security reason.
 
-:warning: Never share sensible en private information as they are confidential and private.
+:warning: Never share sensible and private information as they are confidential and could put the security of your database and website at risk.
 
 #### Key steps to Deploy on Heroku
 
