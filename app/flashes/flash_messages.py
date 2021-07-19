@@ -5,7 +5,7 @@ Flash messages
 # Profile
 class ProfileMsg:
     """
-    class containing flash messages related to users.py
+    class containing flash messages related to user info
     """
 
     username_exists = "Sorry this username is already taken, please choose a different one."
@@ -32,4 +32,9 @@ class ProfileMsg:
 
     profile_deleted = "Your profile has been deleted, sign up to access the website features."
 
-# 
+# Events
+class EventsMsg:
+    """
+    class containing flash messages related to event info
+    """
+    event_created = "Event successfully created !"
