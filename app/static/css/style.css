@@ -477,7 +477,6 @@ footer {
 }
 
 /* update_profile.html */
-
 .select-file {
     border-radius: 5px;
     background-color: #0845ff99;
@@ -494,4 +493,24 @@ footer {
     background-color: #0845ff90;
     font-weight: 700;
     font-size: 0.8rem;
+}
+
+/* events.html */
+/* Modification of the Materialize carousel for the website needs */
+.carousel {
+    height: 700px;
+    transform: translateY(-200px);
+    margin-bottom: 30px;
+}
+
+.carousel .carousel-item {
+    width: 360px;
+}
+
+.carousel .indicators .indicator-item {
+    background-color: #000;
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #FF091E;
 }

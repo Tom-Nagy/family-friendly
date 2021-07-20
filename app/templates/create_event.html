@@ -7,6 +7,7 @@
     <div class="row">
         <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
             action="{{ url_for('events.create_event', username=session['user']) }}">
+            <!-- Hidden input to get the user id -->
             <div class="hide">
                 <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
             </div>

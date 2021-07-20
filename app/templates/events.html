@@ -4,104 +4,87 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
-            action="{{ url_for('create.create_event', username=session['user']) }}">
-            <!-- <div class="row">
-                <div class="input-field disabled col s12">
-                    <div class="chip col s3 profile-chip">
-                        {% if user.profile_picture != None %}
-                            user picture
-                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
-                                alt="Profile image of {{ user.username }}">{{ user.username }}
-                        {% else %}
-                            default picture
-                            <img class="profile-picture"
-                                src="/static/images/default-profile-picture/default-profile-picture.png"
-                                alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
-                        {% endif %}
-                    </div>
-                </div>
-            </div> -->
-            <div class="hide">
-                <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
-            </div>
-            <!-- category -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <select id="event_category" name="event_category" class="validate" required>
-                        <option value="" disabled selected>Choose a category</option>
-                        <option value="Playground">Playground</option>
-                        <option value="Play date">Play date</option>
-                        <option value="Cycling">Cycling</option>
-                        <option value="Hike">Hike</option>
-                        <option value="Swimming">Swimming</option>
-                        <option value="Picnic">Picnic</option>
-                        <option value="Walk">Walk</option>
-                        <option value="Coffee">Coffee</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    <label for="event_category">Activity</label>
-                </div>
-            </div>
-            <!-- Location -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <!-- add REQUIRED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                    <input id="event_location" name="event_location" type="text" class="validate">
-                    <label for="event_location">Location</label>
-                    <span class="helper-text valign-wrapper">
-                        <span class="material-icons">travel_explore</span>Select the location via google maps
-                    </span>
-                </div>
-            </div>
-            <!-- Date -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_date" name="event_date" type="date" class="validate" required>
-                    <label for="event_date"></label>
-                </div>
-            </div>
-            <!-- Time -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_time" name="event_time" type="time" class="validate" required>
-                    <label for="event_time"></label>
-                </div>
-            </div>
-            <!-- Age -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_age_range" name="event_age_range" type="text" class="validate" 
-                        pattern="^\b([0-9]|1[0-8])\b(-)\b([0-9]|1[0-8])\b$" required>
-                    <label for="event_age_range">Age Range</label>
-                    <span class="helper-text valign-wrapper">
-                        <span class="material-icons">error_outline</span>
-                        Please enter two number separated by an hyphen.<br>
-                        example: 0-1 for 0 to one year old.<br>
-                        The range goes from 0 to 18.
-                    </span>
-                </div>
-            </div>
-            <!-- Description -->
-            <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="event_description" name="event_description" class="materialize-textarea" required></textarea>
-                  <label for="event_description">Description</label>
-                </div>
-              </div>
-            <!-- Join -->
-            <div class="row">
-                <div class="col12 center-align">
-                    <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Create</button>
-                    <a href="{{ url_for('index.home') }}" 
-                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
-                </div>
-            </div>
-        </form>
+
+
+<!-- <div class="row">
+    <div class="input-field disabled col s12">
+        <div class="chip col s3 profile-chip">
+            {% if user.profile_picture != None %}
+                user picture
+                <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
+                    alt="Profile image of {{ user.username }}">{{ user.username }}
+            {% else %}
+                default picture
+                <img class="profile-picture"
+                    src="/static/images/default-profile-picture/default-profile-picture.png"
+                    alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
+            {% endif %}
+        </div>
     </div>
+</div> -->
+<div class="row">
+    <div class="col s12">
+        <div class="carousel">
+            {% for event in events_list %}       
+                <a class="carousel-item event-slide black-txt">
+                    <div class="card-panel orange-bg">
+                        <!-- Created By -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_created_by }}</span>
+                            </div>
+                        </div>
+                        <!-- Category -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_category }}</span>
+                            </div>
+                        </div>
+                        <!-- Location -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_location }}</span>
+                            </div>
+                        </div>
+                        <!-- Date -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_date }}</span>
+                            </div>
+                        </div>
+                        <!-- Time -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_time }}</span>
+                            </div>
+                        </div>
+                        <!-- Age Range -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_age_range }}</span>
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_description }}</span>
+                            </div>
+                        </div>
+                        <!-- Likes -->
+                        <div class="row">
+                            <div class="col s12">
+                                <span>{{ event.event_likes }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts/browse_events.js') }}"></script>
 {% endblock %}

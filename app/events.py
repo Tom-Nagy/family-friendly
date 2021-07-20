@@ -29,3 +29,14 @@ def create_event(username):
         return render_template('create_event.html', user=user)
     else:
         return redirect(url_for('index.home'))
+
+
+@events.route("/browse_events", methods=["GET", "POST"])
+def browse_events():
+    if session["user"]:
+        user = User.get_one_user_coll(session["user"])
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list, user=user)
+    else:
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list)

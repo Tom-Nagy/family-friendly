@@ -62,3 +62,19 @@ class Event:
             events_coll.insert_one(self.event_info_to_dic())
         except Exception as e:
             print(e)
+
+    # method that use the whole class,
+    # can be use on the class without the object instantiated to begin with.
+    @classmethod
+    def get_all_events(cls):
+        """
+        Get the events from the db as a list,
+        Return a list of Event instances.
+        """
+        events = list(events_coll.find())
+        events_list = []
+        if events is not None:
+            for event in events:
+                one_event = cls(**event)
+                events_list.append(one_event)
+        return events_list
