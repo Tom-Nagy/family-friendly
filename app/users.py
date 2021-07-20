@@ -153,7 +153,7 @@ def update_profile(user_id):
 @users.route("/update_picture/<user_id>", methods=["GET", "POST"])
 def update_picture(user_id):
     if request.method == "POST":
-        user = User.get_one_user_coll(session["user"])
+        user = User.get_one_user_coll(session["user"]) # Maybe not needed !!!!!!!!!
         password = request.form.get("password")
 
         # Check if the password is correct

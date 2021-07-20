@@ -32,9 +32,9 @@ class Event:
                 self.event_date = event_date
                 self.event_time = event_time
                 self.event_description = event_description
-                self.event_created_by = event_created_by if not None else 'null'
+                self.event_created_by = ObjectId(event_created_by) if not None else 'null'
                 self.event_likes = [event_likes] if not None else ['null']
-                self.event_joined_by = [event_joined_by] if not None else ['null']
+                self.event_joined_by = ["ObjectId(event_joined_by)"] if not None else ['null']
 
     # method used as a formatter   
     def event_info_to_dic(self):
@@ -81,3 +81,26 @@ class Event:
                 one_event = cls(**event)
                 events_list.append(one_event)
         return events_list
+
+    @classmethod
+    def get_one_event(cls, user_id):
+        """
+        Takes the ObjectId of the creator as param,
+        Get an event from the db.
+        """
+        try:
+            event = events_coll.find_one({"event_created_by": ObjectId(user_id)})
+            return cls(**event)
+        except Exception as e:
+            print(e)
+
+    @staticmethod
+    def delete_event(event_id):
+        """
+        Delete an event from the db,
+        Takes an event _id as parameter. 
+        """
+        try:
+            events_coll.delete_one({"_id": ObjectId(event_id)})
+        except Exception as e:
+            print(e)

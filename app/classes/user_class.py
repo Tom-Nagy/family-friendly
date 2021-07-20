@@ -118,6 +118,32 @@ class User:
             print(e)
 
     @staticmethod
+    def append_user_info(new_value, user_id):
+        """
+        Takes attribute and new info as param,
+        Append new info and Update db
+        """
+        # unpack the tuple
+        (get_attr, event_id) = new_value
+
+        try:
+            # get the user and corresponding attr/key and append the new value
+            user = users_coll.find_one({"_id": ObjectId(user_id)})
+            if user[get_attr] is not None:
+                appended_info = user[get_attr].append(ObjectId(event_id))
+                new_list = {get_attr: appended_info}
+                users_coll.update_one({'_id': ObjectId(user_id)},
+                                    {'$set': new_list})
+            else:
+                appended_info = [ObjectId(event_id)]
+                new_list = {get_attr: appended_info}
+                users_coll.update_one({'_id': ObjectId(user_id)},
+                                    {'$set': new_list})
+
+        except Exception as e:
+            print(e)
+
+    @staticmethod
     def delete_user(user_id):
         """
         Delete a user from the db using the user_id

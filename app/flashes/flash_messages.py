@@ -30,7 +30,7 @@ class ProfileMsg:
 
     picture_updated = "The profile picture has been changed."
 
-    profile_deleted = "Your profile has been deleted, sign up to access the website features."
+    profile_deleted = "Your profile has been deleted, sign up to access full website features."
 
 # Events
 class EventsMsg:
@@ -38,3 +38,5 @@ class EventsMsg:
     class containing flash messages related to event info
     """
     event_created = "Event successfully created !"
+    event_deleted = "Event successfully deleted"
+    didnt_work = "Sorry it did not work, try again later"

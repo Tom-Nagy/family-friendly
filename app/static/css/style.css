@@ -315,19 +315,19 @@ footer {
     margin: 3px auto;
 }
 
-.back-home-btn,
+.back-btn,
 .submit-btn,
 .cancel-btn {
     margin: 6px;
 }
 
-.back-home-btn:hover {
+.back-btn:hover {
     background-color: #E9F90080;
     color: #000;
     font-weight: 700;
 }
 
-.back-home-btn:focus {
+.back-btn:focus {
     background-color: #E9F900;
     color: #fafafa;
     box-shadow: 
@@ -513,4 +513,11 @@ footer {
 
 .carousel .indicators .indicator-item.active {
     background-color: #FF091E;
+}
+
+.event-modal-heading {
+    margin-top: 0;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 700;
 }
