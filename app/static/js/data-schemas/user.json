@@ -31,6 +31,10 @@
             "bsonType": "array",
             "description": "must be an array if the field exist"
         },
+        "event_joined": {
+            "bsonType": "array",
+            "description": "must be an array if field exists"
+        },
         "questions_liked": {
             "bsonType": "array",
             "description": "must be an array if the field exist"

@@ -1,6 +1,6 @@
 {
     "bsonType": "object",
-    "required": ["_id", "event_category", "event_location", "event_age_range", "event_date_time", "event_description"],
+    "required": ["_id", "event_category", "event_location", "event_age_range", "event_date", "event_time", "event_description"],
     "properties": {
         "_id": {"bsonType": "objectId"},
         "event_category": {
@@ -15,9 +15,13 @@
             "bsonType": "array",
             "description": "must be an array and is required"
         },
-        "event_date_time": {
-            "bsonType": "date",
-            "description": "must be a date and is required"
+        "event_date": {
+            "bsonType": "string",
+            "description": "must be a string and is required"
+        },
+        "event_time": {
+            "bsonType": "string",
+            "description": "must be a string and is required"
         },
         "event_created_by": {
             "bsonType": "objectId"
@@ -27,6 +31,10 @@
             "description": "must be a string, match the expression pattern and is required"
         },
         "event_likes": {
+            "bsonType": "array",
+            "description": "must be an array if field exists"
+        },
+        "event_joined_by": {
             "bsonType": "array",
             "description": "must be an array if field exists"
         }
