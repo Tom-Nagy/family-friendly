@@ -19,7 +19,8 @@ class Event:
     # Create an Event object
     def __init__(self, event_category, event_location, event_age_range,
                 event_date, event_time, event_description, _id=None,
-                event_created_by=None, event_likes=None):
+                event_created_by=None, event_likes=None,
+                event_joined_by=None):
                 """
                 Initialisation of Event, setting attributes value to None 
                 as placeholder for future input. 
@@ -33,6 +34,7 @@ class Event:
                 self.event_description = event_description
                 self.event_created_by = event_created_by if not None else 'null'
                 self.event_likes = [event_likes] if not None else ['null']
+                self.event_joined_by = [event_joined_by] if not None else ['null']
 
     # method used as a formatter   
     def event_info_to_dic(self):
@@ -48,7 +50,8 @@ class Event:
             'event_time': self.event_time,
             'event_description': self.event_description,
             'event_created_by': self.event_created_by,
-            'event_likes': self.event_likes
+            'event_likes': self.event_likes,
+            'event_joined_by': self.event_joined_by
         }
         return event_info
 

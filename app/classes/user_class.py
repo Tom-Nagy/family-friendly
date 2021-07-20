@@ -24,10 +24,11 @@ class User:
     # Create a User object
     def __init__(self, first_name, last_name, username, email, password,
                 conf_password=None, _id=None, profile_picture=None,
-                events_liked=None, questions_liked=None, answers_liked=None,
-                contacts_liked=None, tips_liked=None, events_created=None,
-                questions_created=None, answers_created=None,
-                contacts_created=None, tips_created=None):
+                events_joined=None, events_liked=None, questions_liked=None,
+                answers_liked=None, contacts_liked=None, tips_liked=None,
+                events_created=None, questions_created=None,
+                answers_created=None, contacts_created=None,
+                tips_created=None):
                 """
                 Initialisation of User, setting attributes value to None 
                 as placeholder for future input.
@@ -39,16 +40,17 @@ class User:
                 self.email = email
                 self.password = generate_password_hash(password)
                 self.profile_picture = profile_picture if not None else 'null'
-                self.events_liked = events_liked if not None else ['null']
-                self.questions_liked = questions_liked if not None else ['null']
-                self.answers_liked = answers_liked if not None else ['null']
-                self.contacts_liked = contacts_liked if not None else ['null']
-                self.tips_liked = tips_liked if not None else ['null']
-                self.events_created = events_created if not None else ['null']
-                self.questions_created = questions_created if not None else ['null']
-                self.answers_created = answers_created if not None else ['null']
-                self.contacts_created = contacts_created if not None else ['null']
-                self.tips_created = tips_created if not None else ['null']
+                self.events_joined = [events_joined] if not None else ['null']
+                self.events_liked = [events_liked] if not None else ['null']
+                self.questions_liked = [questions_liked] if not None else ['null']
+                self.answers_liked = [answers_liked] if not None else ['null']
+                self.contacts_liked = [contacts_liked] if not None else ['null']
+                self.tips_liked = [tips_liked] if not None else ['null']
+                self.events_created = [events_created] if not None else ['null']
+                self.questions_created = [questions_created] if not None else ['null']
+                self.answers_created = [answers_created] if not None else ['null']
+                self.contacts_created = [contacts_created] if not None else ['null']
+                self.tips_created = [tips_created] if not None else ['null']
 
     # method used as a formatter   
     def user_info_to_dic(self):
@@ -63,6 +65,7 @@ class User:
             'first_name': self.first_name,
             'last_name': self.last_name,
             'profile_picture': self.profile_picture,
+            'events_joined': self.events_joined,
             'events_liked': self.events_liked,
             'questions_liked': self.questions_liked,
             'answers_liked': self.answers_liked,
