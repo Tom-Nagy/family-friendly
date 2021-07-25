@@ -14,51 +14,57 @@
                 <a class="carousel-item event-slide black-txt">
                     <div class="card-panel orange-bg">
                         <!-- Created By -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_created_by }}</span>
+                                <p class="events-card-descriptions">{{ event.event_created_by }}</p>
                             </div>
                         </div>
                         <!-- Category -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_category }}</span>
+                                <p class="events-card-titles">What ?</p>
+                                <p class="events-card-descriptions">{{ event.event_category }}</p>
                             </div>
                         </div>
                         <!-- Location -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_location }}</span>
+                                <p class="events-card-titles">Where ?</p>
+                                <p class="events-card-descriptions">{{ event.event_location }}</p>
                             </div>
                         </div>
                         <!-- Date -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_date }}</span>
+                                <p class="events-card-titles">When ?</p>
+                                <p class="events-card-descriptions">{{ event.event_date }}</p>
                             </div>
                         </div>
                         <!-- Time -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_time }}</span>
+                                <p class="events-card-titles">What time ?</p>
+                                <p class="events-card-descriptions">{{ event.event_time }}</p>
                             </div>
                         </div>
                         <!-- Age Range -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_age_range }}</span>
+                                <p class="events-card-titles">Age range in years :</p>
+                                <p class="events-card-descriptions">{{ event.event_age_range }}</p>
                             </div>
                         </div>
                         <!-- Description -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_description }}</span>
+                                <p class="events-card-titles">Description :</p>
+                                <p class="events-card-descriptions">{{ event.event_description }}</p>
                             </div>
                         </div>
                         <!-- Likes -->
-                        <div class="row">
+                        <div class="row events-card-sections">
                             <div class="col s12">
-                                <span>{{ event.event_likes }}</span>
+                                <p class="events-card-descriptions">{{ event.event_likes }}</p>
                             </div>
                         </div>
                     </div>
