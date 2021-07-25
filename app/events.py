@@ -26,11 +26,10 @@ def create_event(username):
         get_attr = "events_created"
 
         # Create an Istance of the new event to get its id
-        event_created = Event.get_one_event(user_id)
+        event_created = Event.get_last_event_crated_by_user(user_id)
         if event_created:
             event_id = event_created._id
-            print(f"event id is ==> {event_id}")
-
+            # Update user info
             User.append_user_info((get_attr, event_id), user_id)
 
             flash(EventsMsg.event_created)
@@ -47,13 +46,9 @@ def create_event(username):
 
 @events.route("/browse_events", methods=["GET", "POST"])
 def browse_events():
-    if session["user"]:
-        user = User.get_one_user_coll(session["user"])
-        events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
-    else:
-        events_list = Event.get_all_events()
-        return redirect(url_for("events.html", events_list=events_list))
+    
+    events_list = Event.get_all_events()
+    return render_template("events.html", events_list=events_list)
 
 
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])

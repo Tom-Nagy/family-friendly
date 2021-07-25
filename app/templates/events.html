@@ -1,27 +1,12 @@
 {% extends 'base.html' %}
 {% block heading %}
-    <h2 class="blue-txt">Create an Event</h2>
+    <h2 class="blue-txt">Events</h2>
 {% endblock %}
 
 {% block content %}
 
 
-<!-- <div class="row">
-    <div class="input-field disabled col s12">
-        <div class="chip col s3 profile-chip">
-            {% if user.profile_picture != None %}
-                user picture
-                <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
-                    alt="Profile image of {{ user.username }}">{{ user.username }}
-            {% else %}
-                default picture
-                <img class="profile-picture"
-                    src="/static/images/default-profile-picture/default-profile-picture.png"
-                    alt="Default profile picture representing a smiling sunflower.">{{ user.username }}
-            {% endif %}
-        </div>
-    </div>
-</div> -->
+
 <div class="row">
     <div class="col s12">
         <div class="carousel">
@@ -78,57 +63,7 @@
                         </div>
                     </div>
                 </a>
-                {% if session["user"] and event.event_created_by == user._id %}
-                    <a href="#" aria-label="Cancel Event" id="try-cancel-event">
-                        Cancel Event
-                    </a>
-                    <!-- Cancel Event Modal -->
-                    <div class="card-panel modals" id="cancel-event-modal">
-                        <p class="warning text-shadow yellow-bg hoverable">
-                            This action is irreversible, if you continue the event will be deleted
-                        </p>
-                        <form action="{{ url_for('events.cancel_event', username=session['user']) }}" method="POST">
-                            <!-- Hidden input to get the event id -->
-                            <div class="hide">
-                                <input id="cancel_event" name="leave_event" value="{{ event._id }}" type="text">
-                            </div>
-                            <button class="cancel-btn red-bg white-txt" type="submit">
-                                Cancel Event
-                            </button>
-                            <div class="center-align">
-                                <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Home page." 
-                                    class="btn back-btn blue-txt yellow-bg">Back to browsing</a>
-                            </div>
-                        </form>
-                    </div>
-                {% elif session["user"] and (event.event_joined_by in user.events_joined) %}
-                    <form action="#leave_event" method="POST">
-                        <!-- Hidden input to get the event id -->
-                        <div class="hide">
-                            <input id="leave_event" name="leave_event" value="{{ event._id }}" type="text">
-                        </div>
-                        <button class="cancel-btn red-bg white-txt" type="submit">
-                            Leave
-                        </button>
-                    </form>
-                {% elif session["user"] and (event.event_joined_by not in user.events_joined) %}
-                    <form action="#join_event" method="POST">
-                        <!-- Hidden input to get the event id -->
-                        <div class="hide">
-                            <input id="join_event" name="join_event" value="{{ event._id }}" type="text">
-                        </div>
-                        <button class="submit-btn blue-bg white-txt" type="submit">
-                            Leave
-                        </button>
-                    </form>
-                {% else %}
-                    <a href="#" class="black-txt centered" id="try-join">
-                        <h2 class="home-card-headings center-align text-shadow">Create</h2>
-                        <p class="home-card-txt center-align">
-                            Join not connected
-                        </p>
-                    </a>
-                {% endif %}
+               
             {% endfor %}
         </div>
     </div>

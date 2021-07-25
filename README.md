@@ -347,20 +347,9 @@ Update the session cookie (``session["user"]``) after updating the database and 
 
 ## Credits
 
-**All the written subject's content provided on the website is the result of my research and are my own production.**  
-Some resources used are but not limited to:
+### Code
 
-* [lelivrescolaire.fr](https://www.lelivrescolaire.fr/matiere/sciences-de-la-vie-et-de-la-terre)
-* [Owlcation](https://owlcation.com/)
-* [Kiddle](https://www.kiddle.co/)
-* [NATIONAL GEOGRAPHIC](https://www.nationalgeographic.org/)
-* [NATIONAL GEOGRAPHIC KIDS](https://www.natgeokids.com/ie/)
-* [MONGABAY](https://rainforests.mongabay.com/)
-* [Britannica](https://www.britannica.com/)
-* [National Oceanic and Atmospheric Administration: NOOA](https://www.noaa.gov/)
-* [USGS](https://www.usgs.gov/)
-* [LIVESCIENCE](https://www.livescience.com/)
-* [Wikipedia](https://www.wikipedia.org/)
+Credit for the sorting MongoDB query to Neil Lunn from [stackoverflow](https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
 
 ### Content
 
@@ -373,55 +362,16 @@ Some resources used are but not limited to:
 [GeeksforGeeks](https://www.geeksforgeeks.org/)
 
 [Miguel Grinberg](https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask)
+
 ### Media
 
 #### External links
-
-[ScienceNewsforStudents](https://www.sciencenewsforstudents.org/article/top-10-tips-study-smarter-not-longer-study-skills)  
-[FocusMe](https://focusme.com/blog/8-tips-to-study-better/)  
-[Pinterest 10 Study Tips by Diamond](https://www.pinterest.ie/pin/184225440993206363/)  
+ 
 [Wikipedia 404 error definition](https://en.wikipedia.org/wiki/HTTP_404)
 
 #### Icons
 
-[Alexandr Martinov on Iconfinder](https://www.iconfinder.com/search/?q=book&price=free)  
-For the menu icon that was slightly adjusted to the website needs using [Iconfinder Editor](https://www.iconfinder.com/editor/).
-
-* Icon made by Freepik from [www.flaticon.com](www.flaticon.com):
-  * [Volcano](https://www.flaticon.com/free-icon/volcano_2206644?term=volcano&page=1&position=3&page=1&position=3&related_id=2206644&origin=search)
-  * [Jungle](https://www.flaticon.com/free-icon/volcano_2206644?term=volcano&page=1&position=3&page=1&position=3&related_id=2206644&origin=search)
-  * [Ocean](https://www.flaticon.com/free-icon/ocean_3254422?term=ocean&page=1&position=8&page=1&position=8&related_id=3254422&origin=search)
-  * [Earth](https://www.flaticon.com/free-icon/earth-globe_616616?term=earth&page=1&position=12&page=1&position=12&related_id=616616&origin=search)
-
 #### Images
-
-<!-- * For the Volcano content:  
-  * [Infographic vector created by brgfx - www.freepik.com<](https://www.freepik.com/vectors/infographic)  
-  Images from [Adobe Stock](https://stock.adobe.com/ie/):  
-  * [volcano and earthquake infographic vector by gritsalak](https://stock.adobe.com/ie/images/volcano-and-earthquake-infographic-vector/211375558?prev_url=detail)  
-  * [volcano type. shield, dome, composite, and caldera by designua](https://stock.adobe.com/ie/images/volcano-type-shield-dome-composite-and-caldera/319892493?prev_url=detail)  
-  * [Part of a volcano by blueringmedia](https://stock.adobe.com/ie/images/part-of-a-volcano/377249194?prev_url=detail)
-
-* For the Ocean content:  
-  * [Oceans map by our homework help](https://ourhomeworkhelp.wordpress.com/2016/07/11/map-of-continents-oceans/)  
-  * [Image by brgfx from [freepik](https://www.freepik.com)](https://www.freepik.com/free-vector/tidal-movements-earth_1466597.htm#page=1&query=ocean%20tides&position=49)  
-  * [Image by U.S. Geological Survey, Department of the Interior/USGS Howard Perlman, USGS and John Evans, USGS. from Kiddle](https://kids.kiddle.co/Image:Water_cycle.png)  
-  * [Image by U.S. Geological Survey, Department of the Interior/USGS Igor Shiklamonov, 1993, "Water in Crisis: A Guide to the World's Freshwater Resources"](https://www.usgs.gov/media/images/distribution-water-and-above-earth)  
-
-* For the Jungle content:
-  Images from [Adobe Stock](https://stock.adobe.com/ie/):  
-  * [Rainforest layers educational banner or poster. Jungle vertical structure educational scheme. Emergent, canopy, understory and floor levels. Flat vector illustration by Rudzhan](https://stock.adobe.com/ie/images/rainforest-layers-educational-banner-or-poster-jungle-vertical-structure-educational-scheme-emergent-canopy-understory-and-floor-levels-flat-vector-illustration/408770051?prev_url=detail&asset_id=408770051)  
-  * [Aerial view of deforestation. Rainforest being removed to make way for palm oil and rubber plantations by whitcomberd](https://stock.adobe.com/ie/images/aerial-view-of-deforestation-rainforest-being-removed-to-make-way-for-palm-oil-and-rubber-plantations/240813889?prev_url=detail&asset_id=240813889)
-
-* For the Labyrinth path images depending on the subject selected:
-Images from [Adobe Stock](https://stock.adobe.com/ie/):
-  * Volcano: [heat red cracked ground texture after eruption volcano by releon8211](https://stock.adobe.com/ie/images/heat-red-cracked-ground-texture-after-eruption-volcano/110818846?prev_url=detail), 
-  * Jungle: [Yellow brick wall seamless texture for jungle theme vector by Pallavi](https://stock.adobe.com/ie/images/yellow-brick-wall-seamless-texture-for-jungle-theme-vector/271949380?prev_url=detail),
-  * Ocean: [blue water wave texture background by Naoki Kim](https://stock.adobe.com/ie/images/blue-water-wave-texture-background/154153098?prev_url=detail),
-  * Earth: [Top view of a young green forest in spring or summer by artjazz](https://stock.adobe.com/ie/images/top-view-of-a-young-green-forest-in-spring-or-summer/207714693?prev_url=detail)
-
-* For the exit sign in the labyrinth :
-[Arrow vector created by freepik - www.freepik.com](https://www.freepik.com/vectors/arrow)
 
 ### Aknowledgements :
 

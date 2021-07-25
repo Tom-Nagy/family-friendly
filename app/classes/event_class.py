@@ -83,13 +83,15 @@ class Event:
         return events_list
 
     @classmethod
-    def get_one_event(cls, user_id):
+    def get_last_event_crated_by_user(cls, user_id):
         """
         Takes the ObjectId of the creator as param,
-        Get an event from the db.
+        Get the last event created by this user from the db.
         """
         try:
-            event = events_coll.find_one({"event_created_by": ObjectId(user_id)})
+            # Credit for the sorting part of the code to Neil Lunn 
+            # from stackoverflow (https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
+            event = events_coll.find_one({"event_created_by": ObjectId(user_id)}, sort=[('_id', -1)])
             return cls(**event)
         except Exception as e:
             print(e)
