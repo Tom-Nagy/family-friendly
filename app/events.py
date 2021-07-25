@@ -13,6 +13,7 @@ from app.flashes.flash_messages import EventsMsg
 # Blueprint
 events = Blueprint("events", __name__)
 
+
 @events.route("/create_event/<username>", methods=["GET", "POST"])
 def create_event(username):
     if request.method == "POST":
@@ -47,8 +48,21 @@ def create_event(username):
 @events.route("/browse_events", methods=["GET", "POST"])
 def browse_events():
     
+    # Get all the events to display in a carousel
     events_list = Event.get_all_events()
     return render_template("events.html", events_list=events_list)
+
+
+@events.route("/see_event", methods=["GET", "POST"])
+def see_event():
+    # Check if user is logged in
+    if session["user"]:
+        user = User.get_one_user_coll(session["user"])
+
+        if request.method == "POST": 
+            event_id = request.form.get("event_id")
+            event = Event.get_one_event(event_id)
+            return render_template("see_event.html", event=event, user=user)
 
 
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])

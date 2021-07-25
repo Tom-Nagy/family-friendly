@@ -12,7 +12,11 @@
         <div class="carousel">
             {% for event in events_list %}       
                 <a class="carousel-item event-slide black-txt">
-                    <div class="card-panel orange-bg">
+                    <form action="{{ url_for('events.see_event') }}" method="POST" class="card-panel orange-bg carousel-from">
+                        <!-- Hidden input to get the event id -->
+                        <div class="hide">
+                            <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
+                        </div>
                         <!-- Created By -->
                         <div class="row events-card-sections">
                             <div class="col s12">
@@ -67,9 +71,26 @@
                                 <p class="events-card-descriptions">{{ event.event_likes }}</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                {% if session["user"] %}
+                                    <button type="submit" class="btn submit-btn blue-bg white-txt see-event center-align centered">
+                                        <span class="valign-wrapper">
+                                            See <span class="material-icons">login</span>
+                                        </span>
+                                    </button>
+                                {% else %}
+                                    <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt see-event">
+                                        <span class="valign-wrapper">
+                                            See <span class="material-icons">login</span>
+                                        </span>
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                    
                 </a>
-               
             {% endfor %}
         </div>
     </div>

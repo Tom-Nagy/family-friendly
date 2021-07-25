@@ -498,13 +498,13 @@ footer {
 /* events.html */
 /* Modification of the Materialize carousel for the website needs */
 .carousel {
-    height: 700px;
+    height: 800px;
     transform: translateY(-200px);
-    margin-bottom: 30px;
+    margin-bottom: -160px;
 }
 
 .carousel .carousel-item {
-    width: 360px;
+    width: 300px;
 }
 
 .carousel .indicators .indicator-item {
@@ -514,6 +514,10 @@ footer {
 .carousel .indicators .indicator-item.active {
     background-color: #FF091E;
 }
+
+/* .carousel-from {
+    padding-bottom: 60px;
+} */
 
 /* events card */
 
@@ -533,6 +537,7 @@ footer {
     font-size: 0.8rem;
     margin-top: 0;
 }
+
 
 /* .event-modal-heading {
     margin-top: 0;

@@ -83,10 +83,22 @@ class Event:
         return events_list
 
     @classmethod
+    def get_one_event(cls, event_id):
+        """
+        Takes the event_id as param,
+        Return an instance of this event.
+        """
+        try:
+            event = events_coll.find_one({"_id": ObjectId(event_id)})
+            return cls(**event)
+        except Exception as e:
+            print(e)
+
+    @classmethod
     def get_last_event_crated_by_user(cls, user_id):
         """
         Takes the ObjectId of the creator as param,
-        Get the last event created by this user from the db.
+        Return an instance of the last event created by this user from the db.
         """
         try:
             # Credit for the sorting part of the code to Neil Lunn 

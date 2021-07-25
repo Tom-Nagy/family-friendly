@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block heading %}
+    <h2 class="blue-txt">Event Description</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <form action="#" method="POST" class="card-panel orange-bg carousel-from">
+            <!-- Hidden input to get the event id -->
+            <div class="hide">
+                <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
+            </div>
+            <!-- Created By -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-descriptions">{{ event.event_created_by }}</p>
+                </div>
+            </div>
+            <!-- Category -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">What ?</p>
+                    <p class="events-card-descriptions">{{ event.event_category }}</p>
+                </div>
+            </div>
+            <!-- Location -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">Where ?</p>
+                    <p class="events-card-descriptions">{{ event.event_location }}</p>
+                </div>
+            </div>
+            <!-- Date -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">When ?</p>
+                    <p class="events-card-descriptions">{{ event.event_date }}</p>
+                </div>
+            </div>
+            <!-- Time -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">What time ?</p>
+                    <p class="events-card-descriptions">{{ event.event_time }}</p>
+                </div>
+            </div>
+            <!-- Age Range -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">Age range in years :</p>
+                    <p class="events-card-descriptions">{{ event.event_age_range }}</p>
+                </div>
+            </div>
+            <!-- Description -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-titles">Description :</p>
+                    <p class="events-card-descriptions">{{ event.event_description }}</p>
+                </div>
+            </div>
+            <!-- Likes -->
+            <div class="row events-card-sections">
+                <div class="col s12">
+                    <p class="events-card-descriptions">{{ event.event_likes }}</p>
+                </div>
+            </div>
+            <!-- Join -->
+            <div class="row">
+                <div class="col12 center-align">
+                    <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Create</button>
+                    <a href="{{ url_for('index.home') }}" 
+                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
+{% endblock %}
