@@ -5,98 +5,114 @@
 
 {% block content %}
 
-
-
-<div class="row">
-    <div class="col s12">
-        <div class="carousel">
-            {% for event in events_list %}       
-                <a class="carousel-item event-slide black-txt">
-                    <form action="{{ url_for('events.see_event') }}" method="POST" class="card-panel orange-bg carousel-from">
-                        <!-- Hidden input to get the event id -->
-                        <div class="hide">
-                            <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
-                        </div>
-                        <!-- Created By -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-descriptions">{{ event.event_created_by }}</p>
+    <!-- Carousel that display all the events -->
+    <div class="row">
+        <div class="col s12">
+            <div class="carousel">
+                {% for event in events_list %}       
+                    <a class="carousel-item event-slide black-txt">
+                        <form action="{{ url_for('events.see_event') }}" method="POST" class="card-panel orange-bg carousel-from">
+                            <!-- Hidden input to get the event id -->
+                            <div class="hide">
+                                <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
                             </div>
-                        </div>
-                        <!-- Category -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">What ?</p>
-                                <p class="events-card-descriptions">{{ event.event_category }}</p>
+                            <!-- Created By -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-descriptions">{{ event.event_created_by }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Location -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">Where ?</p>
-                                <p class="events-card-descriptions">{{ event.event_location }}</p>
+                            <!-- Category -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">What ?</p>
+                                    <p class="events-card-descriptions">{{ event.event_category }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Date -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">When ?</p>
-                                <p class="events-card-descriptions">{{ event.event_date }}</p>
+                            <!-- Location -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">Where ?</p>
+                                    <p class="events-card-descriptions">{{ event.event_location }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Time -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">What time ?</p>
-                                <p class="events-card-descriptions">{{ event.event_time }}</p>
+                            <!-- Date -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">When ?</p>
+                                    <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Age Range -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">Age range in years :</p>
-                                <p class="events-card-descriptions">{{ event.event_age_range }}</p>
+                            <!-- Time -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">What time ?</p>
+                                    <p class="events-card-descriptions">{{ event.event_time }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Description -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-titles">Description :</p>
-                                <p class="events-card-descriptions">{{ event.event_description }}</p>
+                            <!-- Age Range -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">Age range in years :</p>
+                                    <p class="events-card-descriptions">{{ event.event_age_range }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Likes -->
-                        <div class="row events-card-sections">
-                            <div class="col s12">
-                                <p class="events-card-descriptions">{{ event.event_likes }}</p>
+                            <!-- Description -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-titles">Description :</p>
+                                    <p class="events-card-descriptions">{{ event.event_description }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 center-align">
-                                {% if session["user"] %}
-                                    <button type="submit" class="btn submit-btn blue-bg white-txt see-event center-align centered">
-                                        <span class="valign-wrapper">
-                                            See <span class="material-icons">login</span>
-                                        </span>
-                                    </button>
-                                {% else %}
-                                    <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt see-event">
-                                        <span class="valign-wrapper">
-                                            See <span class="material-icons">login</span>
-                                        </span>
-                                    </button>
-                                {% endif %}
+                            <!-- Likes -->
+                            <div class="row events-card-sections">
+                                <div class="col s12">
+                                    <p class="events-card-descriptions">{{ event.event_likes }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    
-                </a>
-            {% endfor %}
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    {% if session["user"] %}
+                                        <button type="submit" class="btn submit-btn blue-bg white-txt see-event center-align centered">
+                                            <span class="valign-wrapper">
+                                                See <span class="material-icons">login</span>
+                                            </span>
+                                        </button>
+                                    {% else %}
+                                        <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt see-event">
+                                            <span class="valign-wrapper">
+                                                See <span class="material-icons">login</span>
+                                            </span>
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
-<!-- Overlay -->
-<div class="overlay"></div>
+
+    <!-- try-see-event modal -->
+    <div id="try-see-event-modal" class="modals white-bg black-txt card-panel">
+        <h2 class="card-headings center-align text-shadow">Sorry Cannot See This Event!</h2>
+        <p class="center-align">
+            In order to See an Event, 
+            please <span class="text-shadow">Log In</span> or <span class="text-shadow">Sign Up</span>.
+        </p>
+        <div class="center-align">
+            <a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page." class="btn submit-btn blue-bg">Log In</a>
+            <a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page." class="btn submit-btn blue-bg">Sign Up</a> <br>
+            <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page." class="btn back-btn blue-txt yellow-bg">
+                Back to browsing
+            </a>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="event-overlay" class="overlay"></div>
 {% endblock %}
 
 {% block scripts %}

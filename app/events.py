@@ -58,11 +58,11 @@ def see_event():
     # Check if user is logged in
     if session["user"]:
         user = User.get_one_user_coll(session["user"])
-
-        if request.method == "POST": 
-            event_id = request.form.get("event_id")
-            event = Event.get_one_event(event_id)
-            return render_template("see_event.html", event=event, user=user)
+        # Get the event_id passed by the form from browse_events 
+        # to display the relevant event
+        event_id = request.form.get("event_id")
+        event = Event.get_one_event(event_id)
+        return render_template("see_event.html", event=event, user=user)
 
 
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])
