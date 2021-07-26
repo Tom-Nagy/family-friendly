@@ -63,6 +63,8 @@ def see_event():
         # to display the relevant event
         event_id = request.form.get("event_id")
         event = Event.get_one_event(event_id)
+        print(type(event._id))
+        print(type(user["events_joined"]))
         return render_template("see_event.html", event=event, user=user)
 
 

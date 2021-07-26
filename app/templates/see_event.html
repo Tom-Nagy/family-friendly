@@ -9,7 +9,9 @@
             <!-- Created By -->
             <div class="row events-card-sections padd-top">
                 <div class="col s12">
-                    <p class="events-card-descriptions">{{ event.event_created_by }}</p>
+                    <p class="events-card-descriptions">{{ event._id }}</p>
+                    <p class="events-card-descriptions">{{ user.events_joined }}</p>
+                    <p class="events-card-descriptions">{{ event._id in user.events_joined }}</p>
                 </div>
             </div>
             <!-- Category -->
@@ -71,7 +73,7 @@
                         </button>
                     </div>
                 </div>
-            {% elif event.event_joined_by in user.events_joined %}
+            {% elif event._id|string in user.events_joined %}
                 <!-- Leave event -->
                 <form action="#leave_event" method="POST" class="padd-bot center-align">
                     <!-- Hidden input to get the event id -->

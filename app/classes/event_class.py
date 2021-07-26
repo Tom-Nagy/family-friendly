@@ -34,7 +34,7 @@ class Event:
                 self.event_description = event_description
                 self.event_created_by = ObjectId(event_created_by) if not None else 'null'
                 self.event_likes = [event_likes] if not None else ['null']
-                self.event_joined_by = ["ObjectId(event_joined_by)"] if not None else ['null']
+                self.event_joined_by = [event_joined_by] if not None else ['null']
 
     # method used as a formatter   
     def event_info_to_dic(self):
@@ -117,20 +117,14 @@ class Event:
         # unpack the tuple
         (get_attr, user_id) = new_value
         try:
-            print(f"Attribute ==> {get_attr}")
-            print(f"User id ==> {user_id}")
-            print(f"Event ID ==> {event_id}")
             # get the user and corresponding attr/key and append the new value
             event = events_coll.find_one({"_id": ObjectId(event_id)})
-            print(f"event ==> {event}")
             corresponding_list = event[get_attr]
             obj_id = str(ObjectId(user_id))
-            print(f"obj id ==> {obj_id}")
 
             if isinstance(corresponding_list, list):
                 corresponding_list.append(obj_id)
                 new_list = {get_attr: corresponding_list}
-                print(f"New List ==> {new_list}")
                 events_coll.update_one({'_id': ObjectId(event_id)},
                                        {'$set': new_list})
             else:
