@@ -92,13 +92,16 @@ def join_event(username):
         # Get the user id from the db
         user_id = User.get_one_user_coll(username)["_id"]
         
-        # Set the attribute to update
-        get_attr = "events_joined"
-        # Add the event id to the user
-        User.append_user_info((get_attr, event_id), user_id)
+        # Set the attribute to update to the user doc
+        get_user_attr = "events_joined"
+        # Add the event id to the corresponding user attribute
+        User.append_user_info((get_user_attr, event_id), user_id)
 
+        # Set the attribute to update to the event doc
+        get_event_attr = "event_joined_by"
+        # Add the user id to the corresponding event attribute
+        Event.append_event_info((get_event_attr, user_id), event_id)
 
-        # Add the user id to the event
         flash(EventsMsg.event_joined)
 
         events_list = Event.get_all_events()

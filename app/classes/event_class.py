@@ -109,6 +109,41 @@ class Event:
             print(e)
 
     @staticmethod
+    def append_event_info(new_value, event_id):
+        """
+        Takes a tuple (of attribute and user id), and event_id as param;
+        Append new info and Update db
+        """
+        # unpack the tuple
+        (get_attr, user_id) = new_value
+        try:
+            print(f"Attribute ==> {get_attr}")
+            print(f"User id ==> {user_id}")
+            print(f"Event ID ==> {event_id}")
+            # get the user and corresponding attr/key and append the new value
+            event = events_coll.find_one({"_id": ObjectId(event_id)})
+            print(f"event ==> {event}")
+            corresponding_list = event[get_attr]
+            obj_id = str(ObjectId(user_id))
+            print(f"obj id ==> {obj_id}")
+
+            if isinstance(corresponding_list, list):
+                corresponding_list.append(obj_id)
+                new_list = {get_attr: corresponding_list}
+                print(f"New List ==> {new_list}")
+                events_coll.update_one({'_id': ObjectId(event_id)},
+                                       {'$set': new_list})
+            else:
+                corresponding_list = []
+                corresponding_list.append(obj_id)
+                new_list = {get_attr: corresponding_list}
+                events_coll.update_one({'_id': ObjectId(event_id)},
+                                      {'$set': new_list})
+        except Exception as e:
+            print(e)
+
+
+    @staticmethod
     def delete_event(event_id):
         """
         Delete an event from the db,

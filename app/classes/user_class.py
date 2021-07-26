@@ -120,7 +120,7 @@ class User:
     @staticmethod
     def append_user_info(new_value, user_id):
         """
-        Takes a tuple (of attribute and new info), and user_id as param;
+        Takes a tuple (of attribute and event id), and user_id as param;
         Append new info and Update db
         """
         # unpack the tuple
