@@ -84,7 +84,7 @@
                 </form>
             {% else %}
                 <!-- Join event -->
-                <form action="#join_event" method="POST" class="padd-bot center-align">
+                <form action="{{ url_for('events.join_event', username=session['user']) }}" method="POST" class="padd-bot center-align">
                     <!-- Hidden input to get the event id -->
                     <div class="hide">
                         <input id="join_event" name="join_event" value="{{ event._id }}" type="text">

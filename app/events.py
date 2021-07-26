@@ -30,6 +30,7 @@ def create_event(username):
         event_created = Event.get_last_event_crated_by_user(user_id)
         if event_created:
             event_id = event_created._id
+            
             # Update user info
             User.append_user_info((get_attr, event_id), user_id)
 
@@ -68,14 +69,40 @@ def see_event():
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])
 def cancel_event(username):
     if session["user"] and session["user"] == username:
-
+        # Get the event id from the form
         event_id = request.form.get("cancel_event")
+        # Delete event from the event collection in db
         Event.delete_event(event_id)
         flash(EventsMsg.event_deleted)
 
-        user = User.get_one_user_coll(session["user"])
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template("events.html", events_list=events_list)
+
+    else:
+        flash(EventsMsg.didnt_work)
+        return redirect(url_for('index.home'))
+
+
+@events.route("/join_event/<username>", methods=["GET", "POST"])
+def join_event(username):
+    if session["user"] and session["user"] == username:
+        # Get the event id from the form
+        event_id = request.form.get("join_event")
+
+        # Get the user id from the db
+        user_id = User.get_one_user_coll(username)["_id"]
+        
+        # Set the attribute to update
+        get_attr = "events_joined"
+        # Add the event id to the user
+        User.append_user_info((get_attr, event_id), user_id)
+
+
+        # Add the user id to the event
+        flash(EventsMsg.event_joined)
+
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list)
 
     else:
         flash(EventsMsg.didnt_work)

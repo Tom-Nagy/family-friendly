@@ -39,4 +39,5 @@ class EventsMsg:
     """
     event_created = "Event successfully created !"
     event_deleted = "Event successfully deleted"
+    event_joined = "You have joined the Event"
     didnt_work = "Sorry it did not work, try again later"
