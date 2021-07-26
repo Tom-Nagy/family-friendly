@@ -47,7 +47,7 @@ def create_event(username):
 
 @events.route("/browse_events", methods=["GET", "POST"])
 def browse_events():
-    
+
     # Get all the events to display in a carousel
     events_list = Event.get_all_events()
     return render_template("events.html", events_list=events_list)
@@ -58,7 +58,7 @@ def see_event():
     # Check if user is logged in
     if session["user"]:
         user = User.get_one_user_coll(session["user"])
-        # Get the event_id passed by the form from browse_events 
+        # Get the event_id passed by the form from browse_events
         # to display the relevant event
         event_id = request.form.get("event_id")
         event = Event.get_one_event(event_id)
@@ -68,14 +68,14 @@ def see_event():
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])
 def cancel_event(username):
     if session["user"] and session["user"] == username:
-        if request.method == "Post":
-            event_id = request.form.get("cancel_event")
-            Event.delete_event(event_id)
-            flash(EventsMsg.event_deleted)
 
-            user = User.get_one_user_coll(session["user"])
-            events_list = Event.get_all_events()
-            return render_template("events.html", events_list=events_list, user=user)
+        event_id = request.form.get("cancel_event")
+        Event.delete_event(event_id)
+        flash(EventsMsg.event_deleted)
+
+        user = User.get_one_user_coll(session["user"])
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)

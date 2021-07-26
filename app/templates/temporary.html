@@ -15,11 +15,11 @@
     </div>
 </div> -->
 
-{% if session["user"] %}
 {% if event.event_created_by == user._id %}
-    <a href="#" aria-label="Cancel Event" id="try-cancel-event">
+    <!-- Cancel event -->
+    <button type="button" aria-label="Cancel Event" id="try-cancel-event" class="btn cancel-btn red-bg white-txt">
         Cancel Event
-    </a>
+    </button>
     <!-- Cancel Event Modal -->
     <div class="card-panel modals" id="cancel-event-modal">
         <p class="warning text-shadow yellow-bg hoverable">
@@ -30,6 +30,7 @@
             <div class="hide">
                 <input id="cancel_event" name="leave_event" value="{{ event._id }}" type="text">
             </div>
+            <!-- Confirm cancel event -->
             <button class="cancel-btn red-bg white-txt" type="submit">
                 Cancel Event
             </button>
@@ -40,6 +41,7 @@
         </form>
     </div>
 {% elif event.event_joined_by in user.events_joined %}
+    <!-- Leave event -->
     <form action="#leave_event" method="POST">
         <!-- Hidden input to get the event id -->
         <div class="hide">
@@ -50,21 +52,14 @@
         </button>
     </form>
 {% else %}
+    <!-- Join event -->
     <form action="#join_event" method="POST">
         <!-- Hidden input to get the event id -->
         <div class="hide">
             <input id="join_event" name="join_event" value="{{ event._id }}" type="text">
         </div>
         <button class="submit-btn blue-bg white-txt" type="submit">
-            Leave
+            Join
         </button>
     </form>
-{% endif %}
-{% else %}
-<a href="#" class="black-txt centered" id="try-join">
-    <h2 class="home-card-headings center-align text-shadow">Create</h2>
-    <p class="home-card-txt center-align">
-        Join not connected
-    </p>
-</a>
 {% endif %}

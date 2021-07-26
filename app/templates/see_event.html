@@ -5,13 +5,9 @@
 
 {% block content %}
     <div class="row">
-        <form action="#" method="POST" class="card-panel orange-bg carousel-from">
-            <!-- Hidden input to get the event id -->
-            <div class="hide">
-                <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
-            </div>
+        <div class="col s10 offset-s1 m6 offset-m3 card-panel orange-bg">
             <!-- Created By -->
-            <div class="row events-card-sections">
+            <div class="row events-card-sections padd-top">
                 <div class="col s12">
                     <p class="events-card-descriptions">{{ event.event_created_by }}</p>
                 </div>
@@ -64,18 +60,82 @@
                     <p class="events-card-descriptions">{{ event.event_likes }}</p>
                 </div>
             </div>
-            <!-- Join -->
-            <div class="row">
-                <div class="col12 center-align">
-                    <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Create</button>
-                    <a href="{{ url_for('index.home') }}" 
-                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+
+            <!-- newly added 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
+            {% if event.event_created_by == user._id %}
+                <!-- Cancel event -->
+                <div class="row">
+                    <div class="col s12 center-align padd-bot">
+                        <button type="button" aria-label="Cancel Event" id="try-cancel-event" class="btn cancel-btn red-bg white-txt">
+                            Cancel Event
+                        </button>
+                    </div>
                 </div>
+            {% elif event.event_joined_by in user.events_joined %}
+                <!-- Leave event -->
+                <form action="#leave_event" method="POST" class="padd-bot center-align">
+                    <!-- Hidden input to get the event id -->
+                    <div class="hide">
+                        <input id="leave_event" name="leave_event" value="{{ event._id }}" type="text">
+                    </div>
+                    <button class="btn cancel-btn red-bg white-txt" type="submit">
+                        Leave
+                    </button>
+                </form>
+            {% else %}
+                <!-- Join event -->
+                <form action="#join_event" method="POST" class="padd-bot center-align">
+                    <!-- Hidden input to get the event id -->
+                    <div class="hide">
+                        <input id="join_event" name="join_event" value="{{ event._id }}" type="text">
+                    </div>
+                    <button class="btn submit-btn blue-bg white-txt" type="submit">
+                        Join
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Back to Events -->
+    <div class="row">
+        <div class="col12 center-align">
+            <a href="{{ url_for('events.browse_events') }}" 
+                class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to all Events</a>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Cancel Event Modal -->
+    <div class="card-panel modals" id="cancel-event-modal">
+        <h3 class="warning text-shadow yellow-bg hoverable">
+            <span class="valign-wrapper red-bg yellow-txt">
+                <span class="material-icons">warning</span>
+                This action is irreversible, if you continue the event will be deleted.
+            </span>
+        </h3>
+        <form action="{{ url_for('events.cancel_event', username=session['user']) }}" method="POST">
+            <!-- Hidden input to get the event id -->
+            <div class="hide">
+                <input id="cancel_event" name="cancel_event" value="{{ event._id }}" type="text">
+            </div>
+            <!-- Confirm cancel event -->
+            <div class="center-align">
+                <button class="btn cancel-btn red-bg white-txt" type="submit">
+                    Cancel Event
+                </button>
+                <!-- Back to Events -->
+                <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Home page." 
+                    class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to Events</a>
             </div>
         </form>
     </div>
+
+    <!-- Overlay -->
+    <div id="see-event-overlay" class="overlay"></div>
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts/see-event.js') }}"></script>
 {% endblock %}

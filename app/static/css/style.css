@@ -33,6 +33,14 @@ body {
     margin: auto;
 }
 
+.padd-top {
+    padding-top: 12px;
+}
+
+.padd-bot {
+    padding-bottom: 12px;
+}
+
 /* Typograpgy */
 html,
 body {
@@ -516,10 +524,6 @@ footer {
     background-color: #FF091E;
 }
 
-/* .carousel-from {
-    padding-bottom: 60px;
-} */
-
 /* events card */
 
 .events-card-sections {
@@ -539,10 +543,5 @@ footer {
     margin-top: 0;
 }
 
+/* see_event.html */
 
-/* .event-modal-heading {
-    margin-top: 0;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 700;
-} */
