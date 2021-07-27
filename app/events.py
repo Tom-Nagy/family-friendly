@@ -2,6 +2,7 @@
 Views related to the creation of events
 """
 # Imports
+from app import mongo
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
@@ -12,6 +13,9 @@ from app.flashes.flash_messages import EventsMsg
 
 # Blueprint
 events = Blueprint("events", __name__)
+
+# Collection
+users_coll = mongo.db.users
 
 
 @events.route("/create_event/<username>", methods=["GET", "POST"])
@@ -63,8 +67,6 @@ def see_event():
         # to display the relevant event
         event_id = request.form.get("event_id")
         event = Event.get_one_event(event_id)
-        print(type(event._id))
-        print(type(user["events_joined"]))
         return render_template("see_event.html", event=event, user=user)
 
 
@@ -73,8 +75,38 @@ def cancel_event(username):
     if session["user"] and session["user"] == username:
         # Get the event id from the form
         event_id = request.form.get("cancel_event")
+
         # Delete event from the event collection in db
         Event.delete_event(event_id)
+
+        # Get the user id from the db
+        user_id = User.get_one_user_coll(username)["_id"]
+        # Set the attribute to update in the user doc
+        get_user_attr = "events_created"
+        # Delete event_id from corresponding field of the user
+        User.remove_info_from_user_list((get_user_attr, event_id), user_id)
+
+        # get all user from db
+        all_users = users_coll.find()
+        # Check if user has joined the event and if so remove the event 
+        # from his document
+        for user in all_users:
+            # Set the attribute to update in the user doc
+            get_user_attr = "events_joined"
+            
+            if event_id in user[get_user_attr]:
+                print(f"Event ID ==> {event_id}")
+                print(f"corresp list ==> {user[get_user_attr]}")
+                print(".............................")
+                # Get the corresponding user id from the db
+                user_id = user["_id"]
+                print(f"user ID ==> {user_id}")
+                # Delete event_id from corresponding field of the user
+                User.remove_info_from_user_list((get_user_attr, event_id), user_id)
+
+
+
+
         flash(EventsMsg.event_deleted)
 
         events_list = Event.get_all_events()

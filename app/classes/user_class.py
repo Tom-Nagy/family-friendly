@@ -40,17 +40,17 @@ class User:
         self.email = email
         self.password = generate_password_hash(password)
         self.profile_picture = profile_picture if not None else 'null'
-        self.events_joined = [events_joined] if not None else ['null']
-        self.events_liked = [events_liked] if not None else ['null']
-        self.questions_liked = [questions_liked] if not None else ['null']
-        self.answers_liked = [answers_liked] if not None else ['null']
-        self.contacts_liked = [contacts_liked] if not None else ['null']
-        self.tips_liked = [tips_liked] if not None else ['null']
-        self.events_created = [events_created] if not None else ['null']
-        self.questions_created = [questions_created] if not None else ['null']
-        self.answers_created = [answers_created] if not None else ['null']
-        self.contacts_created = [contacts_created] if not None else ['null']
-        self.tips_created = [tips_created] if not None else ['null']
+        self.events_joined = [events_joined] if not None else 'null'
+        self.events_liked = [events_liked] if not None else 'null'
+        self.questions_liked = [questions_liked] if not None else 'null'
+        self.answers_liked = [answers_liked] if not None else 'null'
+        self.contacts_liked = [contacts_liked] if not None else 'null'
+        self.tips_liked = [tips_liked] if not None else 'null'
+        self.events_created = [events_created] if not None else 'null'
+        self.questions_created = [questions_created] if not None else 'null'
+        self.answers_created = [answers_created] if not None else 'null'
+        self.contacts_created = [contacts_created] if not None else 'null'
+        self.tips_created = [tips_created] if not None else 'null'
 
     # method used as a formatter
     def user_info_to_dic(self):
@@ -65,17 +65,17 @@ class User:
             'first_name': self.first_name,
             'last_name': self.last_name,
             'profile_picture': self.profile_picture,
+            'events_created': self.events_created,
             'events_joined': self.events_joined,
             'events_liked': self.events_liked,
-            'questions_liked': self.questions_liked,
-            'answers_liked': self.answers_liked,
-            'contacts_liked': self.contacts_liked,
-            'tips_liked': self.tips_liked,
-            'events_created': self.events_created,
             'questions_created': self.questions_created,
+            'questions_liked': self.questions_liked,
             'answers_created': self.answers_created,
+            'answers_liked': self.answers_liked,
             'contacts_created': self.contacts_created,
+            'contacts_liked': self.contacts_liked,
             'tips_created': self.tips_created,
+            'tips_liked': self.tips_liked
         }
         return user_info
 
@@ -120,7 +120,7 @@ class User:
     @staticmethod
     def append_info_to_user(new_value, user_id):
         """
-        Takes a tuple (of attribute and event id), and user_id as param;
+        Takes a tuple (of field/attr and event id), and user_id as param;
         Append new info,
         Update db
         """
@@ -149,7 +149,7 @@ class User:
     @staticmethod
     def remove_info_from_user_list(details, user_id):
         """
-        Takes a tuple (of attribute and event id), and user_id as param;
+        Takes a tuple (of field/attr and event id), and user_id as param;
         Delete info with given details,
         Update db
         """

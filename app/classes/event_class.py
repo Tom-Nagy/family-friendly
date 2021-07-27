@@ -33,8 +33,8 @@ class Event:
                 self.event_time = event_time
                 self.event_description = event_description
                 self.event_created_by = ObjectId(event_created_by) if not None else 'null'
-                self.event_likes = [event_likes] if not None else ['null']
-                self.event_joined_by = [event_joined_by] if not None else ['null']
+                self.event_likes = [event_likes] if not None else 'null'
+                self.event_joined_by = [event_joined_by] if not None else 'null'
 
     # method used as a formatter   
     def event_info_to_dic(self):
@@ -50,8 +50,8 @@ class Event:
             'event_time': self.event_time,
             'event_description': self.event_description,
             'event_created_by': self.event_created_by,
-            'event_likes': self.event_likes,
-            'event_joined_by': self.event_joined_by
+            'event_joined_by': self.event_joined_by,
+            'event_likes': self.event_likes
         }
         return event_info
 
@@ -111,7 +111,7 @@ class Event:
     @staticmethod
     def append_info_to_event(new_value, event_id):
         """
-        Takes a tuple (of attribute and user id), and event_id as param;
+        Takes a tuple (of field/attr and user id), and event_id as param;
         Append new info,
         Update db
         """
@@ -140,7 +140,7 @@ class Event:
     @staticmethod
     def remove_info_from_event_list(details, event_id):
         """
-        Takes a tuple (of attribute and user_id), and event_id as param;
+        Takes a tuple (of field/attr and user_id), and event_id as param;
         Delete info with given details,
         Update db
         """
