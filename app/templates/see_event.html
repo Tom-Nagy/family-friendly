@@ -5,19 +5,11 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s10 offset-s1 m6 offset-m3 card-panel orange-bg">
-            <!-- Created By -->
-            <div class="row events-card-sections padd-top">
-                <div class="col s12">
-                    <p class="events-card-descriptions">{{ event._id }}</p>
-                    <p class="events-card-descriptions">{{ user.events_joined }}</p>
-                    <p class="events-card-descriptions">{{ event._id in user.events_joined }}</p>
-                </div>
-            </div>
+        <div class="col s10 offset-s1 m4 offset-m4 card-panel orange-bg">
             <!-- Category -->
             <div class="row events-card-sections">
                 <div class="col s12">
-                    <p class="events-card-titles">What ?</p>
+                    <p class="events-card-titles padd-top">What ?</p>
                     <p class="events-card-descriptions">{{ event.event_category }}</p>
                 </div>
             </div>
@@ -63,7 +55,7 @@
                 </div>
             </div>
 
-            <!-- newly added 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
+            <!-- Buttons displayed depending on user and event info -->
             {% if event.event_created_by == user._id %}
                 <!-- Cancel event -->
                 <div class="row">
@@ -75,15 +67,11 @@
                 </div>
             {% elif event._id|string in user.events_joined %}
                 <!-- Leave event -->
-                <form action="#leave_event" method="POST" class="padd-bot center-align">
-                    <!-- Hidden input to get the event id -->
-                    <div class="hide">
-                        <input id="leave_event" name="leave_event" value="{{ event._id }}" type="text">
-                    </div>
-                    <button class="btn cancel-btn red-bg white-txt" type="submit">
-                        Leave
+                <div class="col s12 center-align padd-bot">
+                    <button type="button" aria-label="Leave Event" id="try-leave-event" class="btn cancel-btn red-bg white-txt">
+                        Leave Event
                     </button>
-                </form>
+                </div>
             {% else %}
                 <!-- Join event -->
                 <form action="{{ url_for('events.join_event', username=session['user']) }}" method="POST" class="padd-bot center-align">
@@ -92,7 +80,7 @@
                         <input id="join_event" name="join_event" value="{{ event._id }}" type="text">
                     </div>
                     <button class="btn submit-btn blue-bg white-txt" type="submit">
-                        Join
+                        Join Event
                     </button>
                 </form>
             {% endif %}
@@ -111,7 +99,7 @@
 
     <!-- Cancel Event Modal -->
     <div class="card-panel modals" id="cancel-event-modal">
-        <h3 class="warning text-shadow yellow-bg hoverable">
+        <h3 class="warning text-shadow yellow-bg">
             <span class="valign-wrapper red-bg yellow-txt">
                 <span class="material-icons">warning</span>
                 This action is irreversible, if you continue the event will be deleted.
@@ -129,10 +117,36 @@
                 </button>
                 <!-- Back to Events -->
                 <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Home page." 
-                    class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to Events</a>
+                    class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to all Events</a>
             </div>
         </form>
     </div>
+
+    <!-- Leave Event Modal -->
+    <div class="card-panel modals" id="leave-event-modal">
+        <h3 class="warning text-shadow">
+            <span class="valign-wrapper red-txt">
+                <span class="material-icons">warning</span>
+                You are about to leave this Event? Confirm to proceed.
+            </span>
+        </h3>
+        <form action="{{ url_for('events.leave_event', username=session['user']) }}" method="POST">
+            <!-- Hidden input to get the event id -->
+            <div class="hide">
+                <input id="cancel_event" name="leave_event" value="{{ event._id }}" type="text">
+            </div>
+            <!-- Confirm leave event -->
+            <div class="center-align">
+                <button class="btn cancel-btn red-bg white-txt" type="submit">
+                    Leave Event
+                </button>
+                <!-- Back to Events -->
+                <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Home page." 
+                    class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to all Events</a>
+            </div>
+        </form>
+    </div>
+    
 
     <!-- Overlay -->
     <div id="see-event-overlay" class="overlay"></div>

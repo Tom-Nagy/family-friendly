@@ -109,10 +109,11 @@ class Event:
             print(e)
 
     @staticmethod
-    def append_event_info(new_value, event_id):
+    def append_info_to_event(new_value, event_id):
         """
         Takes a tuple (of attribute and user id), and event_id as param;
-        Append new info and Update db
+        Append new info,
+        Update db
         """
         # unpack the tuple
         (get_attr, user_id) = new_value
@@ -136,6 +137,30 @@ class Event:
         except Exception as e:
             print(e)
 
+    @staticmethod
+    def remove_info_from_event_list(details, event_id):
+        """
+        Takes a tuple (of attribute and user_id), and event_id as param;
+        Delete info with given details,
+        Update db
+        """
+        # unpack the tuple
+        (get_attr, user_id) = details
+        try:
+            # get the event and corresponding attr/key
+            event = events_coll.find_one({"_id": ObjectId(event_id)})
+            corresponding_list = event[get_attr]
+            obj_id = str(ObjectId(user_id))
+
+            # remove user_id from list
+            corresponding_list.remove(obj_id)
+
+            # Update db
+            new_list = {get_attr: corresponding_list}
+            events_coll.update_one({'_id': ObjectId(event_id)},
+                                   {'$set': new_list})
+        except Exception as e:
+            print(e)
 
     @staticmethod
     def delete_event(event_id):

@@ -23,36 +23,36 @@ class User:
 
     # Create a User object
     def __init__(self, first_name, last_name, username, email, password,
-                conf_password=None, _id=None, profile_picture=None,
-                events_joined=None, events_liked=None, questions_liked=None,
-                answers_liked=None, contacts_liked=None, tips_liked=None,
-                events_created=None, questions_created=None,
-                answers_created=None, contacts_created=None,
-                tips_created=None):
-                """
-                Initialisation of User, setting attributes value to None 
-                as placeholder for future input.
-                """
-                self.first_name = first_name
-                self.last_name = last_name
-                self._id = _id
-                self.username = username
-                self.email = email
-                self.password = generate_password_hash(password)
-                self.profile_picture = profile_picture if not None else 'null'
-                self.events_joined = [events_joined] if not None else ['null']
-                self.events_liked = [events_liked] if not None else ['null']
-                self.questions_liked = [questions_liked] if not None else ['null']
-                self.answers_liked = [answers_liked] if not None else ['null']
-                self.contacts_liked = [contacts_liked] if not None else ['null']
-                self.tips_liked = [tips_liked] if not None else ['null']
-                self.events_created = [events_created] if not None else ['null']
-                self.questions_created = [questions_created] if not None else ['null']
-                self.answers_created = [answers_created] if not None else ['null']
-                self.contacts_created = [contacts_created] if not None else ['null']
-                self.tips_created = [tips_created] if not None else ['null']
+                 conf_password=None, _id=None, profile_picture=None,
+                 events_joined=None, events_liked=None, questions_liked=None,
+                 answers_liked=None, contacts_liked=None, tips_liked=None,
+                 events_created=None, questions_created=None,
+                 answers_created=None, contacts_created=None,
+                 tips_created=None):
+        """
+        Initialisation of User, setting attributes value to None 
+        as placeholder for future input.
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self._id = _id
+        self.username = username
+        self.email = email
+        self.password = generate_password_hash(password)
+        self.profile_picture = profile_picture if not None else 'null'
+        self.events_joined = [events_joined] if not None else ['null']
+        self.events_liked = [events_liked] if not None else ['null']
+        self.questions_liked = [questions_liked] if not None else ['null']
+        self.answers_liked = [answers_liked] if not None else ['null']
+        self.contacts_liked = [contacts_liked] if not None else ['null']
+        self.tips_liked = [tips_liked] if not None else ['null']
+        self.events_created = [events_created] if not None else ['null']
+        self.questions_created = [questions_created] if not None else ['null']
+        self.answers_created = [answers_created] if not None else ['null']
+        self.contacts_created = [contacts_created] if not None else ['null']
+        self.tips_created = [tips_created] if not None else ['null']
 
-    # method used as a formatter   
+    # method used as a formatter
     def user_info_to_dic(self):
         """
         Format User attributes to a dictionary in order to prepare data
@@ -113,15 +113,16 @@ class User:
         """
         try:
             users_coll.update_one({'_id': ObjectId(user_id)},
-                              {'$set': new_info})
+                                  {'$set': new_info})
         except Exception as e:
             print(e)
 
     @staticmethod
-    def append_user_info(new_value, user_id):
+    def append_info_to_user(new_value, user_id):
         """
         Takes a tuple (of attribute and event id), and user_id as param;
-        Append new info and Update db
+        Append new info,
+        Update db
         """
         # unpack the tuple
         (get_attr, event_id) = new_value
@@ -142,6 +143,31 @@ class User:
                 new_list = {get_attr: corresponding_list}
                 users_coll.update_one({'_id': ObjectId(user_id)},
                                       {'$set': new_list})
+        except Exception as e:
+            print(e)
+
+    @staticmethod
+    def remove_info_from_user_list(details, user_id):
+        """
+        Takes a tuple (of attribute and event id), and user_id as param;
+        Delete info with given details,
+        Update db
+        """
+        # unpack the tuple
+        (get_attr, event_id) = details
+        try:
+            # get the user and corresponding attr/key
+            user = users_coll.find_one({"_id": ObjectId(user_id)})
+            corresponding_list = user[get_attr]
+            obj_id = str(event_id)
+
+            # remove event_id from list
+            corresponding_list.remove(obj_id)
+
+            # Update db
+            new_list = {get_attr: corresponding_list}
+            users_coll.update_one({'_id': ObjectId(user_id)},
+                                  {'$set': new_list})
         except Exception as e:
             print(e)
 
@@ -189,6 +215,7 @@ class User:
         """
 
         with open(profile_image, "rb") as img_url_bytes:
-            img_url_encoded = base64.b64encode(img_url_bytes.read()).decode('utf8')
+            img_url_encoded = base64.b64encode(
+                img_url_bytes.read()).decode('utf8')
             os.remove(profile_image)
             return img_url_encoded

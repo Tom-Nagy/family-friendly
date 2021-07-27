@@ -32,7 +32,7 @@ def create_event(username):
             event_id = event_created._id
             
             # Update user info
-            User.append_user_info((get_attr, event_id), user_id)
+            User.append_info_to_user((get_attr, event_id), user_id)
 
             flash(EventsMsg.event_created)
             return redirect(url_for('users.profile', username=session["user"]))
@@ -94,17 +94,45 @@ def join_event(username):
         # Get the user id from the db
         user_id = User.get_one_user_coll(username)["_id"]
         
-        # Set the attribute to update to the user doc
+        # Set the attribute to update in the user doc
         get_user_attr = "events_joined"
-        # Add the event id to the corresponding user attribute
-        User.append_user_info((get_user_attr, event_id), user_id)
+        # Add the event id to the corresponding user field
+        User.append_info_to_user((get_user_attr, event_id), user_id)
 
-        # Set the attribute to update to the event doc
+        # Set the attribute to update in the event doc
         get_event_attr = "event_joined_by"
-        # Add the user id to the corresponding event attribute
-        Event.append_event_info((get_event_attr, user_id), event_id)
+        # Add the user id to the corresponding event field
+        Event.append_info_to_event((get_event_attr, user_id), event_id)
 
         flash(EventsMsg.event_joined)
+
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list)
+
+    else:
+        flash(EventsMsg.didnt_work)
+        return redirect(url_for('index.home'))
+
+@events.route("/leave_event/<username>", methods=["GET", "POST"])
+def leave_event(username):
+    if session["user"] and session["user"] == username:
+        # Get the event id from the form
+        event_id = request.form.get("leave_event")
+
+        # Get the user id from the db
+        user_id = User.get_one_user_coll(username)["_id"]
+
+        # Set the attribute to update in the user doc
+        get_user_attr = "events_joined"
+        # Delete the event id from the corresponding user field
+        User.remove_info_from_user_list((get_user_attr, event_id), user_id)
+
+        # Set the attribute to update in the event doc
+        get_event_attr = "event_joined_by"
+        # Delete the user id from the corresponding event field
+        Event.remove_info_from_event_list((get_event_attr, user_id), event_id)
+
+        flash(EventsMsg.event_left)
 
         events_list = Event.get_all_events()
         return render_template("events.html", events_list=events_list)

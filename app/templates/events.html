@@ -16,12 +16,6 @@
                             <div class="hide">
                                 <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
                             </div>
-                            <!-- Created By -->
-                            <div class="row events-card-sections">
-                                <div class="col s12">
-                                    <p class="events-card-descriptions">{{ event.event_created_by }}</p>
-                                </div>
-                            </div>
                             <!-- Category -->
                             <div class="row events-card-sections">
                                 <div class="col s12">
@@ -67,19 +61,19 @@
                             <!-- Likes -->
                             <div class="row events-card-sections">
                                 <div class="col s12">
-                                    <p class="events-card-descriptions">{{ event.event_likes }}</p>
+                                    <p class="events-card-descriptions padd-top padd-bot">{{ event.event_likes }}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col s12 center-align">
                                     {% if session["user"] %}
-                                        <button type="submit" class="btn submit-btn blue-bg white-txt see-event center-align centered">
+                                        <button type="submit" class="btn submit-btn blue-bg white-txt center-align centered">
                                             <span class="valign-wrapper">
                                                 See <span class="material-icons">login</span>
                                             </span>
                                         </button>
                                     {% else %}
-                                        <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt see-event">
+                                        <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt">
                                             <span class="valign-wrapper">
                                                 See <span class="material-icons">login</span>
                                             </span>
