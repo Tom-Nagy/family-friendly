@@ -41,6 +41,22 @@ body {
     padding-bottom: 12px;
 }
 
+.no-margin-top {
+    margin-top: 0;
+}
+
+.no-margin-bot {
+    margin-bottom: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.hight-z-index {
+    z-index: 100;
+}
+
 /* Typograpgy */
 html,
 body {
@@ -72,20 +88,6 @@ input:focus,
 textarea:focus {
     transform: none;
 } 
-
-.hide {
-    display: none;
-}
-
-/* 
-Yellow #E9F900 for Friendliness and Warmth.
-Blue #0845FF for Confidence, Sincerity and Integrity.
-Red #FF091E for cancelling and deleting functionality.
-Orange #FF8401 for Creativity and Innovation.
-Green #24C212 for Life, Growth and Nature.
-The background will be off White #FAFAFA for simplicity and cleanliness.
-Footer will be Grey #999999 for a nice contrast.
-*/
 
 /* colours */
 body {
@@ -371,6 +373,13 @@ footer {
         inset 0 0 0 4px #fafafa;
 }
 
+.small-btn {
+    font-size: 0.9rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    padding: 0 1rem;
+}
+
 /* cards */
 .card-headings {
     margin-top: 0;
@@ -506,14 +515,28 @@ footer {
 
 /* events.html */
 /* Modification of the Materialize carousel for the website needs */
+.carousel-wrapper {
+    position: relative;
+}
+
 .carousel {
-    height: 800px;
-    transform: translateY(-200px);
-    margin-bottom: -160px;
+    height: 660px;
+    margin-top: 1px;
+    margin-bottom: -30px;
+    overflow: visible;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    
 }
 
 .carousel .carousel-item {
     width: 300px;
+}
+
+.carousel .indicators {
+    bottom: -100px;
 }
 
 .carousel .indicators .indicator-item {
@@ -525,6 +548,28 @@ footer {
 }
 
 /* events card */
+.search-card {
+    border-radius: 60px;
+}
+
+#no-result {
+    background: #FF8401 url("../images/logo/logo.png") top center repeat;
+    background-size: initial;
+}
+
+/* .select-category {
+    background-color: #FF840180;
+    text-decoration: none;
+    border-radius: 30px;
+} */
+
+/* modify materialize input style */
+.select-wrapper input.select-dropdown  {
+    border-bottom: none;
+    margin: 0;
+
+}
+
 
 .events-card-sections {
     margin-bottom: 0;

@@ -1,6 +1,9 @@
 /* jshint esversion: 8 */
 
 $(document).ready(function(){
+    // Materialize form select initialization
+    $('select').material_select();
+
     // Materialize carousel initialization
     $('.carousel').carousel(
         {indicators: true},

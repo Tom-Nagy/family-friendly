@@ -18,6 +18,31 @@ events = Blueprint("events", __name__)
 users_coll = mongo.db.users
 
 
+@events.route("/browse_events", methods=["GET", "POST"])
+def browse_events():
+    # Get all the events to display
+    events_list = Event.get_all_events()
+    return render_template("events.html", events_list=events_list)
+
+
+@events.route("/search_events", methods=["GET", "POST"])
+def search_events():
+    # Get the search from the form
+    query = request.form.get("query_search_events")
+    # Get some events to display
+    events_list = list(mongo.db.events.find({"$text": {"$search": query}}))
+    return render_template("events.html", events_list=events_list)
+
+
+@events.route("/select_events", methods=["GET", "POST"])
+def select_events():
+    # Get the category selected
+    category = request.form.get("event_category")
+    # Get some events to display
+    events_list = Event.get_some_events(category)
+    return render_template("events.html", events_list=events_list)
+
+
 @events.route("/create_event/<username>", methods=["GET", "POST"])
 def create_event(username):
     if request.method == "POST":
@@ -48,14 +73,6 @@ def create_event(username):
         return render_template('create_event.html', user=user)
     else:
         return redirect(url_for('index.home'))
-
-
-@events.route("/browse_events", methods=["GET", "POST"])
-def browse_events():
-
-    # Get all the events to display in a carousel
-    events_list = Event.get_all_events()
-    return render_template("events.html", events_list=events_list)
 
 
 @events.route("/see_event", methods=["GET", "POST"])

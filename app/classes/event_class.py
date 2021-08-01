@@ -81,6 +81,21 @@ class Event:
                 one_event = cls(**event)
                 events_list.append(one_event)
         return events_list
+    
+    @classmethod
+    def get_some_events(cls, category):
+        """
+        Take the category as param,
+        Get some events from the db corresponding to the category passed,
+        Return a list of Event instances.
+        """
+        events = list(events_coll.find({"event_category": category}))
+        events_list = []
+        if events is not None:
+            for event in events:
+                one_event = cls(**event)
+                events_list.append(one_event)
+        return events_list
 
     @classmethod
     def get_one_event(cls, event_id):

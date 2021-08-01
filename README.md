@@ -345,6 +345,12 @@ When Updating the profile info, the updated profile info don't render on the pro
 Solve:  
 Update the session cookie (``session["user"]``) after updating the database and before rendering the profile template with the new ``sesion["user"]``.
 
+Issue:
+On iPhone when trying to see an event by clicking on the ``SEE`` button, nothing happens
+
+Issue:
+When signing up from my iPhone, I can create a profile and log in with the credential but the document does not appear in MongoDB. It shows that there are one too many document in the users collection. So the document was accessible from the website, existing in the database but not accessible and visible in the database.
+
 ## Credits
 
 ### Code
