@@ -1,13 +1,15 @@
 """
 Class build to perform CRUD operation on events collection
 """
-#import
+# import
 from app import mongo
 from flask import Flask, request
 from bson.objectid import ObjectId
 
 # collection
 events_coll = mongo.db.events
+users_coll = mongo.db.users
+
 
 class Event:
     """
@@ -18,25 +20,26 @@ class Event:
 
     # Create an Event object
     def __init__(self, event_category, event_location, event_age_range,
-                event_date, event_time, event_description, _id=None,
-                event_created_by=None, event_likes=None,
-                event_joined_by=None):
-                """
-                Initialisation of Event, setting attributes value to None 
-                as placeholder for future input. 
-                """
-                self._id = _id
-                self.event_category = event_category
-                self.event_location = event_location
-                self.event_age_range = event_age_range
-                self.event_date = event_date
-                self.event_time = event_time
-                self.event_description = event_description
-                self.event_created_by = ObjectId(event_created_by) if not None else 'null'
-                self.event_likes = [event_likes] if not None else 'null'
-                self.event_joined_by = [event_joined_by] if not None else 'null'
+                 event_date, event_time, event_description, _id=None,
+                 event_created_by=None, event_likes=None,
+                 event_joined_by=None):
+        """
+        Initialisation of Event, setting attributes value to None 
+        as placeholder for future input. 
+        """
+        self._id = _id
+        self.event_category = event_category
+        self.event_location = event_location
+        self.event_age_range = event_age_range
+        self.event_date = event_date
+        self.event_time = event_time
+        self.event_description = event_description
+        self.event_created_by = ObjectId(
+            event_created_by) if not None else 'null'
+        self.event_likes = [event_likes] if not None else 'null'
+        self.event_joined_by = [event_joined_by] if not None else 'null'
 
-    # method used as a formatter   
+    # method used as a formatter
     def event_info_to_dic(self):
         """
         Format Event attributes to a dictionary in order to prepare data
@@ -74,28 +77,51 @@ class Event:
         Get the events from the db as a list,
         Return a list of Event instances.
         """
-        events = list(events_coll.find())
-        events_list = []
-        if events is not None:
-            for event in events:
-                one_event = cls(**event)
-                events_list.append(one_event)
-        return events_list
-    
+        try:
+            events = list(events_coll.find())
+            events_list = []
+            if events is not None:
+                for event in events:
+                    one_event = cls(**event)
+                    events_list.append(one_event)
+            return events_list
+        except Exception as e:
+            print(e)
+
     @classmethod
-    def get_some_events(cls, category):
+    def get_some_events(cls, field, filter):
         """
-        Take the category as param,
-        Get some events from the db corresponding to the category passed,
+        Takes two param of field and filter;
+        Get the corresponding events from the db,
         Return a list of Event instances.
         """
-        events = list(events_coll.find({"event_category": category}))
-        events_list = []
-        if events is not None:
-            for event in events:
-                one_event = cls(**event)
-                events_list.append(one_event)
-        return events_list
+        try:
+            events = list(events_coll.find({field: filter}))
+            events_list = []
+            if events is not None:
+                for event in events:
+                    one_event = cls(**event)
+                    events_list.append(one_event)
+            return events_list
+        except Exception as e:
+            print(e)
+
+    @classmethod
+    def get_events_joined(cls, user_id):
+
+        try:
+            user = users_coll.find_one({"_id": ObjectId(user_id)})
+            events = list(events_coll.find())
+            events_list = []
+            if events is not None:
+                for event in events:
+                    if str(event["_id"]) in user["events_joined"]:
+                        one_event = cls(**event)
+                        events_list.append(one_event)
+            return events_list
+
+        except Exception as e:
+            print(e)
 
     @classmethod
     def get_one_event(cls, event_id):
@@ -116,9 +142,10 @@ class Event:
         Return an instance of the last event created by this user from the db.
         """
         try:
-            # Credit for the sorting part of the code to Neil Lunn 
+            # Credit for the sorting part of the code to Neil Lunn
             # from stackoverflow (https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
-            event = events_coll.find_one({"event_created_by": ObjectId(user_id)}, sort=[('_id', -1)])
+            event = events_coll.find_one(
+                {"event_created_by": ObjectId(user_id)}, sort=[('_id', -1)])
             return cls(**event)
         except Exception as e:
             print(e)
@@ -148,7 +175,7 @@ class Event:
                 corresponding_list.append(obj_id)
                 new_list = {get_attr: corresponding_list}
                 events_coll.update_one({'_id': ObjectId(event_id)},
-                                      {'$set': new_list})
+                                       {'$set': new_list})
         except Exception as e:
             print(e)
 

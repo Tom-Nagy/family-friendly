@@ -53,6 +53,10 @@ body {
     display: none;
 }
 
+.show {
+    display: block;
+}
+
 .hight-z-index {
     z-index: 100;
 }
@@ -552,7 +556,7 @@ footer {
     border-radius: 60px;
 }
 
-#no-result {
+.no-result {
     background: #FF8401 url("../images/logo/logo.png") top center repeat;
     background-size: initial;
 }

@@ -8,21 +8,21 @@
 
     <!-- Profile info -->
     <div class="row">
-        <div class="col s12 m7">
-            <h3 class="header">{{ user.username }}'s info</h3>
+        <div class="col s12 m6 offset-m3">
             <div class="card horizontal profile-container">
                 <!-- Profile picture -->
                 <div class="card-image valign-wrapper">
                     <!-- Change picture -->
-                    <a class="tooltipped hoverable" href="{{ url_for('users.update_picture', user_id=user._id) }}" 
+                    <a class="tooltipped hoverable" href="{{ url_for('users.update_picture', user_id=user._id) }}"
                         aria-label="Change or Add profile picture." data-tooltip="Click to update profile picture">
                         {% if user.profile_picture != None %}
                             <!-- user picture -->
-                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
                                 alt="Profile image of {{ user.username }}">
                         {% else %}
                             <!-- default picture -->
-                            <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" 
+                            <img class="profile-picture"
+                                src="/static/images/default-profile-picture/default-profile-picture.png"
                                 alt="Default profile picture representing a smiling sunflower.">
                         {% endif %}
                     </a>
@@ -56,10 +56,190 @@
             </div>
         </div>
     </div>
+    <!-- Display events created by user -->
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <h3 class="center-align">Events Created</h3>
+            <ul class="collapsible popout" data-collapsible="accordion">
+                {% if events_list_created|length > 0 %}
+                    {% for event in events_list_created %}
+                        <li>
+                            <div class="collapsible-header">{{ event.event_category }}</div>
+                            <div class="collapsible-body">
+                                <form action="{{ url_for('events.see_event') }}" method="POST">
+                                    <!-- Hidden input to get the event id -->
+                                    <div class="hide">
+                                        <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-titles">Where ?</p>
+                                            <p class="events-card-descriptions">{{ event.event_location }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Date -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-titles">When ?</p>
+                                            <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Time -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-titles">What time ?</p>
+                                            <p class="events-card-descriptions">{{ event.event_time }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Age Range -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-titles">Age range in years :</p>
+                                            <p class="events-card-descriptions">{{ event.event_age_range }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Description -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-titles">Description :</p>
+                                            <p class="events-card-descriptions">{{ event.event_description }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Likes -->
+                                    <div class="row events-card-sections">
+                                        <div class="col s12">
+                                            <p class="events-card-descriptions padd-top padd-bot">{{ event.event_likes }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Access to event -->
+                                    <div class="row">
+                                        <div class="col s12 center-align">
+                                            <button type="submit"
+                                                class="btn submit-btn blue-bg white-txt center-align centered">
+                                                <span class="valign-wrapper">
+                                                    See <span class="material-icons">login</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>
+                        <div class="collapsible-header">No Event Created</div>
+                        <div class="collapsible-body center-align">
+                            <a href="{{ url_for('events.create_event', username=session['user']) }}"
+                                aria-label="Link to the Creates page." class="btn submit-btn blue-bg white-txt">Create an Event</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Display events joined by user -->
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <h3 class="center-align">Events Joined</h3>
+            <ul class="collapsible popout" data-collapsible="accordion">
+                {% if events_list_joined|length > 0 %}
+                    {% for event in events_list_joined %}
+                        <li>
+                            <div class="collapsible-header">{{ event.event_category }}</div>
+                            <div class="collapsible-body">
+                                <form action="{{ url_for('events.see_event') }}" method="POST">
+                                        <!-- Hidden input to get the event id -->
+                                        <div class="hide">
+                                            <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
+                                        </div>
+                                        <!-- Location -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-titles">Where ?</p>
+                                                <p class="events-card-descriptions">{{ event.event_location }}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Date -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-titles">When ?</p>
+                                                <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Time -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-titles">What time ?</p>
+                                                <p class="events-card-descriptions">{{ event.event_time }}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Age Range -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-titles">Age range in years :</p>
+                                                <p class="events-card-descriptions">{{ event.event_age_range }}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Description -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-titles">Description :</p>
+                                                <p class="events-card-descriptions">{{ event.event_description }}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Likes -->
+                                        <div class="row events-card-sections">
+                                            <div class="col s12">
+                                                <p class="events-card-descriptions padd-top padd-bot">{{ event.event_likes }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Access to event -->
+                                        <div class="row">
+                                            <div class="col s12 center-align">
+                                                <button type="submit"
+                                                    class="btn submit-btn blue-bg white-txt center-align centered">
+                                                    <span class="valign-wrapper">
+                                                        See <span class="material-icons">login</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% elif events_list|length > 0 %}
+                    <li class="{{ no_event_class }}">
+                        <div class="collapsible-header">No Event Joined</div>
+                        <div class="collapsible-body center-align">
+                            <a href="{{ url_for('events.browse_events') }}"
+                            aria-label="Link to the Creates page." class="btn submit-btn blue-bg white-txt">Join an Event</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li>
+                        <div class="collapsible-header">There are no Events at the moment</div>
+                        <div class="collapsible-body center-align">
+                            <a href="{{ url_for('events.create_event', username=session['user']) }}"
+                                aria-label="Link to the Creates page." class="btn submit-btn blue-bg white-txt">Create
+                                an Event</a>
+                            <a href="{{ url_for('events.browse_event') }}" aria-label="Link to the Creates page."
+                                class="btn submit-btn blue-bg white-txt">Join an Event</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
 
     <!-- Delete profile -->
     <div class="row">
-        <div class="col s12 m7">
+        <div class="col s12">
             <a class="btn red-bg cancel-btn delete-profile-btn" href="{{ url_for('users.delete_profile') }}">
                 <span class="valign-wrapper">
                     Delete Profile <span class="material-icons">delete_forever</span>
@@ -67,5 +247,9 @@
             </a>
         </div>
     </div>
+    
+{% endblock %}
 
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/scripts/profile.js') }}"></script>
 {% endblock %}

@@ -10,6 +10,7 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.flashes.flash_messages import ProfileMsg
 from app.classes.user_class import User
+from app.classes.event_class import Event
 from app.validators.validators import validate_passwords
 
 users = Blueprint("users", __name__)
@@ -95,8 +96,24 @@ def profile(username):
     if session["user"] and session["user"] == username:
 
         # Get user from the db and return a user collection
-        user = User.get_one_user_coll(username)       
-        return render_template("profile.html", user=user)
+        user = User.get_one_user_coll(username)
+        user_id = user["_id"]
+
+        # Get the events created by the user
+        field_for_creator = "event_created_by"
+        events_list_created = Event.get_some_events(field_for_creator, user_id)
+
+        # Get events joined by the user
+        events_list_joined = Event.get_events_joined(user_id)
+
+        # Get all events
+        events_list = Event.get_all_events()
+
+        return render_template("profile.html",
+                                user=user,
+                                events_list_created=events_list_created,
+                                events_list_joined=events_list_joined,
+                                events_list=events_list)
 
     return redirect(url_for("users.login"))
 

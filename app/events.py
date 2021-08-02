@@ -16,6 +16,7 @@ events = Blueprint("events", __name__)
 
 # Collection
 users_coll = mongo.db.users
+events_coll = mongo.db.events
 
 
 @events.route("/browse_events", methods=["GET", "POST"])
@@ -30,7 +31,7 @@ def search_events():
     # Get the search from the form
     query = request.form.get("query_search_events")
     # Get some events to display
-    events_list = list(mongo.db.events.find({"$text": {"$search": query}}))
+    events_list = list(events_coll.find({"$text": {"$search": query}}))
     return render_template("events.html", events_list=events_list)
 
 
@@ -38,8 +39,10 @@ def search_events():
 def select_events():
     # Get the category selected
     category = request.form.get("event_category")
+    # Set the field to search on
+    field = "event_category"
     # Get some events to display
-    events_list = Event.get_some_events(category)
+    events_list = Event.get_some_events(field, category)
     return render_template("events.html", events_list=events_list)
 
 
@@ -120,9 +123,6 @@ def cancel_event(username):
                 print(f"user ID ==> {user_id}")
                 # Delete event_id from corresponding field of the user
                 User.remove_info_from_user_list((get_user_attr, event_id), user_id)
-
-
-
 
         flash(EventsMsg.event_deleted)
 
