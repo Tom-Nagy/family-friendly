@@ -36,8 +36,8 @@ class Event:
         self.event_description = event_description
         self.event_created_by = ObjectId(
             event_created_by) if not None else 'null'
-        self.event_likes = [event_likes] if not None else 'null'
-        self.event_joined_by = [event_joined_by] if not None else 'null'
+        self.event_likes = event_likes if not None else 'null'
+        self.event_joined_by = event_joined_by if not None else 'null'
 
     # method used as a formatter
     def event_info_to_dic(self):
@@ -68,6 +68,14 @@ class Event:
             events_coll.insert_one(self.event_info_to_dic())
         except Exception as e:
             print(e)
+
+    def count_likes(self):
+        """
+        Count the number of likes of an Event
+        """
+        likes = self.event_likes
+        num_likes = len(likes)
+        return num_likes
 
     # method that use the whole class,
     # can be use on the class without the object instantiated to begin with.

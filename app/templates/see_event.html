@@ -51,7 +51,34 @@
             <!-- Likes -->
             <div class="row events-card-sections">
                 <div class="col s12">
-                    <p class="events-card-descriptions">{{ event.event_likes }}</p>
+                    <p class="events-card-descriptions">
+                        <div class="center-align">
+                            {% if event.event_likes != None %}
+                                <span class="likes-display">{{ event.event_likes|length }}</span>
+                            {% else %}
+                                <span class="likes-display">0</span>
+                            {% endif %}
+                            {% if event._id|string in user.events_liked %}
+                                <span class="material-icons centered blue-txt">thumb_up_alt</span>
+                            {% else %}
+                                <form method="POST" action="{{ url_for('events.like_event', username=session['user']) }}">
+                                    <!-- Hidden input to get the event id -->
+                                    <div class="hide">
+                                        <input id="like_event" name="like_event" value="{{ event._id }}" type="text">
+                                    </div>
+                                    <!-- Add a like -->
+                                    <div class="center-align">
+                                        <button class="transp-bg like-btn" type="submit"
+                                            aria-label="Add a like to the event.">
+                                            <span class="valign-wrapper">
+                                                <span class="material-icons centered blue-txt">thumb_up_alt</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </p>
                 </div>
             </div>
 
@@ -91,7 +118,7 @@
     <div class="row">
         <div class="col12 center-align">
             <a href="{{ url_for('events.browse_events') }}" 
-                class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to all Events</a>
+                class="btn waves-effect waves-light yellow-bg black-txt back-to-events-btn">Back to all Events</a>
         </div>
     </div>
 

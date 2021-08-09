@@ -49,6 +49,10 @@ body {
     margin-bottom: 0;
 }
 
+.position-rel {
+    position: relative;
+}
+
 .hide {
     display: none;
 }
@@ -79,6 +83,10 @@ h4 {
 
 p {
     max-width: 65ch;
+}
+
+button {
+    border: none;
 }
 
 :focus {
@@ -124,6 +132,10 @@ footer {
 
 .white-bg {
     background-color: #fafafa;
+}
+
+.transp-bg {
+    background-color: transparent;
 }
 
 .blue-txt {
@@ -448,6 +460,20 @@ footer {
     height: 1.2rem;
     line-height: 1.2rem;
     padding: 0 1rem;
+}
+
+.like-btn {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+
+.like-btn:hover,
+.like-btn:focus,
+.like-btn:active {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #0845FF;
+    text-decoration: none;
 }
 
 /* cards */

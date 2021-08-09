@@ -109,7 +109,16 @@
                                     <!-- Likes -->
                                     <div class="row events-card-sections">
                                         <div class="col s12">
-                                            <p class="events-card-descriptions padd-top padd-bot">{{ event.event_likes }}
+                                            <p class="events-card-descriptions padd-top padd-bot">
+                                                <div class="center-align">
+                                                    {% if event.event_likes != None %}
+                                                        <span class="likes-display">{{ event.event_likes|length }}</span>
+                                                    {% else %}
+                                                        <span class="likes-icon">0</span>
+                                                    {% endif %}
+                                                    <span class="material-icons centered blue-txt">thumb_up_alt
+                                                    </span>
+                                                </div>
                                             </p>
                                         </div>
                                     </div>

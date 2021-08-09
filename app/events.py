@@ -62,7 +62,7 @@ def create_event(username):
         event_created = Event.get_last_event_crated_by_user(user_id)
         if event_created:
             event_id = event_created._id
-            
+
             # Update user info
             User.append_info_to_user((get_attr, event_id), user_id)
 
@@ -108,21 +108,18 @@ def cancel_event(username):
 
         # get all user from db
         all_users = users_coll.find()
-        # Check if user has joined the event and if so remove the event 
+        # Check if user has joined the event and if so remove the event
         # from his document
         for user in all_users:
             # Set the attribute to update in the user doc
             get_user_attr = "events_joined"
-            
+
             if event_id in user[get_user_attr]:
-                print(f"Event ID ==> {event_id}")
-                print(f"corresp list ==> {user[get_user_attr]}")
-                print(".............................")
                 # Get the corresponding user id from the db
                 user_id = user["_id"]
-                print(f"user ID ==> {user_id}")
                 # Delete event_id from corresponding field of the user
-                User.remove_info_from_user_list((get_user_attr, event_id), user_id)
+                User.remove_info_from_user_list(
+                    (get_user_attr, event_id), user_id)
 
         flash(EventsMsg.event_deleted)
 
@@ -142,7 +139,7 @@ def join_event(username):
 
         # Get the user id from the db
         user_id = User.get_one_user_coll(username)["_id"]
-        
+
         # Set the attribute to update in the user doc
         get_user_attr = "events_joined"
         # Add the event id to the corresponding user field
@@ -161,6 +158,7 @@ def join_event(username):
     else:
         flash(EventsMsg.didnt_work)
         return redirect(url_for('index.home'))
+
 
 @events.route("/leave_event/<username>", methods=["GET", "POST"])
 def leave_event(username):
@@ -189,3 +187,22 @@ def leave_event(username):
     else:
         flash(EventsMsg.didnt_work)
         return redirect(url_for('index.home'))
+
+
+@events.route("/like_event/<username>", methods=["GET", "POST"])
+def like_event(username):
+    if request.method == "POST":
+        user = User.get_one_user_coll(username)
+        user_id = user["_id"]
+        event_id = request.form.get("like_event")
+        
+        # Add the like to event_likes field in db
+        Event.append_info_to_event(("event_likes", user_id), event_id)
+        # Add the event to events_liked field in db
+        User.append_info_to_user(("events_liked", event_id), user_id)
+
+        # Refresh see_event.html
+        event = Event.get_one_event(event_id)
+        user = User.get_one_user_coll(username)
+
+        return render_template('see_event.html', event=event, user=user)
