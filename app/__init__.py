@@ -22,8 +22,10 @@ def create_app(default_config=Config):
     from app.users import users
     from app.home import index
     from app.events import events
+    from app.footer import footer
     app.register_blueprint(users)
     app.register_blueprint(index)
     app.register_blueprint(events)
+    app.register_blueprint(footer)
 
     return app

@@ -5,7 +5,6 @@ home page
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for, Blueprint, current_app)
-# from app.flashes.flash_messages import *
 
 index = Blueprint("index", __name__)
 

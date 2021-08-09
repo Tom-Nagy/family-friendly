@@ -11,4 +11,10 @@ $(document).ready(function () {
       $("#flash-messages").remove();
     }
   });
+
+  // Trigger try-contact modal
+  $("#try-contact").on("click", function () {
+    $("#try-contact-modal").addClass("modal-active");
+    $("#footer-overlay").addClass("overlay-active");
+  });
 });

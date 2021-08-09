@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  type="text/css">
     <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon/favicon.ico')}}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
+    {% block emailjs %}
     {% endblock %}
     
     <title>Family Friendly</title>
@@ -114,17 +114,45 @@
         <div class="footer-copyright">
             <div class="footer-wrapper valign-wrapper">
                 <div class="third-div center-align">
-                    <a class="contact-us text-shadow" href="#" aria-label="Link to the Contact Us page.">
-                        <i class="material-icons prefix">mail_outline</i> Contact Us
-                    </a>
+                    {% if session.user %}
+                        <a class="contact-us text-shadow" href="{{ url_for('footer.contact', username=session['user']) }}"
+                            aria-label="Link to the Contact Us page.">
+                            <i class="material-icons prefix">mail_outline</i> Contact Us
+                        </a>
+                    {% else %}
+                        <a class="contact-us text-shadow" id="try-contact" href="#"
+                            aria-label="Link to the Contact Us page.">
+                            <i class="material-icons prefix">mail_outline</i> Contact Us
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="third-div center-align">
-                    <a class="privacy-policy text-shadow" href="#!" aria-label="Link to the Privacy Policy page.">Privacy Policy</a>
+                    <a class="privacy-policy text-shadow" href="#!"
+                        aria-label="Link to the Privacy Policy page.">Privacy Policy</a>
                 </div>
                 <div class="third-div center-align copyright">
                     <span>&copy; 2021 Tom Nagy</span>
                 </div>
-          </div>
+            </div>
+
+            <!-- try contact modal -->
+            <div id="try-contact-modal" class="modals white-bg black-txt card-panel">
+                <h2 class="card-headings center-align text-shadow">Sorry Cannot access Contact!</h2>
+                <p class="center-align">
+                    In order to contact us,
+                    please <span class="text-shadow">Log In</span> or <span class="text-shadow">Sign Up</span>.
+                </p>
+                <div class="center-align">
+                    <a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page."
+                        class="btn submit-btn blue-bg">Log In</a>
+                    <a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page."
+                        class="btn submit-btn blue-bg">Sign Up</a> <br>
+                    <a href="{{ url_for('index.home') }}" aria-label="Link to the Home page."
+                        class="btn back-btn blue-txt yellow-bg">Back to browsing</a>
+                </div>
+            </div>
+
+            <div id="footer-overlay" class="overlay"></div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

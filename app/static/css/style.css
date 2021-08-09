@@ -91,7 +91,7 @@ p {
 input:focus,
 textarea:focus {
     transform: none;
-} 
+}
 
 /* colours */
 body {
@@ -287,33 +287,9 @@ footer {
     position: relative;
 }
 
-.flash-btn {
-    line-height: 24px;
-    height: 24px;
-    width: 24px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.flash-btn i {
-    line-height: 24px;
-    font-size: 1.2rem;
-}
-
-.flash-btn:active,
-.flash-btn:hover {
-    background-color: #fafafa;
-}
-
-.flash-btn:active i,
-.flash-btn:hover i {
-    color: #FF091E;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
 /* Forms and buttons */
+
+/* helper message for user */
 .helper-text {
     font-size: 0.8rem;
     line-height: 0.9rem;
@@ -329,19 +305,107 @@ footer {
     margin: 3px auto;
 }
 
-.back-btn,
+/* close buttons */
+.flash-btn,
+.close-modal {
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.flash-btn i,
+.close-modal i {
+    line-height: 24px;
+    font-size: 1.2rem;
+}
+
+.flash-btn:hover,
+.flash-btn:active,
+.flash-btn:focus,
+.close-modal:active, 
+.close-modal:hover,
+.close-modal:focus {
+    background-color: #fafafa;
+}
+
+.flash-btn:active i,
+.flash-btn:hover i,
+.flash-btn:focus i,
+.close-modal:active i, 
+.close-modal:hover i,
+.close-modal:focus i {
+    color: #FF091E;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* buttons */
+.back-to-profile-btn,
+.back-to-home-btn,
+.back-to-events-btn,
 .submit-btn,
 .cancel-btn {
     margin: 6px;
 }
 
-.back-btn:hover {
+.delete-profile-btn {
+    font-size: 0.6rem;
+    padding: 0 3px 0 6px;
+}
+
+.delete-icon {
+    margin-left: 5px;
+}
+
+.cancel-delete-btn {
+    margin: 0 10px;
+    font-size: 0.8rem;
+}
+
+.back-to-home-btn:hover,
+.cancel-delete-btn:hover,
+.back-to-home-btn:active,
+.cancel-delete-btn:active {
+    background-color: #24C2124d;
+    color: #000;
+    font-weight: 700;
+}
+
+.back-to-home-btn:focus,
+.cancel-delete-btn:focus {
+    background-color: #24C212;
+    color: #fafafa;
+    box-shadow: 
+        inset 0 0 0 2px #24C212,
+        inset 0 0 0 4px #fafafa;
+}
+
+.back-to-profile-btn:hover,
+.back-to-profile-btn:active {
+    background-color: #FF840180;
+    color: #000;
+    font-weight: 700;
+}
+
+.back-to-profile-btn:focus {
+    background-color: #FF8401;
+    color: #fafafa;
+    box-shadow: 
+        inset 0 0 0 2px #FF8401,
+        inset 0 0 0 4px #fafafa;
+}
+
+.back-to-events-btn:hover,
+.back-to-events-btn:active {
     background-color: #E9F90080;
     color: #000;
     font-weight: 700;
 }
 
-.back-btn:focus {
+.back-to-events-btn:focus {
     background-color: #E9F900;
     color: #fafafa;
     box-shadow: 
@@ -349,7 +413,8 @@ footer {
         inset 0 0 0 4px #fafafa;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.submit-btn:active {
     background-color: #0845ff4d;
     color: #0845FF;
     font-weight: 700;
@@ -363,7 +428,8 @@ footer {
         inset 0 0 0 4px #fafafa;
 }
 
-.cancel-btn:hover {
+.cancel-btn:hover,
+.cancel-btn:active {
     background-color: #FF091E4d;
     color: #FF091E;
     font-weight: 700;
@@ -460,30 +526,7 @@ footer {
     margin: 10px;
 }
 
-.delete-profile-btn {
-    font-size: 0.6rem;
-    padding: 0 3px 0 6px;
-}
-
-.delete-icon {
-    margin-left: 5px;
-}
-
 /* delete_profile.html */
-
-.cancel-delete-btn {
-    margin: 0 10px;
-    font-size: 0.8rem;
-}
-
-.cancel-delete-btn:hover,
-.cancel-delete-btn:focus,
-.cancel-delete-btn:active {
-    background-color: #24C2124d;
-    color: #24C212;
-    font-weight: 700;
-}
-
 .warning {
     font-size: 1.5rem;
     padding: 6px;
@@ -592,5 +635,5 @@ footer {
     margin-top: 0;
 }
 
-/* see_event.html */
+/* contact.html */
 
