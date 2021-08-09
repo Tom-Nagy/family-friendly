@@ -14,8 +14,8 @@ Visit the live Website : **[Family Friendly :arrow_right:](https://family-friend
   * [Heroku Git method](#Heroku-Git-method)
   * [GitHub method](#GitHub-method)
 * [App Configurations](#App-Configurations)
-
 * [Implementing API](#Implementing-API)
+  * [Emailjs](#Emailjs)
 
 This project was developed on [GitPod Workspaces IDE](https://www.gitpod.io/) (Integrated Development Environment) committed and pushed to my [GitHub Repository](https://github.com/Tom-Nagy/family-friendly) using GitPod Command Line Interface (CLI) with [Git version control](https://git-scm.com/).
 
@@ -216,3 +216,23 @@ This will give a quick and short reminder on the important steps to deploy the o
 4. Create a Heroku Procfile: Tells Heroku how to run the project.
 
 You can find the Heroku CLI command on [Code-Institute-Solutions/ FlaskFramework](https://github.com/Code-Institute-Solutions/FlaskFramework/blob/master/05-DeployingOurProjectToHeroku/04-pushing_to_heroku/Heroku_CLI_commands.md)
+
+## Implementing API
+
+### Emailjs
+
+[EmailJS](https://www.emailjs.com/) is used in this project in order to manage the contact form of the website.  
+It is an API (Application Programming Interface), that allows emails management using JavaScript, without needing the server side.
+
+To implement EmailJS take the following steps :
+
+1. Create an account by [signing up](https://dashboard.emailjs.com/sign-up).
+Free account are avaible and was used in this project limiting the number of email to 200 per month.
+2. Go to [Email Services](https://dashboard.emailjs.com/admin) in order to link your email account.
+3. Create a template or use the default proposed in [Email Templates](https://dashboard.emailjs.com/admin/templates).
+4. Go to the [Docs → emailjs.send](https://www.emailjs.com/docs/sdk/send/) section in order to see how to implemnt the service. Different options are available.
+5. In order to implement the service you will need your **user ID** and **Access Token** that refer to the **API keys**. You will find them in the [integration](https://dashboard.emailjs.com/admin/integration) section of your account.
+
+:warning: **API keys** are private and sensitive information that should not be shared and kept private.
+
+[**:back:** *Table of Content*](#Table-of-Content)
