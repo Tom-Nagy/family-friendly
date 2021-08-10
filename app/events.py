@@ -206,3 +206,22 @@ def like_event(username):
         user = User.get_one_user_coll(username)
 
         return render_template('see_event.html', event=event, user=user)
+
+
+@events.route("/unlike_event/<username>", methods=["GET", "POST"])
+def unlike_event(username):
+    if request.method == "POST":
+        user = User.get_one_user_coll(username)
+        user_id = user["_id"]
+        event_id = request.form.get("unlike_event")
+        
+        # Remove the like to event_likes field in db
+        Event.remove_info_from_event_list(("event_likes", user_id), event_id)
+        # Remove the event to events_liked field in db
+        User.remove_info_from_user_list(("events_liked", event_id), user_id)
+
+        # Refresh see_event.html
+        event = Event.get_one_event(event_id)
+        user = User.get_one_user_coll(username)
+
+        return render_template('see_event.html', event=event, user=user)

@@ -462,6 +462,7 @@ footer {
     padding: 0 1rem;
 }
 
+.unlike-btn,
 .like-btn {
     height: 36px;
     width: 36px;
@@ -473,6 +474,14 @@ footer {
 .like-btn:active {
     background-color: transparent;
     box-shadow: 0 0 0 2px #0845FF;
+    text-decoration: none;
+}
+
+.unlike-btn:hover,
+.unlike-btn:focus,
+.unlike-btn:active {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #FF091E;
     text-decoration: none;
 }
 

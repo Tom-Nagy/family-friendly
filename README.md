@@ -346,7 +346,9 @@ Solve:
 Update the session cookie (``session["user"]``) after updating the database and before rendering the profile template with the new ``sesion["user"]``.
 
 Issue:
-On iPhone when trying to see an event by clicking on the ``SEE`` button, nothing happens
+On iPhone when trying to see an event by clicking on the ``SEE`` button, nothing happens.  
+Solve:  
+I have added ``touchend`` event with the ``click`` event in events.js.
 
 Issue:
 When signing up from my iPhone, I can create a profile and log in with the credential but the document does not appear in MongoDB. It shows that there are one too many document in the users collection. So the document was accessible from the website, existing in the database but not accessible and visible in the database.
@@ -357,6 +359,7 @@ When signing up from my iPhone, I can create a profile and log in with the crede
 
 Credit for the sorting MongoDB query to Neil Lunn from [stackoverflow](https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
 
+Credit to Fenton from stack overflow on how to trigger click event on smartphone [Fenton enable click](https://stackoverflow.com/questions/11397028/document-click-function-for-touch-device)
 ### Content
 
 [W3schools](https://www.w3schools.com/)  

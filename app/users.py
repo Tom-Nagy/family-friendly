@@ -154,7 +154,8 @@ def update_profile(user_id):
 
             flash(ProfileMsg.info_updated)
             user = User.get_one_user_coll(session["user"])
-            return redirect(url_for('users.profile', user=user, username=session['user']))
+            return redirect(url_for(
+                'users.profile', user=user, username=session['user']))
 
         flash(ProfileMsg.incorrect_password)
         return redirect(url_for('users.update_profile', user_id=user["_id"]))
@@ -170,7 +171,7 @@ def update_profile(user_id):
 @users.route("/update_picture/<user_id>", methods=["GET", "POST"])
 def update_picture(user_id):
     if request.method == "POST":
-        user = User.get_one_user_coll(session["user"]) # Maybe not needed !!!!!!!!!
+        user = User.get_one_user_coll(session["user"]) # Maybe not needed !!
         password = request.form.get("password")
 
         # Check if the password is correct
@@ -184,7 +185,8 @@ def update_picture(user_id):
                 profile_img.save(profile_img.filename)
 
                 # Covert image url to base64
-                img_url_encoded = User.convert_img_to_base64(profile_image_filename) 
+                img_url_encoded = User.convert_img_to_base64(
+                    profile_image_filename)
                 
                 # Create a dic with new value and Add new_info to db
                 new_info = {"profile_picture": img_url_encoded}
