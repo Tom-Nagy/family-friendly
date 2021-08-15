@@ -99,12 +99,24 @@
 
             <!-- Buttons displayed depending on user and event info -->
             {% if event.event_created_by == user._id %}
-                <!-- Cancel event -->
-                <div class="row">
-                    <div class="col s12 center-align padd-bot">
+                <div class="row padd-bot">
+                    <!-- Cancel event -->
+                    <div class="col s12 center-align">
                         <button type="button" aria-label="Cancel Event" id="try-cancel-event" class="btn cancel-btn red-bg white-txt">
                             Cancel Event
                         </button>
+                    </div>
+                    <!-- Update event -->
+                    <div class="col s12 center-align">
+                        <form action="{{ url_for('events.update_event') }}" method="POST">
+                            <!-- Hidden input to get the event id -->
+                            <div class="hide">
+                                <input id="update_event" name="update_event" value="{{ event._id }}" type="text">
+                            </div>
+                            <button type="submit" class="btn submit-btn blue-bg white-txt">
+                                Update Event
+                            </button>
+                        </form>
                     </div>
                 </div>
             {% elif event._id|string in user.events_joined %}

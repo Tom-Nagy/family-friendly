@@ -141,13 +141,14 @@ def update_profile(user_id):
         # Check if the password is correct
         if check_password_hash(user["password"], password):
 
-            # Create a dic with new values and Add new_info to db
+            # Create a dic with new values from the form
             new_info = {
                 "first_name": request.form.get("first_name"),
                 "last_name": request.form.get("last_name"),
                 "email": request.form.get("email"),
                 "username": request.form.get("username")
             }
+            #  Add new_info to db
             User.update_user(new_info, user_id)
             # Update the session['user]
             session["user"] = new_info["username"]

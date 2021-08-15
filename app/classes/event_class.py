@@ -213,6 +213,19 @@ class Event:
             print(e)
 
     @staticmethod
+    def update_event(new_info, event_id):
+        """
+        Takes a dictionary with the new value(s) to update 
+        and the event _id as parameters.
+        Update db
+        """
+        try:
+            events_coll.update_one({'_id': ObjectId(event_id)},
+                                  {'$set': new_info})
+        except Exception as e:
+            print(e)
+
+    @staticmethod
     def delete_event(event_id):
         """
         Delete an event from the db,

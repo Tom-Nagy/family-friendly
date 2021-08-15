@@ -90,6 +90,36 @@ def see_event():
         return render_template("see_event.html", event=event, user=user)
 
 
+@events.route("/update_event", methods=["GET", "POST"])
+def update_event():
+
+    user = User.get_one_user_coll(session['user'])
+    event_id = request.form.get("update_event")
+    event = Event.get_one_event(event_id)
+    return render_template("update_event.html", event=event, user=user)
+
+
+@events.route("/updated_event/<event_id>", methods=["GET", "POST"])
+def updated_event(event_id):
+    if request.method == "POST":
+        # Create a dic with new values from the form
+        new_info = {
+            "event_category": request.form.get("event_category"),
+            "event_location": request.form.get("event_location"),
+            "event_date": request.form.get("event_date"),
+            "event_time": request.form.get("event_time"),
+            "event_age_range": request.form.get("event_age_range"),
+            "event_description": request.form.get("event_description")
+        }
+
+        # Add new info to db
+        Event.update_event(new_info, event_id)
+
+        # Get all the events to display
+        events_list = Event.get_all_events()
+        return redirect(url_for('events.browse_events', events_list=events_list))
+
+
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])
 def cancel_event(username):
     if session["user"] and session["user"] == username:
@@ -195,7 +225,7 @@ def like_event(username):
         user = User.get_one_user_coll(username)
         user_id = user["_id"]
         event_id = request.form.get("like_event")
-        
+
         # Add the like to event_likes field in db
         Event.append_info_to_event(("event_likes", user_id), event_id)
         # Add the event to events_liked field in db
@@ -214,7 +244,7 @@ def unlike_event(username):
         user = User.get_one_user_coll(username)
         user_id = user["_id"]
         event_id = request.form.get("unlike_event")
-        
+
         # Remove the like to event_likes field in db
         Event.remove_info_from_event_list(("event_likes", user_id), event_id)
         # Remove the event to events_liked field in db

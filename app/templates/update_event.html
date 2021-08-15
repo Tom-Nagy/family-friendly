@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block heading %}
+<h2 class="blue-txt">Update Event</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="row">
+            <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST"
+                action="{{ url_for('events.updated_event', event_id=event._id) }}">
+                <!-- Hidden input to get the user id -->
+                <div class="hide">
+                    <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
+                </div>
+                <!-- category -->
+                <div class="row padd-top">
+                    <div class="input-field col s12">
+                        <select id="event_category" name="event_category" class="validate" required>
+                            <option value="{{ event.event_category }}">{{ event.event_category }}</option>
+                            <option value="Playground">Playground</option>
+                            <option value="Play date">Play date</option>
+                            <option value="Cycling">Cycling</option>
+                            <option value="Hike">Hike</option>
+                            <option value="Swimming">Swimming</option>
+                            <option value="Picnic">Picnic</option>
+                            <option value="Walk">Walk</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="event_category">Activity</label>
+                    </div>
+                </div>
+                <!-- Location -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_location" name="event_location" type="text" class="validate"
+                            value="{{ event.event_location }}" required>
+                        <label for="event_location">Location</label>
+                        <span class="helper-text valign-wrapper">
+                            <span class="material-icons">travel_explore</span>Be specific so it's easy to find
+                        </span>
+                    </div>
+                </div>
+                <!-- Date -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_date" name="event_date" type="date" class="validate" value="{{ event.event_date }}" required>
+                        <label for="event_date"></label>
+                    </div>
+                </div>
+                <!-- Time -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_time" name="event_time" type="time" class="validate" value="{{ event.event_time }}" required>
+                        <label for="event_time"></label>
+                    </div>
+                </div>
+                <!-- Age -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_age_range" name="event_age_range" type="text" class="validate"
+                            pattern="^\b([0-9]|1[0-8])\b(-)\b([0-9]|1[0-8])\b$" value="{{ event.event_age_range }}" required>
+                        <label for="event_age_range">Age Range</label>
+                        <span class="helper-text valign-wrapper">
+                            <span class="material-icons">error_outline</span>
+                            Please enter two number separated by an hyphen.<br>
+                            example: 0-1 for 0 to one year old.<br>
+                            The range goes from 0 to 18.
+                        </span>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="event_description" name="event_description" class="materialize-textarea"
+                        required>{{ event.event_description }}</textarea>
+                        <label for="event_description">Description</label>
+                    </div>
+                </div>
+                <!-- Join -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">
+                            Update Event
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to Events -->
+    <div class="row">
+        <div class="col12 center-align">
+            <a href="{{ url_for('events.browse_events') }}"
+                class="btn waves-effect waves-light yellow-bg black-txt back-to-events-btn">Back to all Events</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/scripts/create.js') }}"></script>
+{% endblock %}
