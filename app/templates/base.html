@@ -53,10 +53,8 @@
                                 <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
                                 <li><a href="{{ url_for('events.create_event', username=session['user']) }}" 
                                     aria-label="Link to the Creates page.">Create</a></li>
-                                <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                             {% else %}
                                 <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
-                                <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                             {% endif %}
                         </div>
                         <li class="right">
@@ -75,10 +73,8 @@
                     <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
                     <li><a href="{{ url_for('events.create_event', username=session['user']) }}"
                         aria-label="Link to the Creates page.">Create</a></li>
-                    <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                 {% else %}
                     <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
-                    <li><a href="#" aria-label="Link to the Support page.">Support</a></li>
                 {% endif %}
             </ul>
         </div>
