@@ -31,7 +31,9 @@
                             <label for="my_picture"></label>
                             <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
                             <span class="helper-text valign-wrapper">
-                                <span class="material-icons">error_outline</span>Only .png files are accepted
+                                <span class="material-icons">error_outline</span>
+                                Only .png files are accepted<br>
+                                File size must be between 2-6 MB
                             </span>
                         </div>
                     </div>
@@ -54,4 +56,8 @@
         </form>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/scripts/update-picture.js') }}"></script>
 {% endblock %}

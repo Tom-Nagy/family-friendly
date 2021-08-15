@@ -370,6 +370,9 @@ Credit to Fenton from stack overflow on how to trigger click event on smartphone
 
 [GeeksforGeeks](https://www.geeksforgeeks.org/)
 
+[GeeksforGeeks file validation](https://www.geeksforgeeks.org/validation-of-file-size-while-uploading-using-javascript-jquery/)  
+For file size validation adapted to website needs.
+
 [Miguel Grinberg](https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask)
 
 ### Media
