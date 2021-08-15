@@ -21,6 +21,12 @@ events_coll = mongo.db.events
 
 @events.route("/browse_events", methods=["GET", "POST"])
 def browse_events():
+    if session['user']:
+        user = User.get_one_user_coll(session['user'])
+        # Get all the events to display
+        events_list = Event.get_all_events()
+        return render_template("events.html", events_list=events_list, user=user)
+
     # Get all the events to display
     events_list = Event.get_all_events()
     return render_template("events.html", events_list=events_list)
@@ -28,6 +34,14 @@ def browse_events():
 
 @events.route("/search_events", methods=["GET", "POST"])
 def search_events():
+    if session['user']:
+        user = User.get_one_user_coll(session['user'])
+        # Get the search from the form
+        query = request.form.get("query_search_events")
+        # Get some events to display
+        events_list = list(events_coll.find({"$text": {"$search": query}}))
+        return render_template("events.html", events_list=events_list, user=user)
+
     # Get the search from the form
     query = request.form.get("query_search_events")
     # Get some events to display
@@ -37,6 +51,16 @@ def search_events():
 
 @events.route("/select_events", methods=["GET", "POST"])
 def select_events():
+    if session['user']:
+        user = User.get_one_user_coll(session['user'])
+        # Get the category selected
+        category = request.form.get("event_category")
+        # Set the field to search on
+        field = "event_category"
+        # Get some events to display
+        events_list = Event.get_some_events(field, category)
+        return render_template("events.html", events_list=events_list, user=user)
+
     # Get the category selected
     category = request.form.get("event_category")
     # Set the field to search on
@@ -153,8 +177,9 @@ def cancel_event(username):
 
         flash(EventsMsg.event_deleted)
 
+        user = User.get_one_user_coll(session['user'])
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list)
+        return render_template("events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)
@@ -168,7 +193,8 @@ def join_event(username):
         event_id = request.form.get("join_event")
 
         # Get the user id from the db
-        user_id = User.get_one_user_coll(username)["_id"]
+        user = User.get_one_user_coll(username)
+        user_id = user["_id"]
 
         # Set the attribute to update in the user doc
         get_user_attr = "events_joined"
@@ -183,7 +209,7 @@ def join_event(username):
         flash(EventsMsg.event_joined)
 
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list)
+        return render_template("events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)
@@ -197,7 +223,8 @@ def leave_event(username):
         event_id = request.form.get("leave_event")
 
         # Get the user id from the db
-        user_id = User.get_one_user_coll(username)["_id"]
+        user = User.get_one_user_coll(username)
+        user_id = user["_id"]
 
         # Set the attribute to update in the user doc
         get_user_attr = "events_joined"
@@ -212,7 +239,7 @@ def leave_event(username):
         flash(EventsMsg.event_left)
 
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list)
+        return render_template("events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)

@@ -496,6 +496,8 @@ footer {
 /* profile chip */
 .profile-chip {
     margin: auto;
+    background-color: transparent;
+    height: 24px;
 }
 
 /* home.html */

@@ -35,11 +35,6 @@
                     </a>
                     <ul class="left registration">
                         {% if session.user %}
-                            <li class="icon-placeholder">
-                                <a href="{{ url_for('users.profile', username=session['user']) }}" aria-label="Link to the Profile page.">
-                                    <span id="profile-icon" class="material-icons hoverable" aria-hidden="true">person</span>
-                                </a>
-                            </li>
                             <li><a href="{{ url_for('users.logout') }}" aria-label="Log out.">Log Out</a></li>
                         {% else %}
                             <li><a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page.">Log In</a></li>
@@ -50,9 +45,33 @@
                     <ul>
                         <div class="right hide-on-med-and-down">
                             {% if session.user %}
+                                <!-- link to Events -->
                                 <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
-                                <li><a href="{{ url_for('events.create_event', username=session['user']) }}" 
-                                    aria-label="Link to the Creates page.">Create</a></li>
+                                <!-- link to Create -->
+                                <li>
+                                    <a href="{{ url_for('events.create_event', username=session['user']) }}"
+                                        aria-label="Link to the Creates page.">
+                                        Create</a>
+                                </li>
+                                <!-- link to profile -->
+                                <li class="tooltipped" data-tooltip="profile">
+                                    <a href="{{ url_for('users.profile', username=session['user']) }}"
+                                        aria-label="Link to the Profile page." class="center-align">
+                                        <div class="chip col s3 profile-chip">
+                                            {% if user.profile_picture != None %}
+                                            <!-- user picture -->
+                                            <img class="profile-picture"
+                                                src="data:image/png;base64,{{ user.profile_picture }}"
+                                                alt="Profile image of {{ user.username }}">
+                                            {% else %}
+                                            <!-- default picture -->
+                                            <img class="profile-picture"
+                                                src="/static/images/default-profile-picture/default-profile-picture.png"
+                                                alt="Default profile picture representing a smiling sunflower.">
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </li>
                             {% else %}
                                 <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
                             {% endif %}
@@ -70,9 +89,30 @@
             <!-- Mobile navbar -->
             <ul class="dropdown-content mobile-dropdown" id="mobile-navbar">
                 {% if session.user %}
+                    <!-- link to Events -->
                     <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
+                    <!-- link to create -->
                     <li><a href="{{ url_for('events.create_event', username=session['user']) }}"
                         aria-label="Link to the Creates page.">Create</a></li>
+                    <!-- link to profile -->
+                    <li class="tooltipped" data-tooltip="profile">
+                        <a href="{{ url_for('users.profile', username=session['user']) }}"
+                            aria-label="Link to the Profile page." class="center-align">
+                            <div class="chip col s3 profile-chip">
+                                {% if user.profile_picture != None %}
+                                <!-- user picture -->
+                                <img class="profile-picture"
+                                    src="data:image/png;base64,{{ user.profile_picture }}"
+                                    alt="Profile image of {{ user.username }}">
+                                {% else %}
+                                <!-- default picture -->
+                                <img class="profile-picture"
+                                    src="/static/images/default-profile-picture/default-profile-picture.png"
+                                    alt="Default profile picture representing a smiling sunflower.">
+                                {% endif %}
+                            </div>
+                        </a>
+                    </li>
                 {% else %}
                     <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
                 {% endif %}
