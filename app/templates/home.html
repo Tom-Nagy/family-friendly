@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row home-card-wrapper">
+    <div class="row home-card-wrapper center-align">
         <!-- Events -->
-        <div class="col s12 l4">
+        <div class="col s10 offset-s1 l4 offset-l2">
             <div class="card-panel yellow-bg home-cards valign-wrapper hoverable">
                 <a href="{{ url_for('events.browse_events') }}" class="black-txt centered">
                     <h2 class="card-headings center-align text-shadow">Events</h2>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- Create -->
-        <div class="col s12 l4">
+        <div class="col s10 offset-s1 l4">
             <div class="card-panel orange-bg home-cards valign-wrapper hoverable">
                 {% if session.user %}
                     <a href="{{ url_for('events.create_event', username=session['user']) }}" class="black-txt centered">

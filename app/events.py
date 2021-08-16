@@ -21,7 +21,8 @@ events_coll = mongo.db.events
 
 @events.route("/browse_events", methods=["GET", "POST"])
 def browse_events():
-    if session['user']:
+    # Check if the user is logged in.
+    if session:
         user = User.get_one_user_coll(session['user'])
         # Get all the events to display
         events_list = Event.get_all_events()
@@ -34,7 +35,8 @@ def browse_events():
 
 @events.route("/search_events", methods=["GET", "POST"])
 def search_events():
-    if session['user']:
+    # Check if the user is logged in.
+    if session:
         user = User.get_one_user_coll(session['user'])
         # Get the search from the form
         query = request.form.get("query_search_events")
@@ -51,7 +53,8 @@ def search_events():
 
 @events.route("/select_events", methods=["GET", "POST"])
 def select_events():
-    if session['user']:
+    # Check if the user is logged in.
+    if session:
         user = User.get_one_user_coll(session['user'])
         # Get the category selected
         category = request.form.get("event_category")
@@ -104,8 +107,8 @@ def create_event(username):
 
 @events.route("/see_event", methods=["GET", "POST"])
 def see_event():
-    # Check if user is logged in
-    if session["user"]:
+    # Check if the user is logged in.
+    if session:
         user = User.get_one_user_coll(session["user"])
         # Get the event_id passed by the form from browse_events
         # to display the relevant event
