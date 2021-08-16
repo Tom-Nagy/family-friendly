@@ -4,10 +4,8 @@ $(document).ready(function(){
     // Materialize form select initialization
     $('select').material_select();
 
-    // Materialize carousel initialization
-    $('.carousel').carousel(
-        {indicators: true},
-    );
+    // Materialize collapsible initialization
+    $('.collapsible').collapsible();
 
     // Trigger try-see-event modal
     $(":button").on("click touchend", function() {

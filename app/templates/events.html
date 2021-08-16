@@ -8,9 +8,9 @@
     <!-- Search events -->
     <div class="row">
         <form action="{{ url_for('events.search_events') }}" method="POST"
-            class="col s12 m10 offset-m1 l6 offset-l3 card-panel search-card hight-z-index">
+            class="col s12 m10 offset-m1 l6 offset-l3 card-panel search-card">
             <div class="row valign-wrapper no-margin-bot">
-                <div class="col s4 input-field hight-z-index">
+                <div class="col s4 input-field">
                     <span class="material-icons prefix">search</span>
                     <input type="text" name="query_search_events" id="query_search_events" class="validate"
                         minlength="2" required>
@@ -31,9 +31,9 @@
     <div class="row">
         <div class="row">
             <form action="{{ url_for('events.select_events') }}" method="post"
-                class="col s12 m6 offset-m3 l4 offset-l4 card-panel search-card hight-z-index">
+                class="col s12 m6 offset-m3 l4 offset-l4 card-panel search-card">
                 <div class="row valign-wrapper no-margin-bot">
-                    <div class="input-field col s4 input-field no-margin-top hight-z-index">
+                    <div class="input-field col s4 input-field no-margin-top">
                         <select id="event_category" name="event_category" class="validate" required>
                             <option value="" disabled selected>Filter by Activity</option>
                             <option value="Playground">Playground</option>
@@ -61,100 +61,89 @@
     </div>
 
     {% if events_list|length > 0 %}
-        <!-- Carousel that display all the events -->
+        <!-- Display all the events -->
         <div class="row">
-            <div class="col s12 carousel-wrapper">
-                <div class="carousel">
-                    {% for event in events_list %}
-                        <a class="carousel-item event-slide black-txt">
-                            <form action="{{ url_for('events.see_event') }}" method="POST"
-                                class="card-panel orange-bg carousel-from">
-                                <!-- Hidden input to get the event id -->
-                                <div class="hide">
-                                    <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
-                                </div>
+            {% for event in events_list %}
+                <div class="col s10 offset-s1 m6 l4">
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <li>
+                            <!-- Collapsible Header -->
+                            <div class="row collapsible-header no-margin-bot">
                                 <!-- Category -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">What ?</p>
-                                        <p class="events-card-descriptions">{{ event.event_category }}</p>
-                                    </div>
-                                </div>
-                                <!-- Location -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">Where ?</p>
-                                        <p class="events-card-descriptions">{{ event.event_location }}</p>
-                                    </div>
+                                <div class="col s7">
+                                    <p class="events-card-titles">{{ event.event_category }}</p>
                                 </div>
                                 <!-- Date -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">When ?</p>
-                                        <p class="events-card-descriptions">{{ event.event_date }}</p>
-                                    </div>
-                                </div>
-                                <!-- Time -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">What time ?</p>
-                                        <p class="events-card-descriptions">{{ event.event_time }}</p>
-                                    </div>
-                                </div>
-                                <!-- Age Range -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">Age range in years :</p>
-                                        <p class="events-card-descriptions">{{ event.event_age_range }}</p>
-                                    </div>
-                                </div>
-                                <!-- Description -->
-                                <div class="row events-card-sections">
-                                    <div class="col s12">
-                                        <p class="events-card-titles">Description :</p>
-                                        <p class="events-card-descriptions">{{ event.event_description }}</p>
-                                    </div>
+                                <div class="col s5">
+                                    <p class="events-card-descriptions">{{ event.event_date }}</p>
                                 </div>
                                 <!-- Likes -->
-                                <div class="row events-card-sections">
+                                <div class="likes-display z-depth-3">
+                                    <div class="center-align">
+                                        {% if event.event_likes != None %}
+                                            <span class="likes-num">{{ event.event_likes|length }}</span>
+                                        {% else %}
+                                            <span class="likes-num">0</span>
+                                        {% endif %}
+                                        <span class="material-icons likes-icon blue-txt">thumb_up_alt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Collapsible Body -->
+                            <div class="row collapsible-body">
+                                <form action="{{ url_for('events.see_event') }}" method="POST" class="############">
+                                    <!-- Hidden input to get the event id -->
+                                    <div class="hide">
+                                        <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
+                                    </div>
                                     <div class="col s12">
-                                        <p class="events-card-descriptions padd-top padd-bot">
-                                            <div class="center-align">
-                                                {% if event.event_likes != None %}
-                                                    <span class="likes-display">{{ event.event_likes|length }}</span>
-                                                {% else %}
-                                                    <span class="likes-icon">0</span>
-                                                {% endif %}
-                                                <span class="material-icons centered blue-txt">thumb_up_alt
-                                                </span>
+                                        <div class="row">
+                                            <!-- Location -->
+                                            <div class="col s8">
+                                                <p class="events-card-descriptions">In {{ event.event_location }}</p>
                                             </div>
+                                            <!-- Time -->
+                                            <div class="col s4">
+                                                <p class="events-card-descriptions"> at {{ event.event_time }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Description -->
+                                    <div class="col s12">
+                                        <p class="events-card-descriptions center-align">{{ event.event_description }}</p>
+                                    </div>
+                                    <!-- Age Range -->
+                                    <div class="col s12">
+                                        <p class="events-card-descriptions center-align age">Best suited for children between
+                                            {{ event.event_age_range }} years old
                                         </p>
                                     </div>
-                                </div>
-                                <!-- Access to event -->
-                                <div class="row">
-                                    <div class="col s12 center-align">
-                                        {% if session["user"] %}
-                                        <button type="submit"
-                                            class="btn submit-btn blue-bg white-txt center-align centered">
-                                            <span class="valign-wrapper">
-                                                See <span class="material-icons">login</span>
-                                            </span>
-                                        </button>
-                                        {% else %}
-                                        <button type="button" id="try-see-event" class="btn submit-btn blue-bg white-txt">
-                                            <span class="valign-wrapper">
-                                                See <span class="material-icons">login</span>
-                                            </span>
-                                        </button>
-                                        {% endif %}
+                                    <!-- Access to event -->
+                                    <div class="row no-margin-bot">
+                                        <div class="col s12 center-align">
+                                            {% if session["user"] %}
+                                            <button type="submit"
+                                                class="btn small-btn submit-btn blue-bg white-txt center-align centered">
+                                                <span class="valign-wrapper">
+                                                    See <span class="material-icons">login</span>
+                                                </span>
+                                            </button>
+                                            {% else %}
+                                            <button type="button" id="try-see-event"
+                                                class="btn small-btn submit-btn blue-bg white-txt">
+                                                <span class="valign-wrapper">
+                                                    See <span class="material-icons">login</span>
+                                                </span>
+                                            </button>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </a>
-                    {% endfor %}
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     {% else %}
         <div class="row">

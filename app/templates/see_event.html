@@ -5,95 +5,79 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s10 offset-s1 m4 offset-m4 card-panel orange-bg">
-            <!-- Category -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-titles padd-top">What ?</p>
-                    <p class="events-card-descriptions">{{ event.event_category }}</p>
+        <div class="col s10 offset-s1 m4 offset-m4 card-panel position-rel">
+            <div class="row no-margin-bot padd-top">
+                <!-- Category -->
+                <div class="col s7">
+                    <p class="events-card-titles">{{ event.event_category }}</p>
                 </div>
-            </div>
-            <!-- Location -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-titles">Where ?</p>
-                    <p class="events-card-descriptions">{{ event.event_location }}</p>
-                </div>
-            </div>
-            <!-- Date -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-titles">When ?</p>
+                <!-- Date -->
+                <div class="col s5">
                     <p class="events-card-descriptions">{{ event.event_date }}</p>
                 </div>
             </div>
-            <!-- Time -->
-            <div class="row events-card-sections">
+            <div class="row">
                 <div class="col s12">
-                    <p class="events-card-titles">What time ?</p>
-                    <p class="events-card-descriptions">{{ event.event_time }}</p>
-                </div>
-            </div>
-            <!-- Age Range -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-titles">Age range in years :</p>
-                    <p class="events-card-descriptions">{{ event.event_age_range }}</p>
-                </div>
-            </div>
-            <!-- Description -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-titles">Description :</p>
-                    <p class="events-card-descriptions">{{ event.event_description }}</p>
-                </div>
-            </div>
-            <!-- Likes -->
-            <div class="row events-card-sections">
-                <div class="col s12">
-                    <p class="events-card-descriptions">
-                        <div class="center-align">
-                            {% if event.event_likes != None %}
-                                <span class="likes-display">{{ event.event_likes|length }}</span>
-                            {% else %}
-                                <span class="likes-display">0</span>
-                            {% endif %}
-                            {% if event._id|string in user.events_liked %}
-                                <form method="POST"
-                                    action="{{ url_for('events.unlike_event', username=session['user']) }}">
-                                    <!-- Hidden input to get the event id -->
-                                    <div class="hide">
-                                        <input id="unlike_event" name="unlike_event" value="{{ event._id }}" type="text">
-                                    </div>
-                                    <!-- Remove a like -->
-                                    <div class="center-align">
-                                        <button class="transp-bg unlike-btn" type="submit"
-                                            aria-label="Remove a like to the event.">
-                                            <span class="valign-wrapper">
-                                                <span class="material-icons centered red-txt">thumb_down_alt</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </form>
-                            {% else %}
-                                <form method="POST" action="{{ url_for('events.like_event', username=session['user']) }}">
-                                    <!-- Hidden input to get the event id -->
-                                    <div class="hide">
-                                        <input id="like_event" name="like_event" value="{{ event._id }}" type="text">
-                                    </div>
-                                    <!-- Add a like -->
-                                    <div class="center-align">
-                                        <button class="transp-bg like-btn" type="submit"
-                                            aria-label="Add a like to the event.">
-                                            <span class="valign-wrapper">
-                                                <span class="material-icons centered blue-txt">thumb_up_alt</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </form>
-                            {% endif %}
+                    <div class="row">
+                        <!-- Location -->
+                        <div class="col s8">
+                            <p class="events-card-descriptions">In {{ event.event_location }}</p>
                         </div>
+                        <!-- Time -->
+                        <div class="col s4">
+                            <p class="events-card-descriptions"> at {{ event.event_time }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="col s12">
+                    <p class="events-card-descriptions center-align">{{ event.event_description }}</p>
+                </div>
+                <!-- Age Range -->
+                <div class="col s12">
+                    <p class="events-card-descriptions center-align age">Best suited for children between
+                        {{ event.event_age_range }} years old
                     </p>
+                </div>
+                <!-- Likes -->
+                <div class="likes-display z-depth-3 position-rel">
+                    <div class="left-align">
+                        {% if event.event_likes != None %}
+                            <span class="likes-num padd-left">{{ event.event_likes|length }}</span>
+                        {% else %}
+                            <span class="likes-num padd-left">0</span>
+                        {% endif %}
+                        {% if event._id|string in user.events_liked %}
+                            <form method="POST" action="{{ url_for('events.unlike_event', username=session['user']) }}"
+                                class="inline-dis">
+                                <!-- Hidden input to get the event id -->
+                                <div class="hide">
+                                    <input id="unlike_event" name="unlike_event" value="{{ event._id }}" type="text">
+                                </div>
+                                <!-- Remove a like -->
+                                <button class="transp-bg unlike-btn position-abs" type="submit"
+                                    aria-label="Remove a like to the event.">
+                                    <span class="valign-wrapper">
+                                        <span class="material-icons likes-icon red-txt">thumb_down_alt</span>
+                                    </span>
+                                </button>
+                            </form>
+                        {% else %}
+                            <form method="POST" action="{{ url_for('events.like_event', username=session['user']) }}"
+                                class="inline-dis">
+                                <!-- Hidden input to get the event id -->
+                                <div class="hide">
+                                    <input id="like_event" name="like_event" value="{{ event._id }}" type="text">
+                                </div>
+                                <!-- Add a like -->
+                                <button class="transp-bg like-btn position-abs" type="submit" aria-label="Add a like to the event.">
+                                    <span class="valign-wrapper">
+                                        <span class="material-icons likes-icon blue-txt">thumb_up_alt</span>
+                                    </span>
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
@@ -121,10 +105,13 @@
                 </div>
             {% elif event._id|string in user.events_joined %}
                 <!-- Leave event -->
-                <div class="col s12 center-align padd-bot">
-                    <button type="button" aria-label="Leave Event" id="try-leave-event" class="btn cancel-btn red-bg white-txt">
-                        Leave Event
-                    </button>
+                <div class="row padd-bot">
+                    <div class="col s12 center-align padd-bot">
+                        <button type="button" aria-label="Leave Event" id="try-leave-event"
+                            class="btn cancel-btn red-bg white-txt">
+                            Leave Event
+                        </button>
+                    </div>
                 </div>
             {% else %}
                 <!-- Join event -->

@@ -41,6 +41,10 @@ body {
     padding-bottom: 12px;
 }
 
+.padd-left {
+    padding-left: 6px;
+}
+
 .no-margin-top {
     margin-top: 0;
 }
@@ -53,16 +57,19 @@ body {
     position: relative;
 }
 
+.position-abs {
+    position: absolute;
+}
+
+.inline-dis {
+    display: inline;
+}
 .hide {
     display: none;
 }
 
 .show {
     display: block;
-}
-
-.hight-z-index {
-    z-index: 100;
 }
 
 /* Typograpgy */
@@ -100,6 +107,14 @@ input:focus,
 textarea:focus {
     transform: none;
 }
+
+/* .capitalized {
+    text-transform: capitalize;
+}
+
+.italic {
+    font-style: italic;
+} */
 
 /* colours */
 body {
@@ -149,6 +164,10 @@ footer {
 .yellow-txt {
     color: #E9F900;
 }
+
+/* .green-txt {
+    color: #24C212;
+} */
 
 .white-txt {
     color: #fafafa;
@@ -462,11 +481,21 @@ footer {
     padding: 0 1rem;
 }
 
+.small-btn .material-icons {
+    font-size: 0.9rem;
+}
+
 .unlike-btn,
 .like-btn {
-    height: 36px;
-    width: 36px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
+    right: 0;
+}
+
+.unlike-btn .material-icons,
+.like-btn .material-icons {
+    transform: translateX(10px);
 }
 
 .like-btn:hover,
@@ -493,6 +522,55 @@ footer {
     font-weight: 700;
 }
 
+.events-card-titles {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.events-card-descriptions {
+    font-size: 0.9rem;
+    margin-top: 0;
+    padding: 0.2rem;
+}
+
+.age {
+    font-size: 0.7rem;
+}
+
+/* Modify materialize collapsible-body style */
+.collapsible-body {
+    padding: 0.8rem;
+}
+
+.collapsible-header {
+    position: relative;
+}
+
+/* Likes */
+.likes-display {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #fafafa;
+    line-height: 40px;
+    text-align: center;
+}
+
+.likes-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.likes-icon {
+    font-size: 1.2rem;
+}
+
 /* profile chip */
 .profile-chip {
     margin: auto;
@@ -511,7 +589,6 @@ footer {
 }
 
 .home-cards {
-    /* margin: 20px; */
     width: 100%;
     height: 200px;
     border-radius: 10px;
@@ -597,40 +674,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* events.html */
-/* Modification of the Materialize carousel for the website needs */
-.carousel-wrapper {
-    position: relative;
-}
-
-.carousel {
-    height: 660px;
-    margin-top: 1px;
-    margin-bottom: -30px;
-    overflow: visible;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    
-}
-
-.carousel .carousel-item {
-    width: 300px;
-}
-
-.carousel .indicators {
-    bottom: -100px;
-}
-
-.carousel .indicators .indicator-item {
-    background-color: #000;
-}
-
-.carousel .indicators .indicator-item.active {
-    background-color: #FF091E;
-}
-
 /* events card */
 .search-card {
     border-radius: 60px;
@@ -651,26 +694,5 @@ footer {
 .select-wrapper input.select-dropdown  {
     border-bottom: none;
     margin: 0;
-
 }
-
-
-.events-card-sections {
-    margin-bottom: 0;
-}
-
-.events-card-titles {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 3px;
-}
-
-.events-card-descriptions {
-    font-size: 0.8rem;
-    margin-top: 0;
-}
-
-/* contact.html */
 
