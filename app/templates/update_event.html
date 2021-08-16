@@ -6,15 +6,15 @@
 {% block content %}
     <div class="row">
         <div class="row">
-            <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST"
-                action="{{ url_for('events.updated_event', event_id=event._id) }}">
+            <form action="{{ url_for('events.updated_event', event_id=event._id) }}" method="POST" 
+                class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel" id="update-event-form">
                 <!-- Hidden input to get the user id -->
                 <div class="hide">
                     <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
                 </div>
                 <!-- category -->
                 <div class="row padd-top">
-                    <div class="input-field col s12">
+                    <div class="input-field col s8">
                         <select id="event_category" name="event_category" class="validate" required>
                             <option value="{{ event.event_category }}">{{ event.event_category }}</option>
                             <option value="Playground">Playground</option>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <!-- Description -->
-                <div class="row">
+                <div class="row padd-top">
                     <div class="input-field col s12">
                         <textarea id="event_description" name="event_description" class="materialize-textarea"
                         required>{{ event.event_description }}</textarea>

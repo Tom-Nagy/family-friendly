@@ -8,8 +8,9 @@
 
     <!-- Profile info -->
     <div class="row">
-        <div class="col s12 m6 offset-m3">
-            <div class="card horizontal profile-container">
+        <!-- Large screen profile info display -->
+        <div class="col hide-on-small-only m8 offset-m2 l6 offset-l3">
+            <div class="card horizontal profile-container large-screen-profile">
                 <!-- Profile picture -->
                 <div class="card-image valign-wrapper">
                     <!-- Change picture -->
@@ -18,12 +19,12 @@
                         {% if user.profile_picture != None %}
                             <!-- user picture -->
                             <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
-                                alt="Profile image of {{ user.username }}">
+                                alt="Profile image of {{ user.username }}" height="180" width="180">
                         {% else %}
                             <!-- default picture -->
                             <img class="profile-picture"
                                 src="/static/images/default-profile-picture/default-profile-picture.png"
-                                alt="Default profile picture representing a smiling sunflower.">
+                                alt="Default profile picture representing a smiling sunflower." height="180" width="180">
                         {% endif %}
                     </a>
                 </div>
@@ -48,30 +49,80 @@
                         </div>
                     </div>
                     <!-- Update info / Change password -->
-                    <div class="card-action">
+                    <div class="card-action center-align">
                         <a href="{{ url_for('users.update_profile', user_id=user._id) }}">Update info</a>
+                    </div>
+                    <div class="card-action center-align">
                         <a href="{{ url_for('users.change_password', user_id=user._id) }}">Change password</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile profile info display -->
+        <div class="col s10 offset-s1 hide-on-med-and-up">
+            <div class="card profile-container mobile-profile">
+                <!-- Profile picture -->
+                <div class="card-image">
+                    <!-- Change picture -->
+                    <a class="tooltipped hoverable" href="{{ url_for('users.update_picture', user_id=user._id) }}"
+                        aria-label="Change or Add profile picture." data-tooltip="Click to update profile picture">
+                        {% if user.profile_picture != None %}
+                            <!-- user picture -->
+                            <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}"
+                                alt="Profile image of {{ user.username }}" height="90" width="90">
+                        {% else %}
+                            <!-- default picture -->
+                            <img class="profile-picture"
+                                src="/static/images/default-profile-picture/default-profile-picture.png"
+                                alt="Default profile picture representing a smiling sunflower." height="90" width="90">
+                        {% endif %}
+                    </a>
+                </div>
+                <!-- Personal info -->
+                <div class="card-content">
+                    <div class="profile-info-wrapper">
+                        <span class="profile-info-titles">Username:</span>
+                        <span class="profile-info">{{ user.username }}</span>
+                    </div>
+                    <div class="profile-info-wrapper">
+                        <span class="profile-info-titles">First Name:</span>
+                        <span class="profile-info">{{ user.first_name }}</span>
+                    </div>
+                    <div class="profile-info-wrapper">
+                        <span class="profile-info-titles">Last Name:</span>
+                        <span class="profile-info">{{ user.last_name }}</span>
+                    </div>
+                    <div class="profile-info-wrapper">
+                        <span class="profile-info-titles">Email:</span>
+                        <span class="profile-info">{{ user.email }}</span>
+                    </div>
+                </div>
+                <!-- Update info / Change password -->
+                <div class="card-action center-align">
+                    <a href="{{ url_for('users.update_profile', user_id=user._id) }}">Update info</a>
+                </div>
+                <div class="card-action center-align">
+                    <a href="{{ url_for('users.change_password', user_id=user._id) }}">Change password</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Display events created by user -->
     <div class="row">
-        <div class="col s12 m4 offset-m4">
-            <h3 class="center-align">Events Created</h3>
-            {% if events_list_created|length > 0 %}
-                {% for event in events_list_created %}
+        <h3 class="center-align">Events Created</h3>
+        {% if events_list_created|length > 0 %}
+            {% for event in events_list_created %}
+                <div class="col s10 offset-s1 l4 offset-l4">
                     <ul class="collapsible popout" data-collapsible="accordion">
                         <li>
                             <!-- Collapsible Header -->
                             <div class="row collapsible-header no-margin-bot">
                                 <!-- Category -->
-                                <div class="col s7">
+                                <div class="col s5">
                                     <p class="events-card-titles">{{ event.event_category }}</p>
                                 </div>
                                 <!-- Date -->
-                                <div class="col s5">
+                                <div class="col s7">
                                     <p class="events-card-descriptions">{{ event.event_date }}</p>
                                 </div>
                                 <!-- Likes -->
@@ -88,7 +139,7 @@
                             </div>
                             <!-- Collapsible Body -->
                             <div class="row collapsible-body">
-                                <form action="{{ url_for('events.see_event') }}" method="POST" class="############">
+                                <form action="{{ url_for('events.see_event') }}" method="POST">
                                     <!-- Hidden input to get the event id -->
                                     <div class="hide">
                                         <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
@@ -140,8 +191,10 @@
                             </div>
                         </li>
                     </ul>
-                {% endfor %}
-            {% else %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col s10 offset-s1 l4 offset-l4">
                 <ul class="collapsible popout" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header">No Event Created</div>
@@ -151,26 +204,26 @@
                         </div>
                     </li>
                 </ul>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 
     <!-- Display events joined by user -->
     <div class="row">
-        <div class="col s12 m4 offset-m4">
-            <h3 class="center-align">Events Joined</h3>
-            {% if events_list_joined|length > 0 %}
-                {% for event in events_list_joined %}
+        <h3 class="center-align">Events Joined</h3>
+        {% if events_list_joined|length > 0 %}
+            {% for event in events_list_joined %}
+                <div class="col s10 offset-s1 l4 offset-l4">
                     <ul class="collapsible popout" data-collapsible="accordion">
                         <li>
                             <!-- Collapsible Header -->
                             <div class="row collapsible-header no-margin-bot">
                                 <!-- Category -->
-                                <div class="col s7">
+                                <div class="col s5">
                                     <p class="events-card-titles">{{ event.event_category }}</p>
                                 </div>
                                 <!-- Date -->
-                                <div class="col s5">
+                                <div class="col s7">
                                     <p class="events-card-descriptions">{{ event.event_date }}</p>
                                 </div>
                                 <!-- Likes -->
@@ -187,7 +240,7 @@
                             </div>
                             <!-- Collapsible Body -->
                             <div class="row collapsible-body">
-                                <form action="{{ url_for('events.see_event') }}" method="POST" class="############">
+                                <form action="{{ url_for('events.see_event') }}" method="POST">
                                     <!-- Hidden input to get the event id -->
                                     <div class="hide">
                                         <input id="event_id" name="event_id" value="{{ event._id }}" type="text">
@@ -239,8 +292,10 @@
                             </div>
                         </li>
                     </ul>
-                {% endfor %}
-            {% elif events_list|length > 0 %}
+                </div>
+            {% endfor %}
+        {% elif events_list|length > 0 %}
+            <div class="col s10 offset-s1 l4 offset-l4">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li class="{{ no_event_class }}">
                         <div class="collapsible-header">No Event Joined</div>
@@ -250,7 +305,9 @@
                         </div>
                     </li>
                 </ul>
-            {% else %}
+            </div>
+        {% else %}
+            <div class="col s10 offset-s1 l4 offset-l4">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header">There are no Events at the moment</div>
@@ -263,12 +320,12 @@
                         </div>
                     </li>
                 </ul>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 
     <!-- Delete profile -->
-    <div class="row">
+    <div class="row center-align">
         <div class="col s12">
             <a class="btn red-bg cancel-btn delete-profile-btn" href="{{ url_for('users.delete_profile') }}">
                 <span class="valign-wrapper">

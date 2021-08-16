@@ -5,11 +5,11 @@
 
 {% block content %}
     <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" enctype="multipart/form-data" 
-            action="{{ url_for('users.update_picture', user_id=user._id) }}">
+        <form action="{{ url_for('users.update_picture', user_id=user._id) }}" method="POST" enctype="multipart/form-data" 
+            class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel">
             <div class="row">
                 <!-- picture display -->
-                <div class="row">
+                <div class="row padd-top">
                     <div class="col s12 center-align">
                         {% if user.profile_picture != None %}
                             <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
@@ -23,18 +23,20 @@
                 <!-- upload picture -->
                 <div class="row">
                     <div class="file-field input-field col s12">
-                        <div class="btn select-file">
-                            <label" for="profile_picture">Select a picture</label>
-                            <input id="profile_picture" name="profile_picture" type="file" accept=".png" class="validate">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <label for="my_picture"></label>
-                            <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
-                            <span class="helper-text valign-wrapper">
-                                <span class="material-icons">error_outline</span>
-                                Only .png files are accepted<br>
-                                File size must be between 2-6 MB
-                            </span>
+                        <div class="row">
+                            <div class="col s10 offset-s1 m4 btn select-file">
+                                <label" for="profile_picture">Select a picture</label>
+                                <input id="profile_picture" name="profile_picture" type="file" accept=".png" class="validate">
+                            </div>
+                            <div class="col s10 offset-s1 m8 file-path-wrapper">
+                                <label for="my_picture"></label>
+                                <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
+                                <span class="helper-text valign-wrapper">
+                                    <span class="material-icons">error_outline</span>
+                                    Only .png files are accepted<br>
+                                    File size must be between 2-6 MB
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

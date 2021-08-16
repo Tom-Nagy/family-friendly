@@ -5,7 +5,8 @@
 
 {% block content %}
     <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" action="{{ url_for('users.signup') }}">
+        <form method="POST" action="{{ url_for('users.signup') }}" 
+            class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel" id="signup-form">
             <div class="row">
                 <!-- first name -->
                 <div class="input-field col s12 m6">
@@ -51,8 +52,7 @@
                     <span class="helper-text valign-wrapper">
                         <span class="material-icons">error_outline</span>
                         Password must have at least 8 characters, letters (upper and lower-case),
-                        numbers and special character: <br>
-                        (@ $ ! % * # ? &)
+                        numbers and special character: (@ $ ! % * # ? &)
                     </span>
                 </div>
             </div>
@@ -69,8 +69,8 @@
                 </div>
             </div>
             <!-- Join -->
-            <div class="row">
-                <div class="col12 center-align">
+            <div class="row padd-top">
+                <div class="col12 center-align padd-top">
                     <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Join</button>
                 </div>
             </div>

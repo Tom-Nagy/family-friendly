@@ -41,11 +41,11 @@
                 </div>
                 <!-- Likes -->
                 <div class="likes-display z-depth-3 position-rel">
-                    <div class="left-align">
+                    <div class="left-align padd-left">
                         {% if event.event_likes != None %}
-                            <span class="likes-num padd-left">{{ event.event_likes|length }}</span>
+                            <span class="likes-num">{{ event.event_likes|length }}</span>
                         {% else %}
-                            <span class="likes-num padd-left">0</span>
+                            <span class="likes-num">0</span>
                         {% endif %}
                         {% if event._id|string in user.events_liked %}
                             <form method="POST" action="{{ url_for('events.unlike_event', username=session['user']) }}"
@@ -57,9 +57,7 @@
                                 <!-- Remove a like -->
                                 <button class="transp-bg unlike-btn position-abs" type="submit"
                                     aria-label="Remove a like to the event.">
-                                    <span class="valign-wrapper">
-                                        <span class="material-icons likes-icon red-txt">thumb_down_alt</span>
-                                    </span>
+                                    <span class="material-icons likes-icon red-txt">thumb_down_alt</span>
                                 </button>
                             </form>
                         {% else %}
@@ -71,9 +69,7 @@
                                 </div>
                                 <!-- Add a like -->
                                 <button class="transp-bg like-btn position-abs" type="submit" aria-label="Add a like to the event.">
-                                    <span class="valign-wrapper">
-                                        <span class="material-icons likes-icon blue-txt">thumb_up_alt</span>
-                                    </span>
+                                    <span class="material-icons likes-icon blue-txt">thumb_up_alt</span>
                                 </button>
                             </form>
                         {% endif %}

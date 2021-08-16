@@ -4,8 +4,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" action="{{ url_for('users.login') }}">
+    <div class="row padd-top">
+        <form method="POST" action="{{ url_for('users.login') }}" 
+            class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel" id="login-form">
             <!-- email -->
             <div class="row">
                 <div class="input-field col s12">

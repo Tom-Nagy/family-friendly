@@ -5,8 +5,8 @@
 
 {% block content %}
     <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
-            action="{{ url_for('users.update_profile', user_id=user._id) }}">
+        <form action="{{ url_for('users.update_profile', user_id=user._id) }}" method="POST" 
+            class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel" id="update-profile-form">
             <div class="row">
                 <!-- first name -->
                 <div class="input-field col s12 m6">

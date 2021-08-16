@@ -5,15 +5,15 @@
 
 {% block content %}
     <div class="row">
-        <form class="col s12 m8 offset-m2 l6 offset-l3 card-panel" method="POST" 
-            action="{{ url_for('events.create_event', username=session['user']) }}">
+        <form action="{{ url_for('events.create_event', username=session['user']) }}" method="POST" 
+             class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel" id="create-event-form">
             <!-- Hidden input to get the user id -->
             <div class="hide">
                 <input id="event_created_by" name="event_created_by" value="{{ user._id }}" type="text">
             </div>
             <!-- category -->
             <div class="row padd-top">
-                <div class="input-field col s12">
+                <div class="input-field col s8">
                     <select id="event_category" name="event_category" class="validate" required>
                         <option value="" disabled selected>Choose a category</option>
                         <option value="Playground">Playground</option>
