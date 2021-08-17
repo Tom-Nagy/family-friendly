@@ -1,10 +1,10 @@
 # **Family Friendly**
 
-![Mockup](assets/images/README-images/mockups/ami-responsive-website.png)
+![Mockup](assets/images/README-images/mockups/mockup.png)
 
-Check out the other mockups:
+Check out the other mockup:
 
-* [Home page](assets/images/README-images/mockups/ami-responsive-home.png)
+* [Home page](assets/images/README-images/mockups/mockup2.png)
 
 Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
 
@@ -204,6 +204,13 @@ No audio or video will be integrated at the moment.
 * [Contact page](app/static/images/README-images/wireframes/contact.pdf)
 * [Events page](app/static/images/README-images/wireframes/events.pdf)
 * [Create page](app/static/images/README-images/wireframes/create.pdf)
+* [Sign up page](app/static/images/README-images/wireframes/signup.pdf)
+* [Login page](app/static/images/README-images/wireframes/login.pdf)
+* [Profile page](app/static/images/README-images/wireframes/profile.pdf)
+* [404 page](app/static/images/README-images/wireframes/error.pdf)
+
+The following is part of the future features to implement.
+
 * [Support page](app/static/images/README-images/wireframes/support.pdf)
 * [Useful contacts page](app/static/images/README-images/wireframes/useful-contacts.pdf)
 * [Propose a contact page](app/static/images/README-images/wireframes/propose-contact.pdf)
@@ -213,10 +220,6 @@ No audio or video will be integrated at the moment.
 * [Forum page](app/static/images/README-images/wireframes/forum.pdf)
 * [Ask a question page](app/static/images/README-images/wireframes/ask-question.pdf)
 * [Reply page](app/static/images/README-images/wireframes/reply.pdf)
-* [Sign up page](app/static/images/README-images/wireframes/signup.pdf)
-* [Login page](app/static/images/README-images/wireframes/login.pdf)
-* [Profile page](app/static/images/README-images/wireframes/profile.pdf)
-* [404 page](app/static/images/README-images/wireframes/error.pdf)
 
 For the full version:
 
@@ -226,13 +229,17 @@ For the full version:
 
 ### Different design
 
+Thinking on how usable and intuitive the carousel is to scroll thought Events, considering that it could be a lot of them, I have decided to implement collapsible to display all the events across the website.
+
+After considering deadline and features priority, I decided to leave the support section for future features to implement. I once heard that the project is never finished, we just run out of time!
+
 [**:back:** *Table of Content*](#Table-of-Content)
 
 ## Features
 
 To build this project, I use Flask framework with the Jinja templating language. For consistency across the website some features will be repeated and functionality will be kept as simple and direct as possible.
 
-Features are published in a separate file, please see [FEATURES.md](FEATURES.md) for full details.
+Existing and Future Features are published in a separate file, please see [FEATURES.md](FEATURES.md) for full details.
 
 ## Flowchart
 
@@ -247,7 +254,7 @@ The project uses Flask and I have implemented Application Factory and Blueprint 
 
 The code structure includes ``app.py`` file that initialise the App and a folder called ``app`` that host all the development code as well as the implementation of Blueprint in ``__init__.py`` and the App configuration in ``config.py``.
 
-The use of Flask framework implies the creation of a ``static`` and templates ``folder``. The static folder host the ``*.js``, ``*.css``, ``*.json`` files and all images.
+The use of Flask framework implies the creation of a ``static`` and ``templates`` folder. The static folder host the ``*.js``, ``*.css``, ``*.json`` files and all images.
 
 I have Created:
 
@@ -259,9 +266,15 @@ I have Created:
 
 ### Programming Languages
 
-This project uses HTML, CSS and JavaScript.
+This project uses HTML, CSS, JavaScript and Python and Jinja templating language.
 
 ### Frameworks, Libraries and Programs
+
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)  
+Flask is the micro framework on witch the project is build.
+
+* [MongoDB](https://www.mongodb.com/)  
+For hosting the database.
 
 * [Balsamiq](https://balsamiq.com/wireframes/)  
 For creating wireframes.
@@ -270,10 +283,10 @@ For creating wireframes.
 For producing the flowchart.
 
 * [Google Fonts](https://fonts.google.com/)  
-<!-- For importing fonts (**Fredoka One**, **Handlee** and **Andika New Basic**) into the style.css file. -->
+For importing fonts (**Fredoka One**, **Handlee** and **Andika New Basic**) into the style.css file.
 
-* [Font Awesome](https://fontawesome.com/icons?d=gallery)  
-For using icons throughout the website.
+* [Google Fonts Icons](https://fonts.google.com/icons?selected=Material+Icons)  
+For material icons used throughout the website.
 
 * [favicon.io](https://favicon.io/favicon-converter/)  
 For generating the favicon.
@@ -296,8 +309,8 @@ For Multi Device Website Mockup Generator.
 * [Autoprefixer CSS online](https://autoprefixer.github.io/)  
 For adding prefixer in style.css for cross browser compatibility.
 
-<!-- * [EmailJS](https://www.emailjs.com/)  
-For email service implementation using API and without server. -->
+* [EmailJS](https://www.emailjs.com/)  
+For email service implementation using API without server.
 
 * [Git](https://git-scm.com/)  
 For Version control.
@@ -311,9 +324,6 @@ For hosting the repository.
 * [Heroku](https://www.heroku.com/home)  
 For deploying the website live.
 
-* [MongoDB](https://www.mongodb.com/)  
-For hosting the database.
-
 [**:back:** *Table of Content*](#Table-of-Content)
 
 ## Testing
@@ -325,7 +335,6 @@ Please see [TESTING.md](TESTING.md).
 
 Deployment information are published in a separate file for better readability.
 Please see [DEPLOYMENT.md](DEPLOYMENT.md).
-
 
 ## Bugs
 
@@ -343,7 +352,12 @@ I changed the approach and did not convert the new info into an instance of User
 Issue:  
 When Updating the profile info, the updated profile info don't render on the profile template when updating the username. This must be because I rely on the username when rendering the profile page.
 Solve:  
-Update the session cookie (``session["user"]``) after updating the database and before rendering the profile template with the new ``sesion["user"]``.
+Update the session cookie (``session["user"]``) after updating the database and before rendering the profile template with the new ``sesion["user"]``:
+
+```Python (line 153 in user.py)
+# Update the session['user]
+session["user"] = new_info["username"]
+```
 
 Issue:
 On iPhone when trying to see an event by clicking on the ``SEE`` button, nothing happens.  
@@ -351,15 +365,26 @@ Solve:
 I have added ``touchend`` event with the ``click`` event in events.js.
 
 Issue:
-When signing up from my iPhone, I can create a profile and log in with the credential but the document does not appear in MongoDB. It shows that there are one too many document in the users collection. So the document was accessible from the website, existing in the database but not accessible and visible in the database.
+When signing up from my iPhone, I can create a profile and log in with the credential but the document does not appear in MongoDB. It shows that there are one too many document in the users collection. So the document was accessible from the website, existing in the database but not accessible and visible in the database.  
+Solve:  
+No able to recreate the bug, but I believe it was because the page was kept open while the user was deleted from the database.
 
 ## Credits
 
 ### Code
 
-Credit for the sorting MongoDB query to Neil Lunn from [stackoverflow](https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
+[Neil Lunn from stackoverflow](https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)  
+For sorting MongoDB query
 
-Credit to Fenton from stack overflow on how to trigger click event on smartphone [Fenton enable click](https://stackoverflow.com/questions/11397028/document-click-function-for-touch-device)
+[Fenton enable click](https://stackoverflow.com/questions/11397028/document-click-function-for-touch-device)  
+For how to trigger click event on smartphone.
+
+[GeeksforGeeks file validation](https://www.geeksforgeeks.org/validation-of-file-size-while-uploading-using-javascript-jquery/)  
+For file size validation adapted to website needs.
+
+[Miguel Grinberg](https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask)  
+For file upload explanations.
+
 ### Content
 
 [W3schools](https://www.w3schools.com/)  
@@ -370,27 +395,21 @@ Credit to Fenton from stack overflow on how to trigger click event on smartphone
 
 [GeeksforGeeks](https://www.geeksforgeeks.org/)
 
-[GeeksforGeeks file validation](https://www.geeksforgeeks.org/validation-of-file-size-while-uploading-using-javascript-jquery/)  
-For file size validation adapted to website needs.
-
-[Miguel Grinberg](https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask)
+[Net Lawman](https://www.netlawman.co.uk/d/website-privacy-policy)  
+For privacy policy template.
 
 ### Media
 
 #### External links
- 
+
 [Wikipedia 404 error definition](https://en.wikipedia.org/wiki/HTTP_404)
 
-#### Icons
-
-#### Images
-
-### Aknowledgements :
+### Acknowledgements
 
 Special thanks to all Code Institute's team (“Teacher”, Lecturers and Tutors) that are making me more knowledgeable and are making this happen.
 
 Huge thank you to the [Slack](code-institute-room.slack.com) community, all the members and all the leads and tutors for their help and support.
 
 I am hugely grateful to my mentor Chris Quinn for guiding me through this project.
- -->
+
 [**:back:** *Table of Content*](#Table-of-Content)

@@ -322,6 +322,12 @@ footer {
     font-weight: bold;
 }
 
+/* modify materialize input style */
+.select-wrapper input.select-dropdown {
+    border-bottom: none;
+    margin: 0;
+}
+
 /* helper message for user */
 .helper-text {
     font-size: 0.8rem;
@@ -698,20 +704,6 @@ footer {
     background-size: initial;
 }
 
-/* .select-category {
-    background-color: #FF840180;
-    text-decoration: none;
-    border-radius: 30px;
-} */
-
-/* modify materialize input style */
-.select-wrapper input.select-dropdown {
-    border-bottom: none;
-    margin: 0;
-}
-
-
-
 @media(max-width: 280px) {
     .collapsible-header,
     .collapsible-body {
@@ -877,11 +869,8 @@ footer {
 }
 
 @media(min-width: 425px) {
+
     /* Search events */
-    .search-card .material-icons {
-        /* font-size: 1.3rem; */
-    }
-    
     #query_search_events {
         margin-left: .5rem;
         border-bottom: none;
