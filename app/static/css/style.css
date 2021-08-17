@@ -309,6 +309,19 @@ footer {
 
 /* Forms and buttons */
 
+/* change the caret provided by materialize */
+.select-wrapper span.caret {
+    display: none;
+}
+
+#select-caret {
+    position: absolute;
+    right: -110px;
+    top: 22px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 /* helper message for user */
 .helper-text {
     font-size: 0.8rem;
@@ -863,8 +876,31 @@ footer {
     }
 }
 
+@media(min-width: 425px) {
+    /* Search events */
+    .search-card .material-icons {
+        /* font-size: 1.3rem; */
+    }
+    
+    #query_search_events {
+        margin-left: .5rem;
+        border-bottom: none;
+        height: 1.5rem;
+        transform: translateX(20px);
+    }
+    
+    .input-field label.label-query-search-events {
+        transform: translateX(24px);
+    }
+
+    #select-caret {
+        right: -140px;
+    }
+}
+
 @media(min-width: 450px) {
     .third-div {
         width: 32%;
     }
 }
+
