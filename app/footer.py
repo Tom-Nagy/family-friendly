@@ -14,3 +14,10 @@ footer = Blueprint("footer", __name__)
 def contact(username):
     user = User.get_one_user_coll(username)
     return render_template("contact.html", user=user)
+
+
+@footer.route("/privacy-policy")
+def privacy_policy():
+    if session:
+        user = User.get_one_user_coll(session['user'])
+        return render_template("privacy_policy.html", user=user)
