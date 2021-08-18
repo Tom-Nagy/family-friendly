@@ -17,6 +17,8 @@ The navigation menu is fix and provide different links regarding if the user is 
 The footer offers a link to contact the website owner, privacy policy and copyright.  
 Form where user can change/update information and a cancel button to abort the action undertaken.
 
+![Feature menu](app/static/images/README-images/features/feature-menu.png)
+
 #### Always visible
 
 * Logo linked to the home page on the top left.
@@ -26,20 +28,30 @@ Form where user can change/update information and a cancel button to abort the a
 
 * Sign up and Login option will be provided on the top left of the screen.
 
+![Feature logged out](app/static/images/README-images/features/feature-logged-out.png)
+
 #### If Logged in
 
 * Logout option will replace login/sign up.
 * Create link is provided on the top right of the screen.
 * Profile link is provided on the top right of the screen.
 
+![Feature logged in](app/static/images/README-images/features/feature-logged-in.png)
+
+![Feature log in to access](app/static/images/README-images/features/feature-loggin-to-access.png)
+
 ### Home
 
 The home page presents the Name of the website with and subtitle that explain the main goals of the website.  
 Below, two buttons give the user the choice to navigate to Events and to Create.
 
+![Feature home](app/static/images/README-images/features/feature-home.png)
+
 #### About
 
 The About section of the website is accessible from the home page and is presented as a button. This button will open a modal with the description of the website.
+
+![Feature about us](app/static/images/README-images/features/feature-about-us.png)
 
 ### Events
 
@@ -49,19 +61,29 @@ A sorting option is available for the user to be able to look for specific activ
 Buttons offer the possibility to see an event and then depending on user and event information to join, cancel, edit or leave an event.  
 As well a participant count is shown to provide information about how busy and/or popular the event is.
 
+![Feature events](app/static/images/README-images/features/feature-events.png)
+
+![Feature event clicked](app/static/images/README-images/features/feature-event-clicked.png)
+
 ### Create
 
 This page gives the user the possibility to create an event of his own. To do so the user will have to create a profile by signing up.  
 It provides a simple form to fill up and two buttons for either submitting or canceling the request.
+
+![Feature create](app/static/images/README-images/features/feature-create.png)
 
 ### Sign up
 
 Form to fill up in order to create a profile and be able to use all the website features.  
 There is a link below the form linking to the login page. It is a common practice and provides better UX.
 
+![Feature sign up](app/static/images/README-images/features/feature-sign-up.png)
+
 ### Login
 
 Page where user connect to their account/profile in order to access their profile and all the website features.
+
+![Feature log in](app/static/images/README-images/features/feature-login.png)
 
 ### Profile
 
@@ -77,6 +99,10 @@ A default profile picture is displayed representing the top flower of the websit
 * Profile information
 * Password
 
+![Feature profile](app/static/images/README-images/features/feature-profile.png)
+
+![Feature profile events](app/static/images/README-images/features/feature-profile-events.png)
+
 ### Update Profile
 
 Prepopulated form where user can update their information:
@@ -86,12 +112,32 @@ Prepopulated form where user can update their information:
 * Email
 * Username
 
+![Feature update-profile](app/static/images/README-images/features/feature-update-profile.png)
+
 ### Update Profile Picture
 
 Form where user can upload an image they will use for their profile picture.  
-Only ``.png`` file are accepted for profile picture.
+Only ``.png`` file are accepted for profile picture and with a size between 1 KB and 6 MB.
+
+![Feature change profile picture](app/static/images/README-images/features/feature-change-profile-picture.png)
 
 ### Change Password
+
+Form where user can change their password.
+
+![Feature change password](app/static/images/README-images/features/feature-change-password.png)
+
+### Contact Us
+
+Prepopulated form where user can reach out to website owner.
+
+![Feature contact](app/static/images/README-images/features/feature-contact.png)
+
+### 404
+
+Page that display when user is using a broken link. This provides a good handling of error with a tailored page showing a link to the home page and if user is logged in, a link to their profile page.
+
+![Feature error page](app/static/images/README-images/features/feature-error-page.png)
 
 [**:back:** *Table of Content*](#Table-of-Content)
 
