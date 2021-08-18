@@ -182,7 +182,8 @@ The colours chosen for the website are simple and joyful. They are based on the 
 
 #### Images
 
-The images will be the one uploaded by users for their profile, or images shared on the support channel.
+The images will be the one uploaded by users for their profile.  
+Those images are stored using base64 to encode the image and store it as a string in the user collection.
 
 #### Styling/Feeling
 

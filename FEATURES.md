@@ -89,8 +89,7 @@ Page where user connect to their account/profile in order to access their profil
 
 Page where user can add and edit personal information.  
 It gives the possibility to delete the profile. Upon deleting a message gives the user information about data stored and the steps to follow to retrieve or delete this data.  
-There is a section that displays the event he or she is participating in. It provides option to cancel, edit or leave an event.  
-A sorting button is provided in order to only show the event created by the user.  
+There is a section that displays the event he or she is participating in and has created. It provides option to see those events.  
 A default profile picture is displayed representing the top flower of the website logo.  
 
 3 links provide the user the possibility to update/change:
