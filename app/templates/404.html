@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block heading %}
+    <h2 class="blue-txt">Oops !</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col s10 offset-s1 m6 offset-m3">
+            <div class="row">
+                <!-- 404 message -->
+                <div class="col s12 center-align">
+                    <h3>Sorry, We Can't Play Here ...</h3>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Link to home page -->
+                <div class="col s12 padd-top">
+                    <a href="{{ url_for('index.home') }}" class="link-home" aria-label="Link to home page.">
+                        <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
+                            class="logo-image hoverable" alt="smiling sunflower" title="Link to home page."
+                            width="32" height="32">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <!-- link to profile -->
+                <div class="col s12 padd-top">
+                    {% if session.user %}
+                        <a href="{{ url_for('users.profile', username=session['user']) }}"
+                            aria-label="Link to the Profile page.">
+                            <div class="chip col s3 profile-chip link-profile">
+                                {% if user.profile_picture != None %}
+                                    <!-- user picture -->
+                                    <img class="profile-picture hoverable" 
+                                        src="data:image/png;base64,{{ user.profile_picture }}"
+                                        alt="Profile image of {{ user.username }}"
+                                        title="Link to profile page.">
+                                {% else %}
+                                    <!-- default picture -->
+                                    <img class="profile-picture hoverable"
+                                        src="/static/images/default-profile-picture/default-profile-picture.png"
+                                        alt="Default profile picture representing a smiling sunflower."
+                                        title="Link to profile page.">
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

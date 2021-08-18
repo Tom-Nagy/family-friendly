@@ -17,3 +17,12 @@ def home():
         user = User.get_one_user_coll(session['user'])
         return render_template("home.html", user=user)
     return render_template("home.html")
+
+
+@index.app_errorhandler(404)
+def not_found(e):
+    # Check if the user is logged in.
+    if session:
+        user = User.get_one_user_coll(session['user'])
+        return render_template("404.html", user=user)
+    return render_template("404.html")

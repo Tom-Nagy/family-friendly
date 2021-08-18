@@ -28,6 +28,7 @@
             <nav class="text-shadow">
                 <div class="nav-wrapper">
                     <!-- Always visible nav -->
+                    <!-- Link to home page -->
                     <a href="{{ url_for('index.home') }}" class="logo" aria-label="Link to home page.">
                         <img src="{{ url_for('static', filename='images/logo/logo.png') }}" 
                             class="logo-image hoverable" alt="smiling sunflower" title="Link to home page."
@@ -35,9 +36,12 @@
                     </a>
                     <ul class="left registration">
                         {% if session.user %}
+                            <!-- Logout -->
                             <li><a href="{{ url_for('users.logout') }}" aria-label="Log out.">Log Out</a></li>
                         {% else %}
+                            <!-- Log in -->
                             <li><a href="{{ url_for('users.login') }}" aria-label="Link to the Log In page.">Log In</a></li>
+                            <!-- Sign up -->
                             <li><a href="{{ url_for('users.signup') }}" aria-label="Link to the Sign Up page.">Sign Up</a></li>
                         {% endif %}
                     </ul>

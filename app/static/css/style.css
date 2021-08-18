@@ -704,6 +704,25 @@ footer {
     background-size: initial;
 }
 
+/* 404.html */
+.link-home,
+.link-profile {
+    position: relative;
+}
+
+.link-home::after {
+    content: "Back to home page";
+    position: absolute;
+    white-space: nowrap;
+}
+
+.link-profile::after {
+    content: "Back to profile page";
+    position: absolute;
+    white-space: nowrap;
+}
+
+/* Media query */
 @media(max-width: 280px) {
     .collapsible-header,
     .collapsible-body {

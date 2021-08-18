@@ -382,6 +382,9 @@ For how to trigger click event on smartphone.
 [GeeksforGeeks file validation](https://www.geeksforgeeks.org/validation-of-file-size-while-uploading-using-javascript-jquery/)  
 For file size validation adapted to website needs.
 
+[GeeksforGeeks 404 error with flask](https://www.geeksforgeeks.org/python-404-error-handling-in-flask/)  
+For providing explanation and code on how to render the 404 page in Flask.
+
 [Miguel Grinberg](https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask)  
 For file upload explanations.
 
