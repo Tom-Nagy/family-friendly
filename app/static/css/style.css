@@ -267,11 +267,7 @@ footer {
     margin-top: 64px;
 }
 
-@media(max-width: 583px) {
-    .mobile-dropdown {
-        margin-top: 56px;
-    }
-}
+
 
 /* Footer */
 .footer-wrapper {
@@ -660,6 +656,14 @@ footer {
     font-weight: 600;
 }
 
+.change-mobile-profile-image {
+    font-size: 0.7rem;
+}
+
+.change-profile-image {
+    font-size: 0.8rem;
+}
+
 /* delete_profile.html */
 .warning {
     font-size: 1.5rem;
@@ -884,6 +888,12 @@ footer {
     
     .likes-icon {
         font-size: 1rem;
+    }
+}
+
+@media(max-width: 583px) {
+    .mobile-dropdown {
+        margin-top: 56px;
     }
 }
 
