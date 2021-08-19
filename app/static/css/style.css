@@ -732,10 +732,14 @@ footer {
 }
 
 /* Media query */
-@media(max-width: 280px) {
+@media(max-width: 300px) {
     .collapsible-header,
     .collapsible-body {
         padding: .6rem .2rem;
+    }
+
+    .participant-mobile {
+        transform: translateX(-24px);
     }
 }
 
@@ -785,6 +789,10 @@ footer {
 
     .home-card-txt {
         font-size: 1rem;
+    }
+
+    .collapsible-header {
+        
     }
 
     /* buttons */

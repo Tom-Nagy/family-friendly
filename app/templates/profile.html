@@ -132,7 +132,7 @@
                                             <p class="events-card-descriptions">{{ event.event_date }}</p>
                                         </div>
                                         <!-- Participant -->
-                                        <div class="col s12 participant">
+                                        <div class="col s12 participant participant-mobile">
                                             {% if event.event_joined_by != None %}
                                                 <span>{{ event.event_joined_by|length }} Participant</span>
                                             {% else %}
@@ -245,7 +245,7 @@
                                             <p class="events-card-descriptions">{{ event.event_date }}</p>
                                         </div>
                                         <!-- Participant -->
-                                        <div class="col s12 participant">
+                                        <div class="col s12 participant participant-mobile">
                                             {% if event.event_joined_by != None %}
                                                 <span>{{ event.event_joined_by|length }} Participant</span>
                                             {% else %}

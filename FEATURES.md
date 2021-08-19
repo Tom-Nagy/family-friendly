@@ -59,7 +59,7 @@ This page present the user with all the events available to attend in the future
 It is presented as collapsible that toggle more information when clicked on.  
 A sorting option is available for the user to be able to look for specific activities, ages etc.  
 Buttons offer the possibility to see an event and then depending on user and event information to join, cancel, edit or leave an event.  
-As well a participant count is shown to provide information about how busy and/or popular the event is.
+As well a participant count and likes is shown to provide information about how busy and/or popular the event is.
 
 ![Feature events](app/static/images/README-images/features/feature-events.png)
 
