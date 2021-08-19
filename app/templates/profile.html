@@ -125,9 +125,21 @@
                                 <div class="col s5">
                                     <p class="events-card-titles">{{ event.event_category }}</p>
                                 </div>
-                                <!-- Date -->
                                 <div class="col s7">
-                                    <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                    <div class="row no-margin-bot">
+                                        <!-- Date -->
+                                        <div class="col s12">
+                                            <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                        </div>
+                                        <!-- Participant -->
+                                        <div class="col s12 participant">
+                                            {% if event.event_joined_by != None %}
+                                                <span>{{ event.event_joined_by|length }} Participant</span>
+                                            {% else %}
+                                                <span>0 Participant</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Likes -->
                                 <div class="likes-display z-depth-3">
@@ -226,9 +238,21 @@
                                 <div class="col s5">
                                     <p class="events-card-titles">{{ event.event_category }}</p>
                                 </div>
-                                <!-- Date -->
                                 <div class="col s7">
-                                    <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                    <div class="row no-margin-bot">
+                                        <!-- Date -->
+                                        <div class="col s12">
+                                            <p class="events-card-descriptions">{{ event.event_date }}</p>
+                                        </div>
+                                        <!-- Participant -->
+                                        <div class="col s12 participant">
+                                            {% if event.event_joined_by != None %}
+                                                <span>{{ event.event_joined_by|length }} Participant</span>
+                                            {% else %}
+                                                <span>0 Participant</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Likes -->
                                 <div class="likes-display z-depth-3">

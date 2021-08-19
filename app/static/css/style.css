@@ -530,6 +530,7 @@ footer {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-style: italic;
+    font-size: 1.1rem;
     margin-top: 0;
     margin-bottom: 3px;
 }
@@ -542,6 +543,10 @@ footer {
 
 .age {
     font-size: 0.7rem;
+}
+
+.participant {
+    font-family: 'Pacifico', cursive;
 }
 
 /* Modify materialize collapsible-body style */

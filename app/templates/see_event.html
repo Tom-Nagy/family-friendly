@@ -39,6 +39,14 @@
                         {{ event.event_age_range }} years old
                     </p>
                 </div>
+                <!-- Participant -->
+                <div class="col s12 participant center-align">
+                    {% if event.event_joined_by != None %}
+                        <span>{{ event.event_joined_by|length }} Participant</span>
+                    {% else %}
+                        <span>0 Participant</span>
+                    {% endif %}
+                </div>
                 <!-- Likes -->
                 <div class="likes-display z-depth-3 position-rel">
                     <div class="left-align padd-left">
