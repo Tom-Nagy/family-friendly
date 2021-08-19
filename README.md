@@ -1,10 +1,6 @@
 # **Family Friendly**
 
-![Mockup](assets/images/README-images/mockups/mockup.png)
-
-Check out the other mockup:
-
-* [Home page](assets/images/README-images/mockups/mockup2.png)
+![Mockup](app/static/images/README-images/mockups/mockup.png)
 
 Visit the live Website : **[Family Friendly :arrow_right:](https://family-friendly-app.herokuapp.com/)**.
 
