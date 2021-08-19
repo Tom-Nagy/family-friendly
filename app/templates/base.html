@@ -46,40 +46,42 @@
                         {% endif %}
                     </ul>
                     <!-- Large screen navbar -->
-                    <ul>
-                        <div class="right hide-on-med-and-down">
-                            {% if session.user %}
-                                <!-- link to Events -->
-                                <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
-                                <!-- link to Create -->
-                                <li>
-                                    <a href="{{ url_for('events.create_event', username=session['user']) }}"
-                                        aria-label="Link to the Creates page.">
-                                        Create</a>
-                                </li>
-                                <!-- link to profile -->
-                                <li class="tooltipped" data-tooltip="profile">
-                                    <a href="{{ url_for('users.profile', username=session['user']) }}"
-                                        aria-label="Link to the Profile page." class="center-align">
-                                        <div class="chip col s3 profile-chip">
-                                            {% if user.profile_picture != None %}
-                                            <!-- user picture -->
-                                            <img class="profile-picture"
-                                                src="data:image/png;base64,{{ user.profile_picture }}"
-                                                alt="Profile image of {{ user.username }}">
-                                            {% else %}
-                                            <!-- default picture -->
-                                            <img class="profile-picture"
-                                                src="/static/images/default-profile-picture/default-profile-picture.png"
-                                                alt="Default profile picture representing a smiling sunflower.">
-                                            {% endif %}
-                                        </div>
-                                    </a>
-                                </li>
-                            {% else %}
-                                <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
-                            {% endif %}
-                        </div>
+                    <ul class="right">
+                        <li class="hide-on-med-and-down">
+                            <ul>
+                                {% if session.user %}
+                                    <!-- link to Events -->
+                                    <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
+                                    <!-- link to Create -->
+                                    <li>
+                                        <a href="{{ url_for('events.create_event', username=session['user']) }}"
+                                            aria-label="Link to the Creates page.">
+                                            Create</a>
+                                    </li>
+                                    <!-- link to profile -->
+                                    <li class="tooltipped" data-tooltip="profile">
+                                        <a href="{{ url_for('users.profile', username=session['user']) }}"
+                                            aria-label="Link to the Profile page." class="center-align">
+                                            <div class="chip col s3 profile-chip">
+                                                {% if user.profile_picture != None %}
+                                                <!-- user picture -->
+                                                <img class="profile-picture"
+                                                    src="data:image/png;base64,{{ user.profile_picture }}"
+                                                    alt="Profile image of {{ user.username }}">
+                                                {% else %}
+                                                <!-- default picture -->
+                                                <img class="profile-picture"
+                                                    src="/static/images/default-profile-picture/default-profile-picture.png"
+                                                    alt="Default profile picture representing a smiling sunflower.">
+                                                {% endif %}
+                                            </div>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Events page.">Events</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
                         <li class="right">
                             <a href="#" data-activates="mobile-navbar" class="dropdown-button show-on-medium-and-down hide-on-large-only" 
                                 aria-label="Menu">
@@ -150,6 +152,7 @@
         {% endblock %}
     </main>
 
+    <!-- footer -->
     <footer>
         <div class="footer-copyright">
             <div class="footer-wrapper valign-wrapper">
@@ -193,6 +196,7 @@
             </div>
 
             <div id="footer-overlay" class="overlay"></div>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
