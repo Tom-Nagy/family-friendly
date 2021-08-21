@@ -9,6 +9,7 @@ from app.classes.user_class import User
 
 index = Blueprint("index", __name__)
 
+
 @index.route("/")
 @index.route("/home")
 def home():

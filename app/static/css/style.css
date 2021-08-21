@@ -2,14 +2,22 @@
 
 /* Materialisecss helper for keeping the footer at the bottom of the page */
 /* Credit start */
+
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 main {
     /* allow content to grow but not to shrink */
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
 }
 
@@ -20,6 +28,7 @@ html,
 body {
     position: relative;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     font-size: 1rem;
 }
 
@@ -102,12 +111,16 @@ button {
 :focus {
     outline: none;
     text-decoration: underline;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
     font-weight: bolder;
 }
 
 input:focus,
 textarea:focus {
+    -webkit-transform: none;
+    -ms-transform: none;
     transform: none;
 }
 
@@ -288,6 +301,8 @@ footer {
 }
 
 .contact-us i {
+    -webkit-transform: translate(0, 30%);
+    -ms-transform: translate(0, 30%);
     transform: translate(0, 30%);
     line-height: 1rem;
 }
@@ -416,6 +431,9 @@ footer {
     box-shadow:
         inset 0 0 0 2px #24C212,
         inset 0 0 0 4px #fafafa;
+    -webkit-box-shadow:
+        inset 0 0 0 2px #24C212,
+        inset 0 0 0 4px #fafafa;
 }
 
 .back-to-profile-btn:hover,
@@ -429,6 +447,9 @@ footer {
     background-color: #FF8401;
     color: #fafafa;
     box-shadow:
+        inset 0 0 0 2px #FF8401,
+        inset 0 0 0 4px #fafafa;
+    -webkit-box-shadow:
         inset 0 0 0 2px #FF8401,
         inset 0 0 0 4px #fafafa;
 }
@@ -446,6 +467,9 @@ footer {
     box-shadow:
         inset 0 0 0 2px #E9F900,
         inset 0 0 0 4px #fafafa;
+    -webkit-box-shadow:
+        inset 0 0 0 2px #E9F900,
+        inset 0 0 0 4px #fafafa;
 }
 
 .submit-btn:hover,
@@ -461,6 +485,9 @@ footer {
     box-shadow:
         inset 0 0 0 2px #0845ff,
         inset 0 0 0 4px #fafafa;
+    -webkit-box-shadow:
+        inset 0 0 0 2px #0845ff,
+        inset 0 0 0 4px #fafafa;
 }
 
 .cancel-btn:hover,
@@ -474,6 +501,9 @@ footer {
     background-color: #FF091E;
     color: #fafafa;
     box-shadow:
+        inset 0 0 0 2px #FF091E,
+        inset 0 0 0 4px #fafafa;
+    -webkit-box-shadow:
         inset 0 0 0 2px #FF091E,
         inset 0 0 0 4px #fafafa;
 }
@@ -499,6 +529,8 @@ footer {
 
 .unlike-btn .material-icons,
 .like-btn .material-icons {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
     transform: translateX(10px);
 }
 
@@ -507,6 +539,7 @@ footer {
 .like-btn:active {
     background-color: transparent;
     box-shadow: 0 0 0 2px #0845FF;
+    -webkit-box-shadow: 0 0 0 2px #0845FF;
     text-decoration: none;
 }
 
@@ -515,6 +548,7 @@ footer {
 .unlike-btn:active {
     background-color: transparent;
     box-shadow: 0 0 0 2px #FF091E;
+    -webkit-box-shadow: 0 0 0 2px #FF091E;
     text-decoration: none;
 }
 
@@ -552,6 +586,8 @@ footer {
 /* Modify materialize collapsible-body style */
 .collapsible-header {
     position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     background-color: #FF840180;
 }
@@ -612,9 +648,11 @@ footer {
 
 .about-us {
     padding: 6px;
+    margin: 12px;
     border-radius: 10px;
     border: none;
     background-color: transparent;
+    color: #0c08ff;
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: underline;
@@ -634,6 +672,7 @@ footer {
 
 .mobile-profile .profile-picture {
     margin: 10px auto;
+    -o-object-fit: cover;
     object-fit: cover;
     max-width: 90px;
     max-height: 90px;
@@ -641,6 +680,7 @@ footer {
 
 .large-screen-profile .profile-picture {
     margin: 10px auto;
+    -o-object-fit: cover;
     object-fit: cover;
     max-width: 180px;
     max-height: 180px;
@@ -733,12 +773,15 @@ footer {
 
 /* Media query */
 @media(max-width: 300px) {
+
     .collapsible-header,
     .collapsible-body {
         padding: .6rem .2rem;
     }
 
     .participant-mobile {
+        -webkit-transform: translateX(-24px);
+        -ms-transform: translateX(-24px);
         transform: translateX(-24px);
     }
 }
@@ -791,9 +834,7 @@ footer {
         font-size: 1rem;
     }
 
-    .collapsible-header {
-        
-    }
+    .collapsible-header {}
 
     /* buttons */
     .btn {
@@ -823,33 +864,37 @@ footer {
     .search-card .material-icons {
         font-size: 1.3rem;
     }
-    
+
     #query_search_events {
         margin-left: .5rem;
         border-bottom: none;
         height: 1rem;
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
         transform: translateX(20px);
     }
-    
+
     .input-field label.label-query-search-events {
+        -webkit-transform: translateX(24px);
+        -ms-transform: translateX(24px);
         transform: translateX(24px);
     }
-    
+
     .select-wrapper span.caret {
         right: -20px;
     }
-    
+
     input,
     .input-field,
     .select-wrapper input.select-dropdown {
         font-size: 0.8rem;
     }
-    
+
     .dropdown-content li>a,
     .dropdown-content li>span {
         font-size: 0.8rem;
     }
-    
+
     /* input fields */
     #delete-profile-form .input-field,
     #contact-form .input-field,
@@ -861,7 +906,7 @@ footer {
     #login-form .input-field {
         margin: 40px 0 5px 0;
     }
-    
+
     #delete-profile-form .input-field input,
     #contact-form .input-field input,
     #change-pass-form .input-field input,
@@ -874,31 +919,31 @@ footer {
         width: 90%;
         font-size: 0.8rem;
     }
-    
+
     textarea.materialize-textarea {
         font-size: 0.8rem;
     }
-    
+
     .helper-text {
         padding-right: 12px;
         font-size: 0.7rem;
     }
-    
+
     #login-form .material-icons {
         font-size: 1rem;
     }
-    
+
     .likes-display {
         height: 30px;
         width: 30px;
         line-height: 30px;
     }
-    
+
     .likes-num {
         font-size: 0.8rem;
         margin-left: 1px;
     }
-    
+
     .likes-icon {
         font-size: 1rem;
     }
@@ -917,10 +962,14 @@ footer {
         margin-left: .5rem;
         border-bottom: none;
         height: 1.5rem;
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
         transform: translateX(20px);
     }
-    
+
     .input-field label.label-query-search-events {
+        -webkit-transform: translateX(24px);
+        -ms-transform: translateX(24px);
         transform: translateX(24px);
     }
 
@@ -934,4 +983,3 @@ footer {
         width: 32%;
     }
 }
-

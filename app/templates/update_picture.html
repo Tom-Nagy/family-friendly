@@ -7,7 +7,6 @@
     <div class="row">
         <form action="{{ url_for('users.update_picture', user_id=user._id) }}" method="POST" enctype="multipart/form-data" 
             class="col s10 offset-s1 m8 offset-m2 l6 offset-l3 card-panel">
-            <div class="row">
                 <!-- picture display -->
                 <div class="row padd-top">
                     <div class="col s12 center-align">
@@ -25,7 +24,7 @@
                     <div class="file-field input-field col s12">
                         <div class="row">
                             <div class="col s10 offset-s1 m4 btn select-file">
-                                <label" for="profile_picture">Select a picture</label>
+                                <span>Select a picture</span>
                                 <input id="profile_picture" name="profile_picture" type="file" accept=".png" class="validate">
                             </div>
                             <div class="col s10 offset-s1 m8 file-path-wrapper">

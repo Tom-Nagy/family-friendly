@@ -2,6 +2,7 @@ import os
 if os.path.exists("env.py"):
     import env
 
+
 class Config:
     """
     Cretates the configuration for the app to run.
@@ -9,4 +10,3 @@ class Config:
     MONGO_DBNAME = os.environ.get("MONGO_DBNAME")
     MONGO_URI = os.environ.get("MONGO_URI")
     SECRET_KEY = os.environ.get("SECRET_KEY")
-    

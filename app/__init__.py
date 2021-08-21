@@ -2,8 +2,9 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from app.config import Config
 
-# Set an instance of PyMongo for communicating with the db. 
+# Set an instance of PyMongo for communicating with the db.
 mongo = PyMongo()
+
 
 def create_app(default_config=Config):
     """

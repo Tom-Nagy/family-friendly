@@ -24,8 +24,8 @@ class Event:
                  event_created_by=None, event_likes=None,
                  event_joined_by=None):
         """
-        Initialisation of Event, setting attributes value to None 
-        as placeholder for future input. 
+        Initialisation of Event, setting attributes value to None
+        as placeholder for future input.
         """
         self._id = _id
         self.event_category = event_category
@@ -151,7 +151,9 @@ class Event:
         """
         try:
             # Credit for the sorting part of the code to Neil Lunn
-            # from stackoverflow (https://stackoverflow.com/questions/49871030/how-fetch-latest-records-using-find-one-in-pymongo)
+            # from stackoverflow (
+            # https://stackoverflow.com/questions/49871030/
+            # how-fetch-latest-records-using-find-one-in-pymongo)
             event = events_coll.find_one(
                 {"event_created_by": ObjectId(user_id)}, sort=[('_id', -1)])
             return cls(**event)
@@ -215,13 +217,13 @@ class Event:
     @staticmethod
     def update_event(new_info, event_id):
         """
-        Takes a dictionary with the new value(s) to update 
+        Takes a dictionary with the new value(s) to update
         and the event _id as parameters.
         Update db
         """
         try:
             events_coll.update_one({'_id': ObjectId(event_id)},
-                                  {'$set': new_info})
+                                   {'$set': new_info})
         except Exception as e:
             print(e)
 
@@ -229,7 +231,7 @@ class Event:
     def delete_event(event_id):
         """
         Delete an event from the db,
-        Takes an event _id as parameter. 
+        Takes an event _id as parameter.
         """
         try:
             events_coll.delete_one({"_id": ObjectId(event_id)})

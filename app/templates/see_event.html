@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s10 offset-s1 m4 offset-m4 card-panel position-rel">
+        <div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4 card-panel position-rel">
             <div class="row no-margin-bot padd-top">
                 <!-- Category -->
                 <div class="col s7">
@@ -176,7 +176,7 @@
         <form action="{{ url_for('events.leave_event', username=session['user']) }}" method="POST">
             <!-- Hidden input to get the event id -->
             <div class="hide">
-                <input id="cancel_event" name="leave_event" value="{{ event._id }}" type="text">
+                <input id="leave_event" name="leave_event" value="{{ event._id }}" type="text">
             </div>
             <!-- Confirm leave event -->
             <div class="center-align">

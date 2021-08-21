@@ -11,7 +11,7 @@ $(document).ready(function () {
         if (size > 6 || size < 0.002) {
             alert("File size must be between 1 KB and 6 MB ");
             // empty the input field if the size is not correct
-            $('#profile_picture').val("")
+            $('#profile_picture').val("");
         }
     });
 

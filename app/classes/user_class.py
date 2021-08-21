@@ -30,7 +30,7 @@ class User:
                  answers_created=None, contacts_created=None,
                  tips_created=None):
         """
-        Initialisation of User, setting attributes value to None 
+        Initialisation of User, setting attributes value to None
         as placeholder for future input.
         """
         self.first_name = first_name
@@ -107,7 +107,7 @@ class User:
     @staticmethod
     def update_user(new_info, user_id):
         """
-        Takes a dictionary with the new value(s) to update 
+        Takes a dictionary with the new value(s) to update
         and the user _id as parameters.
         Update db
         """
@@ -208,7 +208,7 @@ class User:
     @staticmethod
     def convert_img_to_base64(profile_image):
         """
-        Take an image path, read the image content and 
+        Take an image path, read the image content and
         convert it to Base64 in order to store it in the db.
         Remove the newly created file by the save() method of FileStorage.
         Return a new b64 srting.

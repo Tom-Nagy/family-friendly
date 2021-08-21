@@ -76,7 +76,8 @@ def login():
                 # Put user into session cookie
                 session["user"] = existing_user["username"]
                 flash(ProfileMsg.logged_in)
-                return redirect(url_for('users.profile', username=session["user"]))
+                return redirect(
+                    url_for('users.profile', username=session["user"]))
 
             else:
                 flash(ProfileMsg.incorrect_details)
@@ -110,10 +111,10 @@ def profile(username):
         events_list = Event.get_all_events()
 
         return render_template("profile.html",
-                                user=user,
-                                events_list_created=events_list_created,
-                                events_list_joined=events_list_joined,
-                                events_list=events_list)
+                               user=user,
+                               events_list_created=events_list_created,
+                               events_list_joined=events_list_joined,
+                               events_list=events_list)
 
     return redirect(url_for("users.login"))
 
@@ -132,11 +133,13 @@ def update_profile(user_id):
 
         if existing_email and email != user["email"]:
             flash(ProfileMsg.email_exists)
-            return redirect(url_for('users.update_profile', user_id=user["_id"]))
+            return redirect(
+                url_for('users.update_profile', user_id=user["_id"]))
 
         if existing_username and username != user["username"]:
             flash(ProfileMsg.username_exists)
-            return redirect(url_for('users.update_profile', user_id=user["_id"]))
+            return redirect(
+                url_for('users.update_profile', user_id=user["_id"]))
 
         # Check if the password is correct
         if check_password_hash(user["password"], password):
@@ -172,7 +175,7 @@ def update_profile(user_id):
 @users.route("/update_picture/<user_id>", methods=["GET", "POST"])
 def update_picture(user_id):
     if request.method == "POST":
-        user = User.get_one_user_coll(session["user"]) # Maybe not needed !!
+        user = User.get_one_user_coll(session["user"])  # Maybe not needed !!
         password = request.form.get("password")
 
         # Check if the password is correct
@@ -188,13 +191,14 @@ def update_picture(user_id):
                 # Covert image url to base64
                 img_url_encoded = User.convert_img_to_base64(
                     profile_image_filename)
-                
+
                 # Create a dic with new value and Add new_info to db
                 new_info = {"profile_picture": img_url_encoded}
                 User.update_user(new_info, user_id)
 
                 flash(ProfileMsg.picture_updated)
-                return redirect(url_for('users.profile', username=session['user']))
+                return redirect(
+                    url_for('users.profile', username=session['user']))
 
     # Check if user is logged in
     if session["user"]:
@@ -213,7 +217,7 @@ def change_password(user_id):
 
         # Check if current password match input
         if check_password_hash(user["password"], password):
-    
+
             # Check if the new passwords are valid and match
             new_pass1 = request.form.get("new_password")
             new_pass2 = request.form.get("new_conf_password")
@@ -225,22 +229,25 @@ def change_password(user_id):
                 User.update_user(new_info, user_id)
 
                 flash(ProfileMsg.password_changed)
-                return redirect(url_for('users.profile', username=session["user"]))
+                return redirect(
+                    url_for('users.profile', username=session["user"]))
 
             else:
                 flash(ProfileMsg.incorrect_details)
-                return redirect(url_for("users.change_password", user_id=user["_id"]))
+                return redirect(
+                    url_for("users.change_password", user_id=user["_id"]))
 
         else:
             flash(ProfileMsg.invalid_passwords)
-            return redirect(url_for("users.change_password", user_id=user["_id"]))
+            return redirect(
+                url_for("users.change_password", user_id=user["_id"]))
 
     # Check if user is logged in
     if session["user"]:
         user = User.get_one_user_coll(session["user"])
         return render_template("change_password.html", user=user)
 
-    return redirect(url_for("users.login"))    
+    return redirect(url_for("users.login"))
 
 
 @users.route("/logout")
@@ -249,6 +256,7 @@ def logout():
     session.pop("user")
     flash(ProfileMsg.logged_out)
     return redirect(url_for('users.login'))
+
 
 @users.route("/delete_profile", methods=["GET", "POST"])
 def delete_profile():
@@ -260,7 +268,7 @@ def delete_profile():
 
         # Check credentials
         if user["email"] == email:
-            
+
             # Check if hashed password matches input password
             if check_password_hash(user["password"], password):
                 User.delete_user(user["_id"])

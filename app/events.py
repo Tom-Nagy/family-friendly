@@ -26,7 +26,8 @@ def browse_events():
         user = User.get_one_user_coll(session['user'])
         # Get all the events to display
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     # Get all the events to display
     events_list = Event.get_all_events()
@@ -42,7 +43,8 @@ def search_events():
         query = request.form.get("query_search_events")
         # Get some events to display
         events_list = list(events_coll.find({"$text": {"$search": query}}))
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     # Get the search from the form
     query = request.form.get("query_search_events")
@@ -62,7 +64,8 @@ def select_events():
         field = "event_category"
         # Get some events to display
         events_list = Event.get_some_events(field, category)
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     # Get the category selected
     category = request.form.get("event_category")
@@ -144,7 +147,8 @@ def updated_event(event_id):
 
         # Get all the events to display
         events_list = Event.get_all_events()
-        return redirect(url_for('events.browse_events', events_list=events_list))
+        return redirect(url_for(
+            'events.browse_events', events_list=events_list))
 
 
 @events.route("/cancel_event/<username>", methods=["GET", "POST"])
@@ -182,7 +186,8 @@ def cancel_event(username):
 
         user = User.get_one_user_coll(session['user'])
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)
@@ -212,7 +217,8 @@ def join_event(username):
         flash(EventsMsg.event_joined)
 
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)
@@ -242,7 +248,8 @@ def leave_event(username):
         flash(EventsMsg.event_left)
 
         events_list = Event.get_all_events()
-        return render_template("events.html", events_list=events_list, user=user)
+        return render_template(
+            "events.html", events_list=events_list, user=user)
 
     else:
         flash(EventsMsg.didnt_work)
@@ -281,9 +288,11 @@ def unlike_event(username):
         if str(event_id) in user["events_liked"]:
 
             # Remove the like to event_likes field in db
-            Event.remove_info_from_event_list(("event_likes", user_id), event_id)
+            Event.remove_info_from_event_list(
+                ("event_likes", user_id), event_id)
             # Remove the event to events_liked field in db
-            User.remove_info_from_user_list(("events_liked", event_id), user_id)
+            User.remove_info_from_user_list(
+                ("events_liked", event_id), user_id)
 
             # Refresh see_event.html
             event = Event.get_one_event(event_id)
