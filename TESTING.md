@@ -30,6 +30,8 @@ All code validation has been done using text input. This allows to check HTML wi
 W3C Markup Validation Service and W3C CSS Validation Service have been used to check all the pages of the website for semantic and syntax errors.
 The results are positive, and the code is valid.
 
+On some pages errors come up as ``id`` duplication. This is due to Jenja templating language and does not affect the website's features functionality or accessibility.
+
 * [W3C Markup Validation Service](https://validator.w3.org/)
   * home.html
     * ![W3C HTML Validation Result home.html](app/static/images/README-images/TESTING-images/code-validation/html-validator-home.png)
