@@ -320,6 +320,12 @@ footer {
 
 /* Forms and buttons */
 
+
+/* Modify materialze label color */
+.input-field label {
+    color: #000;
+}
+
 /* change the caret provided by materialize */
 .select-wrapper span.caret {
     display: none;
@@ -353,6 +359,10 @@ footer {
 
 .form-message {
     margin: 3px auto;
+}
+
+.form-message a {
+    color: #0c08ff;
 }
 
 /* close buttons */
@@ -553,6 +563,11 @@ footer {
 }
 
 /* cards */
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #0c08ff;
+}
+
 .card-headings {
     margin-top: 0;
     font-size: 2rem;
@@ -878,6 +893,7 @@ footer {
         -webkit-transform: translateX(24px);
         -ms-transform: translateX(24px);
         transform: translateX(24px);
+        color: #000;
     }
 
     .select-wrapper span.caret {

@@ -36,13 +36,13 @@
             <!-- Delete Profile -->
             <div class="row">
                 <div class="col12 center-align">
-                    <button class="btn waves-effect waves-light red-bg white-txt cancel-btn delete-profile-btn" type="submit">
+                    <button class="btn waves-effect waves-light red-bg black-txt cancel-btn delete-profile-btn" type="submit">
                         <span class="valign-wrapper">
-                            Delete Profile <span class="material-icons delete-icon">delete_forever</span>
+                            Delete Profile <span class="material-icons delete-icon" aria-hidden="true">delete_forever</span>
                         </span>
                     </button>
                     <a href="{{ url_for('users.profile', username=session['user']) }}" 
-                        class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">
+                        class="btn waves-effect waves-light green-bg black-txt cancel-delete-btn">
                         Cancel (back to profile)
                     </a>
                 </div>

@@ -65,7 +65,7 @@
                                 <!-- Remove a like -->
                                 <button class="transp-bg unlike-btn position-abs" type="submit"
                                     aria-label="Remove a like to the event.">
-                                    <span class="material-icons likes-icon red-txt">thumb_down_alt</span>
+                                    <span class="material-icons likes-icon red-txt" aria-hidden="true">thumb_down_alt</span>
                                 </button>
                             </form>
                         {% else %}
@@ -77,7 +77,7 @@
                                 </div>
                                 <!-- Add a like -->
                                 <button class="transp-bg like-btn position-abs" type="submit" aria-label="Add a like to the event.">
-                                    <span class="material-icons likes-icon blue-txt">thumb_up_alt</span>
+                                    <span class="material-icons likes-icon blue-txt" aria-hidden="true">thumb_up_alt</span>
                                 </button>
                             </form>
                         {% endif %}
@@ -90,7 +90,7 @@
                 <div class="row padd-bot">
                     <!-- Cancel event -->
                     <div class="col s12 center-align">
-                        <button type="button" aria-label="Cancel Event" id="try-cancel-event" class="btn cancel-btn red-bg white-txt">
+                        <button type="button" aria-label="Cancel Event" id="try-cancel-event" class="btn cancel-btn red-bg black-txt">
                             Cancel Event
                         </button>
                     </div>
@@ -112,7 +112,7 @@
                 <div class="row padd-bot">
                     <div class="col s12 center-align padd-bot">
                         <button type="button" aria-label="Leave Event" id="try-leave-event"
-                            class="btn cancel-btn red-bg white-txt">
+                            class="btn cancel-btn red-bg black-txt">
                             Leave Event
                         </button>
                     </div>
@@ -144,7 +144,7 @@
     <div class="card-panel modals" id="cancel-event-modal">
         <h3 class="warning text-shadow yellow-bg">
             <span class="valign-wrapper red-bg yellow-txt">
-                <span class="material-icons">warning</span>
+                <span class="material-icons" aria-hidden="true">warning</span>
                 This action is irreversible, if you continue the event will be deleted.
             </span>
         </h3>
@@ -155,7 +155,7 @@
             </div>
             <!-- Confirm cancel event -->
             <div class="center-align">
-                <button class="btn cancel-btn red-bg white-txt" type="submit">
+                <button class="btn cancel-btn red-bg black-txt" type="submit">
                     Cancel Event
                 </button>
                 <!-- Back to Events -->
@@ -169,7 +169,7 @@
     <div class="card-panel modals" id="leave-event-modal">
         <h3 class="warning text-shadow">
             <span class="valign-wrapper red-txt">
-                <span class="material-icons">warning</span>
+                <span class="material-icons" aria-hidden="true">warning</span>
                 You are about to leave this Event? Confirm to proceed.
             </span>
         </h3>
@@ -180,12 +180,12 @@
             </div>
             <!-- Confirm leave event -->
             <div class="center-align">
-                <button class="btn cancel-btn red-bg white-txt" type="submit">
+                <button class="btn cancel-btn red-bg black-txt" type="submit">
                     Leave Event
                 </button>
                 <!-- Back to Events -->
                 <a href="{{ url_for('events.browse_events') }}" aria-label="Link to the Home page." 
-                    class="btn waves-effect waves-light green-bg white-txt cancel-delete-btn">Back to all Events</a>
+                    class="btn waves-effect waves-light green-bg black-txt cancel-delete-btn">Back to all Events</a>
             </div>
         </form>
     </div>

@@ -12,10 +12,10 @@
                     <div class="col s12 center-align">
                         {% if user.profile_picture != None %}
                             <img class="profile-picture" src="data:image/png;base64,{{ user.profile_picture }}" 
-                                alt="Profile image of {{ user.username }}">
+                                alt="Profile image of {{ user.username }}" height="90" width="90">
                         {% else %}
                             <img class="profile-picture" src="/static/images/default-profile-picture/default-profile-picture.png" 
-                                alt="Default profile picture representing a smiling sunflower.">
+                                alt="Default profile picture representing a smiling sunflower." height="90" width="90">
                         {% endif %}
                     </div>
                 </div>
@@ -24,14 +24,14 @@
                     <div class="file-field input-field col s12">
                         <div class="row">
                             <div class="col s10 offset-s1 m4 btn select-file">
-                                <span>Select a picture</span>
+                                <span class="black-txt">Select a picture</span>
                                 <input id="profile_picture" name="profile_picture" type="file" accept=".png" class="validate">
                             </div>
                             <div class="col s10 offset-s1 m8 file-path-wrapper">
                                 <label for="my_picture"></label>
                                 <input id="my_picture" name="my_picture" class="file-path validate" type="text" placeholder="Upload a file">
                                 <span class="helper-text valign-wrapper">
-                                    <span class="material-icons">error_outline</span>
+                                    <span class="material-icons" aria-hidden="true">error_outline</span>
                                     Only .png files are accepted<br>
                                     File size must be between 2 KB and 6 MB
                                 </span>
@@ -51,7 +51,7 @@
                 <div class="col12 center-align">
                     <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Update</button>
                     <a href="{{ url_for('users.profile', username=session['user']) }}" 
-                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+                        class="btn waves-effect waves-light red-bg black-txt cancel-btn">Cancel</a>
                 </div>
             </div>
         </form>

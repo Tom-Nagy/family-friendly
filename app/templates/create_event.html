@@ -34,7 +34,7 @@
                 <div class="input-field col s12">
                     <input id="event_location" name="event_location" type="text" class="validate" required>
                     <label for="event_location">Location</label>
-                    <span class="helper-text valign-wrapper">
+                    <span class="helper-text valign-wrapper" aria-hidden="true">
                         <span class="material-icons">travel_explore</span>Be specific so it's easy to find
                     </span>
                 </div>
@@ -60,7 +60,7 @@
                         pattern="^\b([0-9]|1[0-8])\b(-)\b([0-9]|1[0-8])\b$" required>
                     <label for="event_age_range">Age Range</label>
                     <span class="helper-text valign-wrapper">
-                        <span class="material-icons">error_outline</span>
+                        <span class="material-icons" aria-hidden="true">error_outline</span>
                         Please enter two number separated by an hyphen.<br>
                         example: 0-1 for 0 to one year old.<br>
                         The range goes from 0 to 18.
@@ -79,7 +79,7 @@
                 <div class="col s12 center-align">
                     <button class="btn waves-effect waves-light blue-bg white-txt submit-btn" type="submit">Create</button>
                     <a href="{{ url_for('index.home') }}" 
-                        class="btn waves-effect waves-light red-bg white-txt cancel-btn">Cancel</a>
+                        class="btn waves-effect waves-light red-bg black-txt cancel-btn">Cancel</a>
                 </div>
             </div>
         </form>
