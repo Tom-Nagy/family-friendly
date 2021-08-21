@@ -218,7 +218,7 @@ As a first time user:
     4. The **date and time**. :thumbsup:
     * Events are presented in collapsible that show The activity, date, number of participant and like as first information. When clicking on the event, it shows the location, the time, the description and the age range.
 
-    * ![event](app/images/README-images/TESTING-images/manual-testing/event-info.png)
+    * ![Event](app/static/images/README-images/TESTING-images/manual-testing/event-info.png)
 
 4. I want to **sign up** and create a profile. :thumbsup:
     * A sign up link is always presented in the navigation bar if the user is not logged in.
@@ -226,23 +226,23 @@ As a first time user:
 
 5. I want to **log in**.
     * A log in link is always presented in the navigation bar if the user is not logged in.
-    * ![Login/Signup](app/images/README-images/TESTING-images/manual-testing/login-signup.png)
+    * ![Login/Signup](app/static/images/README-images/TESTING-images/manual-testing/login-signup.png)
 
 6. I want to **log out**.
     * A log out link is always presented in the navigation bar if the user is logged in.
-    * ![Logout](app/images/README-images/TESTING-images/manual-testing/logout.png)
+    * ![Logout](app/static/images/README-images/TESTING-images/manual-testing/logout.png)
 
 7. I want to be able to **join** an event.
     * When browsing events, the user has the possibility to click on ``see`` in order to see the event. This offer then the possibility to join an event.
-    * ![Join Event](app/images/README-images/TESTING-images/manual-testing/join-event.png)
+    * ![Join Event](app/static/images/README-images/TESTING-images/manual-testing/join-event.png)
 
 8. I want to be provided with **easy instructions** on how to create an event.
     * The forms are very easy to fill up and straight forward with helper text when needed.
-    * ![Create Event](app/images/README-images/TESTING-images/manual-testing/create-event.png)
+    * ![Create Event](app/static/images/README-images/TESTING-images/manual-testing/create-event.png)
 
 9. I want to be able to **create** an event.
     * The User once logged in or sign up has the option of creating an event.
-    * ![Create Event link](app/images/README-images/TESTING-images/manual-testing/create-event-link.png)
+    * ![Create Event link](app/static/images/README-images/TESTING-images/manual-testing/create-event-link.png)
 
 10. I want to have access to the **support** page where I can find:
     1. Useful **contacts**.
@@ -257,11 +257,11 @@ As a returning user:
 
 1. I want to be able to **cancel** my participation in an event.
     * When joined, and event can be left with the ``leave`` button.
-    * ![Leave Event](app/images/README-images/TESTING-images/manual-testing/leave-event.png)
+    * ![Leave Event](app/static/images/README-images/TESTING-images/manual-testing/leave-event.png)
 
 2. I want to be able to **cancel** an event I created.
     * When created, An event can be canceled.
-    * ![Cancel Event](app/images/README-images/TESTING-images/manual-testing/cancel-event.png)
+    * ![Cancel Event](app/static/images/README-images/TESTING-images/manual-testing/cancel-event.png)
 
 3. I want to be able to **modify** an event I created.
     * As well as leaving and event, the option of updating the event is given via the ``Update`` button.
@@ -287,6 +287,6 @@ All the following user story will be answered in the next release of the website
 
 * An issue has appeared on the console when loading the page:
 
-![Warning](app/images/README-images/TESTING-images/manual-testing/dev-tool-error.png)
+![Warning](app/static/images/README-images/TESTING-images/manual-testing/dev-tool-error.png)
 
 [**:back:** *Table of Content* ](#Table-of-Content)

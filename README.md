@@ -34,7 +34,6 @@ This platform will propose features including a list of **events** coming up, th
   * [Unsolved](#Unsolved)
 * [Credits](#Credits)
   * [Content](#Content)
-  * [Media](#Media)
   * [Acknowledgements](#Aknowledgements)
 
 ## Project
@@ -397,12 +396,6 @@ For file upload explanations.
 
 [Net Lawman](https://www.netlawman.co.uk/d/website-privacy-policy)  
 For privacy policy template.
-
-### Media
-
-#### External links
-
-[Wikipedia 404 error definition](https://en.wikipedia.org/wiki/HTTP_404)
 
 ### Acknowledgements
 
