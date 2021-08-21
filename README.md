@@ -256,7 +256,7 @@ Most of the data is saved as a string and the format of the string is validated 
   * **events**
 
 * The **users** collection is organised following the user data-schema as shown below:
-  * ![user data schema sample](app/static/images/README-images/design/user-data.jpg)
+  * ![user data schema sample](app/static/images/README-images/design/user-data.png)
   * _id
     * Default field given automatically when creating a document in MongoDB. It is unique and allows to identify each document.
   * username
@@ -286,7 +286,7 @@ Most of the data is saved as a string and the format of the string is validated 
     * Field of array data-type that is used in order to know which events have been liked by the user in order to tailor action available on this event. This can be used in a later version of the website to send specific notifications and have information on how active is the user on the website. As well it could give information on the preferences off the user.
 
 * The **events** collection is organised following the user data-schema as shown below:
-  * ![user data schema sample](app/static/images/README-images/design/event-data.jpg)
+  * ![user data schema sample](app/static/images/README-images/design/event-data.png)
   * _id
     * Default field given automatically when creating a document in MongoDB. It is unique and allows to identify each document.
   * event_category
